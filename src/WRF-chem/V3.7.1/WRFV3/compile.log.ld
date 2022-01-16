@@ -1,0 +1,5577 @@
+None of WRF_EM_CORE, WRF_NMM_CORE, 
+        specified in shell environment.... 
+copying Registry/Registry.EM_CHEM to Registry/Registry
+ 
+============================================================================================== 
+ 
+V3.7.1    
+ 
+Compiling: WRF_EM_CORE  
+WRFIO_NCD_LARGE_FILE_SUPPORT=1
+ 
+Linux zenglab 2.6.32-573.el6.x86_64 #1 SMP Thu Jul 23 15:44:03 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
+ 
+Intel(R) Fortran Intel(R) 64 Compiler XE for applications running on Intel(R) 64, Version 13.0.1.117 Build 20121010
+Copyright (C) 1985-2012 Intel Corporation.  All rights reserved.
+
+ 
+============================================================================================== 
+ 
+setting parallel make -j 2
+ 
+============================================================================================== 
+ 
+The following indicate the compilers selected to build the WRF system
+ 
+Serial Fortran compiler (mostly for tool generation):
+which SFC
+/home/opt/intel/bin/ifort
+ 
+Serial C compiler (mostly for tool generation):
+which SCC
+/home/opt/intel/bin/icc
+ 
+Fortran compiler for the model source code:
+which FC
+/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/mpich/bin/mpif90
+Will use 'time' to report timing information
+ 
+C compiler for the model source code:
+which CC
+/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/mpich/bin/mpicc
+ 
+============================================================================================== 
+ 
+make -i -r MODULE_DIRS="-I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include " ext
+make[1]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3'
+--------------------------------------
+( cd frame ; make -i -r externals )
+make[2]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame'
+( cd /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90 ; \
+          make -j 2 FC="ifort -real-size `expr 8 \* 4` -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  " RANLIB="ranlib" \
+          CPP="/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I. -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -traditional" AR="ar" ARFLAGS="ru" )
+make[3]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90'
+/bin/rm -f ESMF_Base.o
+/bin/rm -f ESMF_Fraction.o
+sed -e "/\!.*'/s/'//g" ESMF_Base.F90 > ESMF_Base.b
+sed -e "/\!.*'/s/'//g" ESMF_Fraction.F90 > ESMF_Fraction.b
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I. -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -traditional -I. ESMF_Base.b > ESMF_Base.f
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I. -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -traditional -I. ESMF_Fraction.b > ESMF_Fraction.f
+/bin/rm -f ESMF_Fraction.b
+/bin/rm -f ESMF_Base.b
+ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o ESMF_Fraction.o -c ESMF_Fraction.f
+ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o ESMF_Base.o -c ESMF_Base.f
+/bin/rm -f ESMF_BaseTime.o
+sed -e "/\!.*'/s/'//g" ESMF_BaseTime.F90 > ESMF_BaseTime.b
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I. -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -traditional -I. ESMF_BaseTime.b > ESMF_BaseTime.f
+/bin/rm -f ESMF_BaseTime.b
+ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o ESMF_BaseTime.o -c ESMF_BaseTime.f
+/bin/rm -f ESMF_Calendar.o
+sed -e "/\!.*'/s/'//g" ESMF_Calendar.F90 > ESMF_Calendar.b
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I. -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -traditional -I. ESMF_Calendar.b > ESMF_Calendar.f
+/bin/rm -f ESMF_Calendar.b
+ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o ESMF_Calendar.o -c ESMF_Calendar.f
+/bin/rm -f ESMF_TimeInterval.o
+/bin/rm -f ESMF_Stubs.o
+sed -e "/\!.*'/s/'//g" ESMF_TimeInterval.F90 > ESMF_TimeInterval.b
+sed -e "/\!.*'/s/'//g" ESMF_Stubs.F90 > ESMF_Stubs.b
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I. -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -traditional -I. ESMF_Stubs.b > ESMF_Stubs.f
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I. -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -traditional -I. ESMF_TimeInterval.b > ESMF_TimeInterval.f
+/bin/rm -f ESMF_Stubs.b
+ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o ESMF_Stubs.o -c ESMF_Stubs.f
+/bin/rm -f ESMF_TimeInterval.b
+ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o ESMF_TimeInterval.o -c ESMF_TimeInterval.f
+/bin/rm -f ESMF_Time.o
+sed -e "/\!.*'/s/'//g" ESMF_Time.F90 > ESMF_Time.b
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I. -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -traditional -I. ESMF_Time.b > ESMF_Time.f
+/bin/rm -f ESMF_Time.b
+ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o ESMF_Time.o -c ESMF_Time.f
+/bin/rm -f ESMF_Alarm.o
+sed -e "/\!.*'/s/'//g" ESMF_Alarm.F90 > ESMF_Alarm.b
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I. -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -traditional -I. ESMF_Alarm.b > ESMF_Alarm.f
+/bin/rm -f ESMF_Alarm.b
+ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o ESMF_Alarm.o -c ESMF_Alarm.f
+/bin/rm -f ESMF_Clock.o
+sed -e "/\!.*'/s/'//g" ESMF_Clock.F90 > ESMF_Clock.b
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I. -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -traditional -I. ESMF_Clock.b > ESMF_Clock.f
+/bin/rm -f ESMF_Clock.b
+ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o ESMF_Clock.o -c ESMF_Clock.f
+/bin/rm -f Meat.o
+/bin/rm -f ESMF_AlarmClock.o
+sed -e "/\!.*'/s/'//g" Meat.F90 > Meat.b
+sed -e "/\!.*'/s/'//g" ESMF_AlarmClock.F90 > ESMF_AlarmClock.b
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I. -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -traditional -I. ESMF_AlarmClock.b > ESMF_AlarmClock.f
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I. -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -traditional -I. Meat.b > Meat.f
+/bin/rm -f ESMF_AlarmClock.b
+/bin/rm -f Meat.b
+ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o ESMF_AlarmClock.o -c ESMF_AlarmClock.f
+ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o Meat.o -c Meat.f
+/bin/rm -f ESMF_Mod.o
+sed -e "/\!.*'/s/'//g" ESMF_Mod.F90 > ESMF_Mod.b
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I. -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -traditional -I. ESMF_Mod.b > ESMF_Mod.f
+/bin/rm -f ESMF_Mod.b
+ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o ESMF_Mod.o -c ESMF_Mod.f
+/bin/rm -f module_symbols_util.o
+sed -e "/\!.*'/s/'//g" module_symbols_util.F90 > module_symbols_util.b
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I. -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -traditional -I. module_symbols_util.b > module_symbols_util.f
+/bin/rm -f module_symbols_util.b
+ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o module_symbols_util.o -c module_symbols_util.f
+/bin/rm -f module_utility.o
+sed -e "/\!.*'/s/'//g" module_utility.F90 > module_utility.b
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I. -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -traditional -I. module_utility.b > module_utility.f
+/bin/rm -f module_utility.b
+ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o module_utility.o -c module_utility.f
+/bin/rm -f libesmf_time.a
+if [ "ar" != "lib.exe" ] ; then \
+          ar ru libesmf_time.a ESMF_Alarm.o ESMF_BaseTime.o ESMF_Clock.o ESMF_Time.o Meat.o ESMF_Base.o ESMF_Calendar.o ESMF_Fraction.o ESMF_TimeInterval.o ESMF_Stubs.o ESMF_Mod.o module_symbols_util.o module_utility.o ESMF_AlarmClock.o ; \
+        else \
+          ar /out:libesmf_time.a ESMF_Alarm.o ESMF_BaseTime.o ESMF_Clock.o ESMF_Time.o Meat.o ESMF_Base.o ESMF_Calendar.o ESMF_Fraction.o ESMF_TimeInterval.o ESMF_Stubs.o ESMF_Mod.o module_symbols_util.o module_utility.o ESMF_AlarmClock.o ; \
+        fi
+ar: creating libesmf_time.a
+ranlib libesmf_time.a
+make[3]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90'
+( cd /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf ; \
+          make -j 2 NETCDFPATH="/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran" RANLIB="ranlib" CPP="/lib/cpp -P" \
+          CC="icc" CFLAGS="-w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0" \
+          FC="ifort -real-size `expr 8 \* 4` -i4  -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  " TRADFLAG="-traditional" AR="ar" ARFLAGS="ru" )
+make[3]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf'
+grep nf_format_64bit /home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include/netcdf.inc ;\
+                        a=$? ; export a ; \
+			if [ $a -a "$WRFIO_NCD_LARGE_FILE_SUPPORT" = "1" ] ; then \
+                          /lib/cpp -P -P -traditional -DWRFIO_NCD_LARGE_FILE_SUPPORT -I../ioapi_share wrf_io.F90 | m4 -Uinclude -Uindex -Ulen - > wrf_io.f ; \
+                        else \
+                          /lib/cpp -P -P -traditional -I../ioapi_share wrf_io.F90 | m4 -Uinclude -Uindex -Ulen - > wrf_io.f ; \
+                        fi
+/lib/cpp -P -P -traditional -I../ioapi_share module_wrfsi_static.F90 > module_wrfsi_static.f
+      integer nf_format_64bit
+      parameter (nf_format_64bit = 2)
+ifort -real-size 32 -i4  -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o module_wrfsi_static.o -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include -I../ioapi_share -c module_wrfsi_static.f
+ifort -real-size 32 -i4  -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o wrf_io.o -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include -I../ioapi_share -c wrf_io.f
+/lib/cpp -P -P -traditional -I../ioapi_share field_routines.F90 > field_routines.f
+ifort -real-size 32 -i4  -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o field_routines.o -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include -I../ioapi_share -c field_routines.f
+/bin/rm -f libwrfio_nf.a
+if [ "ar" != "lib.exe" ] ; then \
+                          ar cr libwrfio_nf.a wrf_io.o field_routines.o module_wrfsi_static.o ; \
+                        else \
+                          ar /out:libwrfio_nf.a wrf_io.o field_routines.o module_wrfsi_static.o ; \
+                        fi
+ranlib libwrfio_nf.a
+make[3]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf'
+( cd /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/ioapi_share ; \
+          make -i -r NATIVE_RWORDSIZE="4" RWORDSIZE="4" AR="ar" ARFLAGS="ru" )
+make[3]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/ioapi_share'
+( /bin/rm -f ../../inc/wrf_io_flags.h foo_io_flags.h; \
+	/bin/cp wrf_io_flags.h foo_io_flags.h; \
+	if [ 4 -ne 4 ] ; then \
+	  /bin/rm -f foo_io_flags.h; \
+	  sed -e 's/104/105/' wrf_io_flags.h > foo_io_flags.h ;\
+	fi ; \
+	/bin/mv foo_io_flags.h ../../inc/wrf_io_flags.h )
+/bin/rm -f ../../inc/wrf_status_codes.h
+/bin/cp wrf_status_codes.h ../../inc
+make[3]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/ioapi_share'
+( cd /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib_share ; \
+          make -j 2 CC="icc" CFLAGS="-w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0" RM="rm -f" RANLIB="ranlib" CPP="/lib/cpp -P" \
+          FC="ifort -real-size `expr 8 \* 4` -i4 -I.  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   " TRADFLAG="-traditional" AR="ar" ARFLAGS="ru" archive) 
+make[3]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib_share'
+make[4]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib_share'
+rm -f io_grib_share.o
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c get_region_center.c
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  -traditional  -I. io_grib_share.F > io_grib_share.f90
+ifort -real-size 32 -i4 -I.  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian      -I. -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian      -c io_grib_share.f90
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c gridnav.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c open_file.c
+ar ru ./libio_grib_share.a io_grib_share.o get_region_center.o gridnav.o open_file.o
+ar: creating ./libio_grib_share.a
+ranlib ./libio_grib_share.a
+make[4]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib_share'
+make[3]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib_share'
+( cd /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1 ; \
+          make -j 2 CC="icc" CFLAGS="-w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0" RM="rm -f" RANLIB="ranlib" CPP="/lib/cpp -P" \
+          FC="ifort -real-size `expr 8 \* 4` -i4 -I.  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   " TRADFLAG="-traditional" AR="ar" ARFLAGS="ru" archive)
+make[3]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1'
+        Doing make archive on library subdirectory MEL_grib1
+make[4]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1/MEL_grib1'
+make[5]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1/MEL_grib1'
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c FTP_getfile.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c apply_bitmap.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c display_gribhdr.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c gbyte.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c grib_dec.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c grib_enc.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c grib_seek.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c gribgetbds.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c gribgetbms.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c gribgetgds.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c gribgetpds.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c gribhdr2file.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c gribputbds.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c gribputgds.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c gribputpds.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c hdr_print.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c init_dec_struct.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c init_enc_struct.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c init_gribhdr.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c init_struct.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c ld_dec_lookup.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c ld_enc_input.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c ld_enc_lookup.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c ld_grib_origctrs.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c make_default_grbfn.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c make_grib_log.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c map_lvl.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c map_parm.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c pack_spatial.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c prt_inp_struct.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c upd_child_errmsg.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c prt_badmsg.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c swap.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c grib_uthin.c
+icc  -I. -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c set_bytes.c
+ar ru ../libio_grib1.a FTP_getfile.o apply_bitmap.o display_gribhdr.o gbyte.o grib_dec.o grib_enc.o grib_seek.o gribgetbds.o gribgetbms.o gribgetgds.o gribgetpds.o gribhdr2file.o gribputbds.o gribputgds.o gribputpds.o hdr_print.o init_dec_struct.o init_enc_struct.o init_gribhdr.o init_struct.o ld_dec_lookup.o ld_enc_input.o ld_enc_lookup.o ld_grib_origctrs.o make_default_grbfn.o make_grib_log.o map_lvl.o map_parm.o pack_spatial.o prt_inp_struct.o upd_child_errmsg.o prt_badmsg.o swap.o grib_uthin.o set_bytes.o
+ar: creating ../libio_grib1.a
+ranlib ../libio_grib1.a
+make[5]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1/MEL_grib1'
+make[4]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1/MEL_grib1'
+        Doing make archive on library subdirectory grib1_util
+make[4]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1/grib1_util'
+make[5]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1/grib1_util'
+icc  -I. -I../MEL_grib1 -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c alloc_2d.c
+icc  -I. -I../MEL_grib1 -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c read_grib.c
+icc  -I. -I../MEL_grib1 -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c write_grib.c
+ar ru ../libio_grib1.a alloc_2d.o read_grib.o write_grib.o
+ranlib ../libio_grib1.a
+make[5]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1/grib1_util'
+make[4]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1/grib1_util'
+        Doing make archive on library subdirectory WGRIB
+make[4]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1/WGRIB'
+icc -c -O wgrib_main.c
+icc -c -O seekgrib.c
+icc -c -O ibm2flt.c
+icc -c -O readgrib.c
+icc -c -O intpower.c
+icc -c -O cnames.c
+icc -c -O BDSunpk.c
+icc -c -O flt2ieee.c
+icc -c -O wrtieee.c
+icc -c -O levels.c
+icc -c -O PDStimes.c
+icc -c -O missing.c
+icc -c -O nceptable_reanal.c
+icc -c -O nceptable_opn.c
+icc -c -O ensemble.c
+icc -c -O ombtable.c
+icc -c -O ec_ext.c
+icc -c -O gribtable.c
+icc -c -O gds_grid.c
+icc -c -O PDS_date.c
+icc -c -O ectable_128.c
+icc -c -O ectable_129.c
+icc -c -O ectable_130.c
+icc -c -O ectable_131.c
+icc -c -O ectable_140.c
+icc -c -O ectable_150.c
+icc -c -O ectable_151.c
+icc -c -O ectable_160.c
+icc -c -O ectable_170.c
+icc -c -O ectable_180.c
+icc -c -O nceptab_129.c
+icc -c -O dwdtable_002.c
+icc -c -O dwdtable_201.c
+icc -c -O dwdtable_202.c
+icc -c -O dwdtable_203.c
+icc -c -O cptectable_254.c
+icc -c -O nceptab_130.c
+icc -c -O nceptab_131.c
+icc -o wgrib.exe wgrib_main.o seekgrib.o ibm2flt.o readgrib.o intpower.o cnames.o BDSunpk.o flt2ieee.o wrtieee.o levels.o PDStimes.o missing.o nceptable_reanal.o nceptable_opn.o ensemble.o ombtable.o ec_ext.o gribtable.o gds_grid.o PDS_date.o ectable_128.o ectable_129.o ectable_130.o ectable_131.o ectable_140.o ectable_150.o ectable_151.o ectable_160.o ectable_170.o ectable_180.o nceptab_129.o dwdtable_002.o dwdtable_201.o dwdtable_202.o dwdtable_203.o cptectable_254.o nceptab_130.o nceptab_131.o #-lm
+( cd .. ; \rm -f wgrib.exe ; \ln -sf WGRIB/wgrib.exe wgrib.exe ; cd WGRIB )
+make[4]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1/WGRIB'
+make[4]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1'
+icc  -I. -I./MEL_grib1 -Igrib1_util -I../io_grib_share -I../ -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c grib1_routines.c
+icc  -I. -I./MEL_grib1 -Igrib1_util -I../io_grib_share -I../ -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c gribmap.c
+rm -f io_grib1.o
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  -traditional  -I. -I./MEL_grib1 -Igrib1_util -I../io_grib_share -I../ io_grib1.F > io_grib1.f90
+ifort -real-size 32 -i4 -I.  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian      -I. -I./MEL_grib1 -Igrib1_util -I../io_grib_share -I../ -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian      -c io_grib1.f90
+icc  -I. -I./MEL_grib1 -Igrib1_util -I../io_grib_share -I../ -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0   -c trim.c
+ar ru ./libio_grib1.a grib1_routines.o gribmap.o io_grib1.o trim.o
+ranlib ./libio_grib1.a
+make[4]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1'
+make[3]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1'
+( cd /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int ; \
+          make -j 2 CC="mpicc -cc=icc -DMPI2_SUPPORT -DFSEEKO64_OK " RM="rm -f" RANLIB="ranlib" CPP="/lib/cpp -P" \
+          FC="time mpif90 -f90=ifort -real-size `expr 8 \* 4` -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   " FGREP="fgrep -iq" \
+          TRADFLAG="-traditional" AR="ar" ARFLAGS="ru" ARCHFLAGS="-DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0" all )
+make[3]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int'
+rm -f module_internal_header_util.f
+awk '{print "#define", toupper($4), $6}' < ../../inc/intio_tags.h > io_int_idx_tags.h
+cp ../../frame/module_internal_header_util.F mod_int_hdr_util.b
+/lib/cpp -P -traditional -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -I../../inc -I../ioapi_share mod_int_hdr_util.b > module_internal_header_util.f
+/lib/cpp -P -traditional -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 module_io_int_idx.F90 > module_io_int_idx.f
+rm -f mod_int_hdr_util.b
+/lib/cpp -P -traditional -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 module_io_int_read.F90 > module_io_int_read.f
+Diffwrf io_int will be built later on in this compile. No need to rerun compile. 
+Diffwrf io_int will be built later on in this compile. No need to rerun compile. 
+Diffwrf io_int will be built later on in this compile. No need to rerun compile. 
+Diffwrf io_int will be built later on in this compile. No need to rerun compile. 
+Diffwrf io_int will be built later on in this compile. No need to rerun compile. 
+/lib/cpp -P -traditional -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 test_io_idx.F90 > test_io_idx.f
+Diffwrf io_int will be built later on in this compile. No need to rerun compile. 
+time mpif90 -f90=ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o module_internal_header_util.o -c module_internal_header_util.f
+mpicc -cc=icc -DMPI2_SUPPORT -DFSEEKO64_OK  -o io_int_idx.o -c -w io_int_idx.c
+time mpif90 -f90=ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -o module_io_int_idx.o -c module_io_int_idx.f
+0.02user 0.02system 0:00.08elapsed 64%CPU (0avgtext+0avgdata 26128maxresident)k
+0inputs+176outputs (0major+20929minor)pagefaults 0swaps
+time mpif90 -f90=ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../../frame -o module_io_int_read.o -c module_io_int_read.f
+0.31user 0.02system 0:00.36elapsed 91%CPU (0avgtext+0avgdata 31936maxresident)k
+0inputs+400outputs (0major+22316minor)pagefaults 0swaps
+/lib/cpp -P -traditional -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0  -I../../inc -I../ioapi_share io_int.F90 | m4 -Uinclude -Uindex -Ulen - > io_int.f
+time mpif90 -f90=ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../../inc -I../ioapi_share -o io_int.o -c io_int.f
+0.18user 0.02system 0:00.25elapsed 80%CPU (0avgtext+0avgdata 30760maxresident)k
+48inputs+488outputs (0major+24242minor)pagefaults 0swaps
+0.48user 0.03system 0:00.55elapsed 94%CPU (0avgtext+0avgdata 37972maxresident)k
+0inputs+720outputs (0major+25678minor)pagefaults 0swaps
+rm -f libwrfio_int.a
+if [ `echo "time mpif90 -f90=ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   " | awk '{print $1}'` = "gfortran" ] ; then \
+		echo removing external declaration of iargc for gfortran ; \
+		/lib/cpp -P -traditional -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0  -I../ioapi_share diffwrf.F90 | \
+		sed '/integer *, *external.*iargc/d' > diffwrf.f  ; \
+	else \
+		/lib/cpp -P -traditional -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0  -I../ioapi_share diffwrf.F90 > diffwrf.f  ; \
+	fi ; \
+	time mpif90 -f90=ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../ioapi_share diffwrf.f ; \
+
+ar ru libwrfio_int.a io_int.o io_int_idx.o module_io_int_idx.o module_io_int_read.o
+ar: creating libwrfio_int.a
+ranlib libwrfio_int.a
+time mpif90 -f90=ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -ip   -o test_io_idx test_io_idx.f -L. -lwrfio_int
+0.06user 0.05system 0:00.15elapsed 76%CPU (0avgtext+0avgdata 25184maxresident)k
+240inputs+1592outputs (0major+31950minor)pagefaults 0swaps
+
+real	0m0.306s
+user	0m0.234s
+sys	0m0.054s
+if [ -f ../../frame/pack_utils.o -a -f ../../frame/clog.o ] ; then \
+	  time mpif90 -f90=ifort -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -ip   -I../ioapi_share -o diffwrf diffwrf.f \
+		../../frame/pack_utils.o ../../frame/module_internal_header_util.o ../../frame/module_driver_constants.o ../../frame/module_machine.o ../../frame/module_wrf_error.o ../../frame/wrf_debug.o  libwrfio_int.a ; \
+	fi
+make[3]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int'
+( cd /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/fftpack/fftpack5 ; \
+          make -j 2 FC="ifort" FFLAGS="-real-size `expr 8 \* 4` -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  " RANLIB="ranlib" AR="ar" \
+          ARFLAGS="ru" CPP="/lib/cpp -P" CPPFLAGS="-DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional " RM="rm -f" )
+make[3]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/fftpack/fftpack5'
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  c1f2kb.F  > c1f2kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cfft1b.F  > cfft1b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cfft1b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   c1f2kb.f90
+rm -f -f cfft1b.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cmf3kf.F  > cmf3kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cmf3kf.f90
+rm -f -f c1f2kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cosqb1.F  > cosqb1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cosqb1.f90
+rm -f -f cosqb1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  costmi.F  > costmi.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   costmi.f90
+rm -f -f cmf3kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dcosq1f.F  > dcosq1f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dcosq1f.f90
+rm -f -f dcosq1f.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dfftb1.F  > dfftb1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dfftb1.f90
+rm -f -f costmi.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  mradb2.F  > mradb2.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   mradb2.f90
+rm -f -f dfftb1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  mrfti1.F  > mrfti1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   mrfti1.f90
+rm -f -f mradb2.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  r1fgkf.F  > r1fgkf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   r1fgkf.f90
+rm -f -f mrfti1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  rfft2i.F  > rfft2i.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   rfft2i.f90
+rm -f -f rfft2i.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  sinqmi.F  > sinqmi.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   sinqmi.f90
+rm -f -f sinqmi.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  z1f2kf.F  > z1f2kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   z1f2kf.f90
+rm -f -f z1f2kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zfft1f.F  > zfft1f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zfft1f.f90
+rm -f -f zfft1f.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zmf4kb.F  > zmf4kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zmf4kb.f90
+rm -f -f r1fgkf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  c1f2kf.F  > c1f2kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   c1f2kf.f90
+rm -f -f c1f2kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cfft1f.F  > cfft1f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cfft1f.f90
+rm -f -f zmf4kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cmf4kb.F  > cmf4kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cmf4kb.f90
+rm -f -f cfft1f.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cosqf1.F  > cosqf1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cosqf1.f90
+rm -f -f cosqf1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  d1f2kb.F  > d1f2kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   d1f2kb.f90
+rm -f -f cmf4kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dcosq1i.F  > dcosq1i.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dcosq1i.f90
+rm -f -f dcosq1i.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dfftf1.F  > dfftf1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dfftf1.f90
+rm -f -f d1f2kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  mradb3.F  > mradb3.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   mradb3.f90
+rm -f -f dfftf1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  msntb1.F  > msntb1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   msntb1.f90
+rm -f -f mradb3.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  r4_factor.F  > r4_factor.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   r4_factor.f90
+rm -f -f r4_factor.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  rfftb1.F  > rfftb1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   rfftb1.f90
+rm -f -f msntb1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  sint1b.F  > sint1b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   sint1b.f90
+rm -f -f sint1b.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  z1f3kb.F  > z1f3kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   z1f3kb.f90
+rm -f -f rfftb1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zfft1i.F  > zfft1i.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zfft1i.f90
+rm -f -f zfft1i.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zmf4kf.F  > zmf4kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zmf4kf.f90
+rm -f -f z1f3kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  c1f3kb.F  > c1f3kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   c1f3kb.f90
+rm -f -f zmf4kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cfft1i.F  > cfft1i.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cfft1i.f90
+rm -f -f c1f3kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cmf4kf.F  > cmf4kf.f90
+rm -f -f cfft1i.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cosqmb.F  > cosqmb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cmf4kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cosqmb.f90
+rm -f -f cosqmb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  d1f2kf.F  > d1f2kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   d1f2kf.f90
+rm -f -f cmf4kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dcosqb1.F  > dcosqb1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dcosqb1.f90
+rm -f -f d1f2kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dffti1.F  > dffti1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dffti1.f90
+rm -f -f dcosqb1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  mradb4.F  > mradb4.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   mradb4.f90
+rm -f -f dffti1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  msntf1.F  > msntf1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   msntf1.f90
+rm -f -f msntf1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  r4_mcfti1.F  > r4_mcfti1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   r4_mcfti1.f90
+rm -f -f mradb4.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  rfftf1.F  > rfftf1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   rfftf1.f90
+rm -f -f r4_mcfti1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  sint1f.F  > sint1f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   sint1f.f90
+rm -f -f rfftf1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  z1f3kf.F  > z1f3kf.f90
+rm -f -f sint1f.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zfft2b.F  > zfft2b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   z1f3kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zfft2b.f90
+rm -f -f zfft2b.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zmf5kb.F  > zmf5kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zmf5kb.f90
+rm -f -f z1f3kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  c1f3kf.F  > c1f3kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   c1f3kf.f90
+rm -f -f zmf5kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cfft2b.F  > cfft2b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cfft2b.f90
+rm -f -f cfft2b.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cmf5kb.F  > cmf5kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cmf5kb.f90
+rm -f -f c1f3kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cosqmf.F  > cosqmf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cosqmf.f90
+rm -f -f cosqmf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  d1f3kb.F  > d1f3kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   d1f3kb.f90
+rm -f -f cmf5kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dcosqf1.F  > dcosqf1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dcosqf1.f90
+rm -f -f dcosqf1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dsint1b.F  > dsint1b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dsint1b.f90
+rm -f -f d1f3kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  mradb5.F  > mradb5.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   mradb5.f90
+rm -f -f dsint1b.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  r1f2kb.F  > r1f2kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   r1f2kb.f90
+rm -f -f r1f2kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  r4_tables.F  > r4_tables.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   r4_tables.f90
+rm -f -f r4_tables.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  rffti1.F  > rffti1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   rffti1.f90
+rm -f -f rffti1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  sint1i.F  > sint1i.f90
+rm -f -f mradb5.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  z1f4kb.F  > z1f4kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   z1f4kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   sint1i.f90
+rm -f -f sint1i.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zfft2f.F  > zfft2f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zfft2f.f90
+rm -f -f zfft2f.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zmf5kf.F  > zmf5kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zmf5kf.f90
+rm -f -f z1f4kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  c1f4kb.F  > c1f4kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   c1f4kb.f90
+rm -f -f c1f4kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cfft2f.F  > cfft2f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cfft2f.f90
+rm -f -f zmf5kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cmf5kf.F  > cmf5kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cmf5kf.f90
+rm -f -f cfft2f.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cosqmi.F  > cosqmi.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cosqmi.f90
+rm -f -f cosqmi.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  d1f3kf.F  > d1f3kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   d1f3kf.f90
+rm -f -f cmf5kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dcost1b.F  > dcost1b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dcost1b.f90
+rm -f -f dcost1b.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dsint1f.F  > dsint1f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dsint1f.f90
+rm -f -f dsint1f.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  mradbg.F  > mradbg.f90
+rm -f -f d1f3kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  r1f2kf.F  > r1f2kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   mradbg.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   r1f2kf.f90
+rm -f -f r1f2kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  r8_factor.F  > r8_factor.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   r8_factor.f90
+rm -f -f r8_factor.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  rfftmb.F  > rfftmb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   rfftmb.f90
+rm -f -f rfftmb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  sintb1.F  > sintb1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   sintb1.f90
+rm -f -f sintb1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  z1f4kf.F  > z1f4kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   z1f4kf.f90
+rm -f -f mradbg.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zfft2i.F  > zfft2i.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zfft2i.f90
+rm -f -f zfft2i.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zmfgkb.F  > zmfgkb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zmfgkb.f90
+rm -f -f z1f4kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  c1f4kf.F  > c1f4kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   c1f4kf.f90
+rm -f -f zmfgkb.f90
+rm -f -f c1f4kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cfft2i.F  > cfft2i.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cmfgkb.F  > cmfgkb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cfft2i.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cmfgkb.f90
+rm -f -f cfft2i.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cost1b.F  > cost1b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cost1b.f90
+rm -f -f cost1b.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  d1f4kb.F  > d1f4kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   d1f4kb.f90
+rm -f -f cmfgkb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dcost1f.F  > dcost1f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dcost1f.f90
+rm -f -f dcost1f.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dsint1i.F  > dsint1i.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dsint1i.f90
+rm -f -f dsint1i.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  mradf2.F  > mradf2.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   mradf2.f90
+rm -f -f d1f4kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  r1f3kb.F  > r1f3kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   r1f3kb.f90
+rm -f -f mradf2.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  r8_mcfti1.F  > r8_mcfti1.f90
+rm -f -f r1f3kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  rfftmf.F  > rfftmf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   r8_mcfti1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   rfftmf.f90
+rm -f -f r8_mcfti1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  sintf1.F  > sintf1.f90
+rm -f -f rfftmf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  z1f5kb.F  > z1f5kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   sintf1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   z1f5kb.f90
+rm -f -f sintf1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zfftmb.F  > zfftmb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zfftmb.f90
+rm -f -f zfftmb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zmfgkf.F  > zmfgkf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zmfgkf.f90
+rm -f -f z1f5kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  c1f5kb.F  > c1f5kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   c1f5kb.f90
+rm -f -f zmfgkf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cfftmb.F  > cfftmb.f90
+rm -f -f c1f5kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cmfgkf.F  > cmfgkf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cfftmb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cmfgkf.f90
+rm -f -f cfftmb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cost1f.F  > cost1f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cost1f.f90
+rm -f -f cost1f.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  d1f4kf.F  > d1f4kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   d1f4kf.f90
+rm -f -f cmfgkf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dcost1i.F  > dcost1i.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dcost1i.f90
+rm -f -f dcost1i.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dsintb1.F  > dsintb1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dsintb1.f90
+rm -f -f d1f4kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  mradf3.F  > mradf3.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   mradf3.f90
+rm -f -f dsintb1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  r1f3kf.F  > r1f3kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   r1f3kf.f90
+rm -f -f r1f3kf.f90
+rm -f -f mradf3.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  r8_tables.F  > r8_tables.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  rfftmi.F  > rfftmi.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   r8_tables.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   rfftmi.f90
+rm -f -f r8_tables.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  sintmb.F  > sintmb.f90
+rm -f -f rfftmi.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  z1f5kf.F  > z1f5kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   sintmb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   z1f5kf.f90
+rm -f -f sintmb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zfftmf.F  > zfftmf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zfftmf.f90
+rm -f -f zfftmf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zmfm1b.F  > zmfm1b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zmfm1b.f90
+rm -f -f zmfm1b.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  c1f5kf.F  > c1f5kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   c1f5kf.f90
+rm -f -f c1f5kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cfftmf.F  > cfftmf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cfftmf.f90
+rm -f -f z1f5kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cmfm1b.F  > cmfm1b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cmfm1b.f90
+rm -f -f cfftmf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cost1i.F  > cost1i.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cost1i.f90
+rm -f -f cmfm1b.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  d1f5kb.F  > d1f5kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   d1f5kb.f90
+rm -f -f cost1i.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dcostb1.F  > dcostb1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dcostb1.f90
+rm -f -f dcostb1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dsintf1.F  > dsintf1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dsintf1.f90
+rm -f -f dsintf1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  mradf4.F  > mradf4.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   mradf4.f90
+rm -f -f mradf4.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  r1f4kb.F  > r1f4kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   r1f4kb.f90
+rm -f -f r1f4kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  rfft1b.F  > rfft1b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   rfft1b.f90
+rm -f -f rfft1b.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  sinq1b.F  > sinq1b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   sinq1b.f90
+rm -f -f sinq1b.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  sintmf.F  > sintmf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   sintmf.f90
+rm -f -f sintmf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  z1fgkb.F  > z1fgkb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   z1fgkb.f90
+rm -f -f d1f5kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zfftmi.F  > zfftmi.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zfftmi.f90
+rm -f -f z1fgkb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zmfm1f.F  > zmfm1f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zmfm1f.f90
+rm -f -f zfftmi.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  c1fgkb.F  > c1fgkb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   c1fgkb.f90
+rm -f -f zmfm1f.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cfftmi.F  > cfftmi.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cfftmi.f90
+rm -f -f cfftmi.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cmfm1f.F  > cmfm1f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cmfm1f.f90
+rm -f -f cmfm1f.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  costb1.F  > costb1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   costb1.f90
+rm -f -f c1fgkb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  d1f5kf.F  > d1f5kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   d1f5kf.f90
+rm -f -f costb1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dcostf1.F  > dcostf1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dcostf1.f90
+rm -f -f dcostf1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  mcsqb1.F  > mcsqb1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   mcsqb1.f90
+rm -f -f mcsqb1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  mradf5.F  > mradf5.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   mradf5.f90
+rm -f -f mradf5.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  r1f4kf.F  > r1f4kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   r1f4kf.f90
+rm -f -f r1f4kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  rfft1f.F  > rfft1f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   rfft1f.f90
+rm -f -f rfft1f.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  sinq1f.F  > sinq1f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   sinq1f.f90
+rm -f -f sinq1f.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  sintmi.F  > sintmi.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   sintmi.f90
+rm -f -f sintmi.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  z1fgkf.F  > z1fgkf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   z1fgkf.f90
+rm -f -f d1f5kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zmf2kb.F  > zmf2kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zmf2kb.f90
+rm -f -f zmf2kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  c1fgkf.F  > c1fgkf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   c1fgkf.f90
+rm -f -f z1fgkf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cmf2kb.F  > cmf2kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cmf2kb.f90
+rm -f -f cmf2kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cosq1b.F  > cosq1b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cosq1b.f90
+rm -f -f cosq1b.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  costf1.F  > costf1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   costf1.f90
+rm -f -f c1fgkf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  d1fgkb.F  > d1fgkb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   d1fgkb.f90
+rm -f -f costf1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dfft1b.F  > dfft1b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dfft1b.f90
+rm -f -f dfft1b.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  mcsqf1.F  > mcsqf1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   mcsqf1.f90
+rm -f -f mcsqf1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  mradfg.F  > mradfg.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   mradfg.f90
+rm -f -f d1fgkb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  r1f5kb.F  > r1f5kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   r1f5kb.f90
+rm -f -f mradfg.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  rfft1i.F  > rfft1i.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   rfft1i.f90
+rm -f -f rfft1i.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  sinq1i.F  > sinq1i.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   sinq1i.f90
+rm -f -f sinq1i.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  xercon.F  > xercon.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   xercon.f90
+rm -f -f r1f5kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  z1fm1b.F  > z1fm1b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   z1fm1b.f90
+rm -f -f xercon.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zmf2kf.F  > zmf2kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zmf2kf.f90
+rm -f -f z1fm1b.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  c1fm1b.F  > c1fm1b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   c1fm1b.f90
+rm -f -f zmf2kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cmf2kf.F  > cmf2kf.f90
+rm -f -f c1fm1b.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cosq1f.F  > cosq1f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cmf2kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cosq1f.f90
+rm -f -f cosq1f.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  costmb.F  > costmb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   costmb.f90
+rm -f -f cmf2kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  d1fgkf.F  > d1fgkf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   d1fgkf.f90
+rm -f -f costmb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dfft1f.F  > dfft1f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dfft1f.f90
+rm -f -f dfft1f.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  mcstb1.F  > mcstb1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   mcstb1.f90
+rm -f -f mcstb1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  mrftb1.F  > mrftb1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   mrftb1.f90
+rm -f -f mrftb1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  r1f5kf.F  > r1f5kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   r1f5kf.f90
+rm -f -f d1fgkf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  rfft2b.F  > rfft2b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   rfft2b.f90
+rm -f -f r1f5kf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  sinqmb.F  > sinqmb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   sinqmb.f90
+rm -f -f rfft2b.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  xerfft.F  > xerfft.f90
+rm -f -f sinqmb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  z1fm1f.F  > z1fm1f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   xerfft.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   z1fm1f.f90
+rm -f -f xerfft.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zmf3kb.F  > zmf3kb.f90
+rm -f -f z1fm1f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zmf3kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  c1fm1f.F  > c1fm1f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   c1fm1f.f90
+rm -f -f c1fm1f.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cmf3kb.F  > cmf3kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cmf3kb.f90
+rm -f -f zmf3kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  cosq1i.F  > cosq1i.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   cosq1i.f90
+rm -f -f cosq1i.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  costmf.F  > costmf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   costmf.f90
+rm -f -f cmf3kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dcosq1b.F  > dcosq1b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dcosq1b.f90
+rm -f -f costmf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  dfft1i.F  > dfft1i.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   dfft1i.f90
+rm -f -f dcosq1b.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  mcstf1.F  > mcstf1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   mcstf1.f90
+rm -f -f dfft1i.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  mrftf1.F  > mrftf1.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   mrftf1.f90
+rm -f -f mcstf1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  r1fgkb.F  > r1fgkb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   r1fgkb.f90
+rm -f -f mrftf1.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  rfft2f.F  > rfft2f.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   rfft2f.f90
+rm -f -f rfft2f.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  sinqmf.F  > sinqmf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   sinqmf.f90
+rm -f -f sinqmf.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  z1f2kb.F  > z1f2kb.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   z1f2kb.f90
+rm -f -f z1f2kb.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zfft1b.F  > zfft1b.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zfft1b.f90
+rm -f -f zfft1b.f90
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  zmf3kf.F  > zmf3kf.f90
+ifort -c -real-size 32 -i4  -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   zmf3kf.f90
+rm -f -f r1fgkb.f90
+rm -f -f zmf3kf.f90
+ar ru libfftpack.a c1f2kb.o  cfft1b.o  cmf3kf.o  cosqb1.o  costmi.o   dcosq1f.o  dfftb1.o   mradb2.o  mrfti1.o  r1fgkf.o     rfft2i.o  sinqmi.o  z1f2kf.o  zfft1f.o  zmf4kb.o c1f2kf.o  cfft1f.o  cmf4kb.o  cosqf1.o  d1f2kb.o   dcosq1i.o  dfftf1.o   mradb3.o  msntb1.o  r4_factor.o  rfftb1.o  sint1b.o  z1f3kb.o  zfft1i.o  zmf4kf.o c1f3kb.o  cfft1i.o  cmf4kf.o  cosqmb.o  d1f2kf.o   dcosqb1.o  dffti1.o   mradb4.o  msntf1.o  r4_mcfti1.o  rfftf1.o  sint1f.o  z1f3kf.o  zfft2b.o  zmf5kb.o c1f3kf.o  cfft2b.o  cmf5kb.o  cosqmf.o  d1f3kb.o   dcosqf1.o  dsint1b.o  mradb5.o  r1f2kb.o  r4_tables.o  rffti1.o  sint1i.o  z1f4kb.o  zfft2f.o  zmf5kf.o c1f4kb.o  cfft2f.o  cmf5kf.o  cosqmi.o  d1f3kf.o   dcost1b.o  dsint1f.o  mradbg.o  r1f2kf.o  r8_factor.o  rfftmb.o  sintb1.o  z1f4kf.o  zfft2i.o  zmfgkb.o c1f4kf.o  cfft2i.o  cmfgkb.o  cost1b.o  d1f4kb.o   dcost1f.o  dsint1i.o  mradf2.o  r1f3kb.o  r8_mcfti1.o  rfftmf.o  sintf1.o  z1f5kb.o  zfftmb.o  zmfgkf.o c1f5kb.o  cfftmb.o  cmfgkf.o  cost1f.o  d1f4kf.o   dcost1i.o  dsintb1.o  mradf3.o  r1f3kf.o  r8_tables.o  rfftmi.o  sintmb.o  z1f5kf.o  zfftmf.o  zmfm1b.o c1f5kf.o  cfftmf.o  cmfm1b.o  cost1i.o  d1f5kb.o   dcostb1.o  dsintf1.o  mradf4.o  r1f4kb.o  rfft1b.o     sinq1b.o  sintmf.o  z1fgkb.o  zfftmi.o  zmfm1f.o c1fgkb.o  cfftmi.o  cmfm1f.o  costb1.o  d1f5kf.o   dcostf1.o  mcsqb1.o   mradf5.o  r1f4kf.o  rfft1f.o     sinq1f.o  sintmi.o  z1fgkf.o  zmf2kb.o c1fgkf.o  cmf2kb.o  cosq1b.o  costf1.o  d1fgkb.o   dfft1b.o   mcsqf1.o   mradfg.o  r1f5kb.o  rfft1i.o     sinq1i.o  xercon.o  z1fm1b.o  zmf2kf.o c1fm1b.o  cmf2kf.o  cosq1f.o  costmb.o  d1fgkf.o   dfft1f.o   mcstb1.o   mrftb1.o  r1f5kf.o  rfft2b.o     sinqmb.o  xerfft.o  z1fm1f.o  zmf3kb.o c1fm1f.o  cmf3kb.o  cosq1i.o  costmf.o  dcosq1b.o  dfft1i.o   mcstf1.o   mrftf1.o  r1fgkb.o  rfft2f.o     sinqmf.o  z1f2kb.o  zfft1b.o  zmf3kf.o 
+ar: creating libfftpack.a
+ranlib libfftpack.a
+make[3]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/fftpack/fftpack5'
+( cd /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/RSL_LITE ; make -j 2 CC="mpicc -cc=icc -DMPI2_SUPPORT -DFSEEKO64_OK  -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0" \
+          FC="time mpif90 -f90=ifort -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -real-size `expr 8 \* 4` -i4 -convert big_endian" \
+          CPP="/lib/cpp -P -I. -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0  -traditional" AR="ar" ARFLAGS="ru" ;\
+          ranlib /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/RSL_LITE/librsl_lite.a )
+make[3]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/RSL_LITE'
+mpicc -cc=icc -DMPI2_SUPPORT -DFSEEKO64_OK  -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0  -c c_code.c
+mpicc -cc=icc -DMPI2_SUPPORT -DFSEEKO64_OK  -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0  -c buf_for_proc.c
+mpicc -cc=icc -DMPI2_SUPPORT -DFSEEKO64_OK  -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0  -c rsl_malloc.c
+mpicc -cc=icc -DMPI2_SUPPORT -DFSEEKO64_OK  -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0  -c rsl_bcast.c
+mpicc -cc=icc -DMPI2_SUPPORT -DFSEEKO64_OK  -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0  -c task_for_point.c
+mpicc -cc=icc -DMPI2_SUPPORT -DFSEEKO64_OK  -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0  -c period.c
+mpicc -cc=icc -DMPI2_SUPPORT -DFSEEKO64_OK  -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0  -c swap.c
+mpicc -cc=icc -DMPI2_SUPPORT -DFSEEKO64_OK  -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0  -c cycle.c
+/lib/cpp -P -I. -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0  -traditional  f_pack.F90 > f_pack.f
+time mpif90 -f90=ifort -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -real-size 32 -i4 -convert big_endian -o f_pack.o  -c f_pack.f
+0.71user 0.03system 0:00.77elapsed 96%CPU (0avgtext+0avgdata 36496maxresident)k
+0inputs+512outputs (0major+23991minor)pagefaults 0swaps
+/lib/cpp -P -I. -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0  -traditional f_xpose.F90 > f_xpose.f
+time mpif90 -f90=ifort -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -real-size 32 -i4 -convert big_endian -o f_xpose.o  -c f_xpose.f
+0.31user 0.03system 0:00.36elapsed 93%CPU (0avgtext+0avgdata 40416maxresident)k
+0inputs+344outputs (0major+22026minor)pagefaults 0swaps
+/bin/rm -f librsl_lite.a
+ar cr librsl_lite.a c_code.o buf_for_proc.o rsl_malloc.o rsl_bcast.o task_for_point.o period.o swap.o cycle.o f_pack.o f_xpose.o
+make[3]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/RSL_LITE'
+( if [ ! -e /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/gen_comms.c ] ; then \
+          /bin/cp /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/gen_comms_warning /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/gen_comms.c ; \
+          cat /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/RSL_LITE/gen_comms.c >> /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/gen_comms.c ; fi )
+( if [ ! -e module_dm.F ] ; then /bin/cp module_dm_warning module_dm.F ; \
+          cat /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/RSL_LITE/module_dm.F >> module_dm.F ; fi )
+make[2]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame'
+make[1]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3'
+make -i -r MODULE_DIRS="-I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include " toolsdir
+make[1]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3'
+--------------------------------------
+( cd tools ; make -i -r CC_TOOLS_CFLAGS="-DNMM_CORE=0" CC_TOOLS="icc  -DIWORDSIZE=4 -DMAX_HISTORY=25" )
+make[2]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools'
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  registry.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  my_strtok.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  reg_parse.c
+reg_parse.c(294): warning #177: label "normal" was declared but never referenced
+  normal:
+  ^
+
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  data.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  type.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  misc.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  gen_defs.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  gen_allocs.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  gen_mod_state_descr.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  gen_scalar_indices.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  gen_args.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  gen_config.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  sym.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  symtab_gen.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  gen_model_data_ord.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  gen_interp.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  gen_comms.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  gen_scalar_derefs.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  set_dim_strs.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  gen_wrf_io.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  gen_streams.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -DNMM_CORE=0  -c -g  standard.c
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -o standard.exe -g   standard.o
+icc  -DIWORDSIZE=4 -DMAX_HISTORY=25 -o registry -g   registry.o my_strtok.o reg_parse.o data.o type.o misc.o gen_defs.o gen_allocs.o gen_mod_state_descr.o gen_scalar_indices.o gen_args.o gen_config.o sym.o symtab_gen.o gen_model_data_ord.o gen_interp.o gen_comms.o gen_scalar_derefs.o set_dim_strs.o gen_wrf_io.o gen_streams.o
+make[2]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools'
+make[1]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3'
+/bin/rm -f main/libwrflib.a main/libwrflib.lib
+make -i -r MODULE_DIRS="-I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include " framework
+make[1]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3'
+--------------------------------------
+( cd frame ; make -i -r -j 2 framework; \
+          cd ../external/io_netcdf ; \
+          make -i -r NETCDFPATH="/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran" FC="time mpif90 -f90=ifort -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  " RANLIB="ranlib" \
+               CPP="/lib/cpp -P" LDFLAGS=" -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -ip  " TRADFLAG="-traditional" ESMF_IO_LIB_EXT="-L/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90 -lesmf_time" \
+	       LIB_LOCAL="" \
+               ESMF_MOD_DEPENDENCE="/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90/module_utility.o" AR="INTERNAL_BUILD_ERROR_SHOULD_NOT_NEED_AR" diffwrf; \
+          cd ../io_netcdf ; \
+          make -i -r NETCDFPATH="/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran" FC="ifort -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  " RANLIB="ranlib" \
+               CPP="/lib/cpp -P" LDFLAGS=" -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -ip  " TRADFLAG="-traditional" ESMF_IO_LIB_EXT="-L/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90 -lesmf_time" \
+	       LIB_LOCAL="" \
+               ESMF_MOD_DEPENDENCE="/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90/module_utility.o" AR="INTERNAL_BUILD_ERROR_SHOULD_NOT_NEED_AR"; \
+          cd ../io_pio ; \
+          echo SKIPPING PIO BUILD make -i -r NETCDFPATH="" FC="ifort -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  " RANLIB="ranlib" \
+               CPP="/lib/cpp -P" LDFLAGS=" -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -ip  " TRADFLAG="-traditional" ESMF_IO_LIB_EXT="-L/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90 -lesmf_time" \
+	       LIB_LOCAL="" \
+               ESMF_MOD_DEPENDENCE="/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90/module_utility.o" AR="INTERNAL_BUILD_ERROR_SHOULD_NOT_NEED_AR"; \
+          cd ../io_int ; \
+          make -i -r SFC="ifort -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  " FC="ifort -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  " RANLIB="ranlib" CPP="/lib/cpp -P -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM" DM_FC="mpif90 -f90=ifort -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  "\
+               TRADFLAG="-traditional" ESMF_IO_LIB_EXT="-L/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90 -lesmf_time" \
+               ESMF_MOD_DEPENDENCE="/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90/module_utility.o" AR="INTERNAL_BUILD_ERROR_SHOULD_NOT_NEED_AR" diffwrf ; \
+          cd ../../frame )
+make[2]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame'
+( cd .. ; tools/registry -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -DNEW_BDYS Registry/Registry ) ; 
+rm -f wrf_shutdown.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   wrf_shutdown.F  > wrf_shutdown.bb
+opening Registry/registry.dimspec
+including Registry/registry.dimspec
+opening Registry/Registry.EM_COMMON
+including Registry/Registry.EM_COMMON
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe wrf_shutdown.bb | /lib/cpp -P -traditional > wrf_shutdown.f90
+rm -f wrf_shutdown.b wrf_shutdown.bb
+time mpif90 -f90=ifort -o wrf_shutdown.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  wrf_shutdown.f90
+
+real	0m0.067s
+user	0m0.019s
+sys	0m0.017s
+rm -f clog.o
+mpicc -cc=icc -DMPI2_SUPPORT -DFSEEKO64_OK  -o clog.o -c -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0 clog.c
+opening Registry/registry.io_boilerplate
+including Registry/registry.io_boilerplate
+opening Registry/io_boilerplate_temporary.inc
+including Registry/io_boilerplate_temporary.inc
+opening Registry/registry.chem
+including Registry/registry.chem
+rm -f hires_timer.o
+mpicc -cc=icc -DMPI2_SUPPORT -DFSEEKO64_OK  -o hires_timer.o -c -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0 hires_timer.c
+rm -f ../share/module_model_constants.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   ../share/module_model_constants.F  > ../share/module_model_constants.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe ../share/module_model_constants.bb | /lib/cpp -P -traditional > ../share/module_model_constants.f90
+rm -f ../share/module_model_constants.b ../share/module_model_constants.bb
+time mpif90 -f90=ifort -o ../share/module_model_constants.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  ../share/module_model_constants.f90
+
+real	0m0.068s
+user	0m0.016s
+sys	0m0.018s
+if [ "m4" = NA ] ; then \
+	  /bin/cp ../arch/md_calls.inc . ; \
+	else \
+	  m4 md_calls.m4 > md_calls.inc ; \
+	fi
+opening Registry/registry.fire
+including Registry/registry.fire
+/lib/cpp -P -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional  -I../inc module_internal_header_util.F > module_internal_header_util.f90
+opening Registry/registry.avgflx
+including Registry/registry.avgflx
+ifort -c -real-size `expr 8 \* 4` -i4   -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   module_internal_header_util.f90
+opening Registry/registry.stoch
+including Registry/registry.stoch
+opening Registry/registry.les
+including Registry/registry.les
+opening Registry/registry.cam
+including Registry/registry.cam
+opening Registry/registry.clm
+including Registry/registry.clm
+opening Registry/registry.lake
+including Registry/registry.lake
+opening Registry/registry.ssib
+including Registry/registry.ssib
+opening Registry/registry.sbm
+including Registry/registry.sbm
+opening Registry/registry.diags
+including Registry/registry.diags
+opening Registry/registry.afwa
+including Registry/registry.afwa
+opening Registry/registry.bdy_perturb
+including Registry/registry.bdy_perturb
+mpicc -cc=icc -DMPI2_SUPPORT -DFSEEKO64_OK  -c -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0 wrf_num_bytes_between.c
+rm -f libmassv.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   libmassv.F  > libmassv.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe libmassv.bb | /lib/cpp -P -traditional > libmassv.f90
+rm -f libmassv.b libmassv.bb
+time mpif90 -f90=ifort -o libmassv.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  libmassv.f90
+
+real	0m0.218s
+user	0m0.156s
+sys	0m0.031s
+rm -f collect_on_comm.o
+mpicc -cc=icc -DMPI2_SUPPORT -DFSEEKO64_OK  -o collect_on_comm.o -c -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0 collect_on_comm.c
+mpicc -cc=icc -DMPI2_SUPPORT -DFSEEKO64_OK  -c -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0 -DIWORDSIZE=4 pack_utils.c
+rm -f module_wrf_error.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_wrf_error.F  > module_wrf_error.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_wrf_error.bb | /lib/cpp -P -traditional > module_wrf_error.f90
+rm -f module_wrf_error.b module_wrf_error.bb
+time mpif90 -f90=ifort -o module_wrf_error.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_wrf_error.f90
+
+real	0m0.138s
+user	0m0.084s
+sys	0m0.024s
+rm -f module_sm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sm.F  > module_sm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sm.bb | /lib/cpp -P -traditional > module_sm.f90
+rm -f module_sm.b module_sm.bb
+time mpif90 -f90=ifort -o module_sm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sm.f90
+
+real	0m0.067s
+user	0m0.016s
+sys	0m0.023s
+rm -f wrf_debug.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   wrf_debug.F  > wrf_debug.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe wrf_debug.bb | /lib/cpp -P -traditional > wrf_debug.f90
+rm -f wrf_debug.b wrf_debug.bb
+time mpif90 -f90=ifort -o wrf_debug.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  wrf_debug.f90
+
+real	0m0.072s
+user	0m0.018s
+sys	0m0.022s
+Registry INFO variable counts: 0d 2307 1d 120 2d 1174 3d 1172
+WARNING: e_alk1 is not a member of 4D array emis_ant
+WARNING: e_alk2 is not a member of 4D array emis_ant
+WARNING: e_rcooh is not a member of 4D array emis_ant
+REGISTRY WARNING: o3rad: o3rad_b is not a variable or number; ignoring it
+REGISTRY WARNING: o3rad: o3rad_bt is not a variable or number; ignoring it
+REGISTRY WARNING: aerod(grid%sm31,grid%sm32,grid%sm33,itrace): aerod_b is not a variable or number; ignoring it
+REGISTRY WARNING: aerod(grid%sm31,grid%sm32,grid%sm33,itrace): aerod_bt is not a variable or number; ignoring it
+REGISTRY WARNING: om_tmp: om_tmp_b is not a variable or number; ignoring it
+REGISTRY WARNING: om_tmp: om_tmp_bt is not a variable or number; ignoring it
+REGISTRY WARNING: om_s: om_s_b is not a variable or number; ignoring it
+REGISTRY WARNING: om_s: om_s_bt is not a variable or number; ignoring it
+REGISTRY WARNING: om_u: om_u_b is not a variable or number; ignoring it
+REGISTRY WARNING: om_u: om_u_bt is not a variable or number; ignoring it
+REGISTRY WARNING: om_v: om_v_b is not a variable or number; ignoring it
+REGISTRY WARNING: om_v: om_v_bt is not a variable or number; ignoring it
+REGISTRY WARNING: om_ml: om_ml_b is not a variable or number; ignoring it
+REGISTRY WARNING: om_ml: om_ml_bt is not a variable or number; ignoring it
+REGISTRY WARNING: ru_tendf_stoch: ru_tendf_stoch_b is not a variable or number; ignoring it
+REGISTRY WARNING: ru_tendf_stoch: ru_tendf_stoch_bt is not a variable or number; ignoring it
+REGISTRY WARNING: rv_tendf_stoch: rv_tendf_stoch_b is not a variable or number; ignoring it
+REGISTRY WARNING: rv_tendf_stoch: rv_tendf_stoch_bt is not a variable or number; ignoring it
+REGISTRY WARNING: rt_tendf_stoch: rt_tendf_stoch_b is not a variable or number; ignoring it
+REGISTRY WARNING: rt_tendf_stoch: rt_tendf_stoch_bt is not a variable or number; ignoring it
+REGISTRY WARNING: rand_pert: rand_pert_b is not a variable or number; ignoring it
+REGISTRY WARNING: rand_pert: rand_pert_bt is not a variable or number; ignoring it
+REGISTRY WARNING: rstoch: rstoch_b is not a variable or number; ignoring it
+REGISTRY WARNING: rstoch: rstoch_bt is not a variable or number; ignoring it
+REGISTRY WARNING: field_u_tend_perturb: field_u_tend_perturb_b is not a variable or number; ignoring it
+REGISTRY WARNING: field_u_tend_perturb: field_u_tend_perturb_bt is not a variable or number; ignoring it
+REGISTRY WARNING: field_v_tend_perturb: field_v_tend_perturb_b is not a variable or number; ignoring it
+REGISTRY WARNING: field_v_tend_perturb: field_v_tend_perturb_bt is not a variable or number; ignoring it
+REGISTRY WARNING: field_t_tend_perturb: field_t_tend_perturb_b is not a variable or number; ignoring it
+REGISTRY WARNING: field_t_tend_perturb: field_t_tend_perturb_bt is not a variable or number; ignoring it
+ADVISORY: RSL_LITE version of gen_comms is linked in with registry program.
+rm -f module_state_description.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_state_description.F  > module_state_description.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_state_description.bb | /lib/cpp -P -traditional > module_state_description.f90
+rm -f module_state_description.b module_state_description.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_state_description.f90
+
+real	0m1.112s
+user	0m1.031s
+sys	0m0.048s
+rm -f module_driver_constants.o
+rm -f module_streams.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_streams.F  > module_streams.bb
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_driver_constants.F  > module_driver_constants.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_streams.bb | /lib/cpp -P -traditional > module_streams.f90
+rm -f module_streams.b module_streams.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_driver_constants.bb | /lib/cpp -P -traditional > module_driver_constants.f90
+time mpif90 -f90=ifort -o module_streams.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_streams.f90
+rm -f module_driver_constants.b module_driver_constants.bb
+time mpif90 -f90=ifort -o module_driver_constants.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_driver_constants.f90
+
+real	0m0.096s
+user	0m0.019s
+sys	0m0.042s
+rm -f module_timing.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_timing.F  > module_timing.bb
+
+real	0m0.093s
+user	0m0.018s
+sys	0m0.042s
+rm -f module_domain_type.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_domain_type.F  > module_domain_type.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_timing.bb | /lib/cpp -P -traditional > module_timing.f90
+rm -f module_timing.b module_timing.bb
+time mpif90 -f90=ifort -o module_timing.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_timing.f90
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_domain_type.bb | /lib/cpp -P -traditional > module_domain_type.f90
+rm -f module_domain_type.b module_domain_type.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_domain_type.f90
+
+real	0m0.088s
+user	0m0.035s
+sys	0m0.029s
+rm -f module_machine.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_machine.F  > module_machine.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_machine.bb | /lib/cpp -P -traditional > module_machine.f90
+rm -f module_machine.b module_machine.bb
+time mpif90 -f90=ifort -o module_machine.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_machine.f90
+
+real	0m0.106s
+user	0m0.055s
+sys	0m0.019s
+rm -f module_quilt_outbuf_ops.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_quilt_outbuf_ops.F  > module_quilt_outbuf_ops.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_quilt_outbuf_ops.bb | /lib/cpp -P -traditional > module_quilt_outbuf_ops.f90
+rm -f module_quilt_outbuf_ops.b module_quilt_outbuf_ops.bb
+time mpif90 -f90=ifort -o module_quilt_outbuf_ops.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_quilt_outbuf_ops.f90
+
+real	0m0.544s
+user	0m0.472s
+sys	0m0.045s
+rm -f module_configure.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_configure.F  > module_configure.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_configure.bb | /lib/cpp -P -traditional > module_configure.f90
+rm -f module_configure.b module_configure.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_configure.f90
+
+real	0m0.898s
+user	0m0.825s
+sys	0m0.033s
+
+real	1m13.297s
+user	1m12.142s
+sys	0m1.061s
+rm -f module_alloc_space_0.o
+rm -f module_alloc_space_1.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_alloc_space_0.F  > module_alloc_space_0.bb
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_alloc_space_1.F  > module_alloc_space_1.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_alloc_space_0.bb | /lib/cpp -P -traditional > module_alloc_space_0.f90
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_alloc_space_1.bb | /lib/cpp -P -traditional > module_alloc_space_1.f90
+rm -f module_alloc_space_0.b module_alloc_space_0.bb
+rm -f module_alloc_space_1.b module_alloc_space_1.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_alloc_space_0.f90
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_alloc_space_1.f90
+
+real	0m5.279s
+user	0m4.952s
+sys	0m0.291s
+rm -f module_alloc_space_2.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_alloc_space_2.F  > module_alloc_space_2.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_alloc_space_2.bb | /lib/cpp -P -traditional > module_alloc_space_2.f90
+rm -f module_alloc_space_2.b module_alloc_space_2.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_alloc_space_2.f90
+
+real	0m5.994s
+user	0m5.650s
+sys	0m0.308s
+rm -f module_alloc_space_3.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_alloc_space_3.F  > module_alloc_space_3.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_alloc_space_3.bb | /lib/cpp -P -traditional > module_alloc_space_3.f90
+rm -f module_alloc_space_3.b module_alloc_space_3.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_alloc_space_3.f90
+
+real	0m0.732s
+user	0m0.612s
+sys	0m0.086s
+rm -f module_alloc_space_4.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_alloc_space_4.F  > module_alloc_space_4.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_alloc_space_4.bb | /lib/cpp -P -traditional > module_alloc_space_4.f90
+rm -f module_alloc_space_4.b module_alloc_space_4.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_alloc_space_4.f90
+
+real	0m1.763s
+user	0m1.606s
+sys	0m0.123s
+rm -f module_alloc_space_5.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_alloc_space_5.F  > module_alloc_space_5.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_alloc_space_5.bb | /lib/cpp -P -traditional > module_alloc_space_5.f90
+rm -f module_alloc_space_5.b module_alloc_space_5.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_alloc_space_5.f90
+
+real	0m0.372s
+user	0m0.301s
+sys	0m0.038s
+rm -f module_alloc_space_6.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_alloc_space_6.F  > module_alloc_space_6.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_alloc_space_6.bb | /lib/cpp -P -traditional > module_alloc_space_6.f90
+rm -f module_alloc_space_6.b module_alloc_space_6.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_alloc_space_6.f90
+
+real	0m3.165s
+user	0m2.983s
+sys	0m0.148s
+rm -f module_alloc_space_7.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_alloc_space_7.F  > module_alloc_space_7.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_alloc_space_7.bb | /lib/cpp -P -traditional > module_alloc_space_7.f90
+rm -f module_alloc_space_7.b module_alloc_space_7.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_alloc_space_7.f90
+
+real	0m4.704s
+user	0m4.468s
+sys	0m0.199s
+rm -f module_alloc_space_8.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_alloc_space_8.F  > module_alloc_space_8.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_alloc_space_8.bb | /lib/cpp -P -traditional > module_alloc_space_8.f90
+rm -f module_alloc_space_8.b module_alloc_space_8.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_alloc_space_8.f90
+
+real	0m0.365s
+user	0m0.258s
+sys	0m0.074s
+rm -f module_alloc_space_9.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_alloc_space_9.F  > module_alloc_space_9.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_alloc_space_9.bb | /lib/cpp -P -traditional > module_alloc_space_9.f90
+rm -f module_alloc_space_9.b module_alloc_space_9.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_alloc_space_9.f90
+
+real	0m0.345s
+user	0m0.260s
+sys	0m0.050s
+/lib/cpp -P -DNNN=0 -I../inc -DNL_get_ROUTINES nl_access_routines.F > yy0.f90
+time mpif90 -f90=ifort -o nl_get_0_routines.o -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   yy0.f90
+
+real	0m5.905s
+user	0m5.620s
+sys	0m0.247s
+/lib/cpp -P -DNNN=1 -I../inc -DNL_get_ROUTINES nl_access_routines.F > yy1.f90
+time mpif90 -f90=ifort -o nl_get_1_routines.o -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   yy1.f90
+
+real	0m6.328s
+user	0m5.116s
+sys	0m1.172s
+rm -f yy0.f90
+/lib/cpp -P -DNNN=2 -I../inc -DNL_get_ROUTINES nl_access_routines.F > yy2.f90
+time mpif90 -f90=ifort -o nl_get_2_routines.o -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   yy2.f90
+
+real	0m6.218s
+user	0m5.165s
+sys	0m1.010s
+rm -f yy1.f90
+/lib/cpp -P -DNNN=3 -I../inc -DNL_get_ROUTINES nl_access_routines.F > yy3.f90
+time mpif90 -f90=ifort -o nl_get_3_routines.o -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   yy3.f90
+
+real	0m7.136s
+user	0m6.075s
+sys	0m1.022s
+rm -f yy2.f90
+/lib/cpp -P -DNNN=4 -I../inc -DNL_get_ROUTINES nl_access_routines.F > yy4.f90
+time mpif90 -f90=ifort -o nl_get_4_routines.o -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   yy4.f90
+
+real	0m6.874s
+user	0m5.778s
+sys	0m1.052s
+rm -f yy3.f90
+/lib/cpp -P -DNNN=5 -I../inc -DNL_get_ROUTINES nl_access_routines.F > yy5.f90
+time mpif90 -f90=ifort -o nl_get_5_routines.o -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   yy5.f90
+
+real	0m7.247s
+user	0m6.030s
+sys	0m1.134s
+rm -f yy4.f90
+/lib/cpp -P -DNNN=6 -I../inc -DNL_get_ROUTINES nl_access_routines.F > yy6.f90
+time mpif90 -f90=ifort -o nl_get_6_routines.o -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   yy6.f90
+
+real	0m6.783s
+user	0m5.686s
+sys	0m1.055s
+rm -f yy5.f90
+/lib/cpp -P -DNNN=7 -I../inc -DNL_get_ROUTINES nl_access_routines.F > yy7.f90
+time mpif90 -f90=ifort -o nl_get_7_routines.o -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   yy7.f90
+
+real	0m6.293s
+user	0m5.080s
+sys	0m1.117s
+rm -f yy6.f90
+/lib/cpp -P -DNNN=0 -I../inc -DNL_set_ROUTINES nl_access_routines.F > xx0.f90
+time mpif90 -f90=ifort -o nl_set_0_routines.o -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   xx0.f90
+
+real	0m5.467s
+user	0m4.459s
+sys	0m0.970s
+rm -f yy7.f90
+/lib/cpp -P -DNNN=1 -I../inc -DNL_set_ROUTINES nl_access_routines.F > xx1.f90
+time mpif90 -f90=ifort -o nl_set_1_routines.o -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   xx1.f90
+
+real	0m5.778s
+user	0m4.694s
+sys	0m1.044s
+rm -f xx0.f90
+/lib/cpp -P -DNNN=2 -I../inc -DNL_set_ROUTINES nl_access_routines.F > xx2.f90
+time mpif90 -f90=ifort -o nl_set_2_routines.o -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   xx2.f90
+
+real	0m6.164s
+user	0m5.047s
+sys	0m1.071s
+rm -f xx1.f90
+/lib/cpp -P -DNNN=3 -I../inc -DNL_set_ROUTINES nl_access_routines.F > xx3.f90
+time mpif90 -f90=ifort -o nl_set_3_routines.o -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   xx3.f90
+
+real	0m6.251s
+user	0m5.122s
+sys	0m1.089s
+rm -f xx2.f90
+/lib/cpp -P -DNNN=4 -I../inc -DNL_set_ROUTINES nl_access_routines.F > xx4.f90
+time mpif90 -f90=ifort -o nl_set_4_routines.o -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   xx4.f90
+
+real	0m6.893s
+user	0m5.660s
+sys	0m1.193s
+rm -f xx3.f90
+/lib/cpp -P -DNNN=5 -I../inc -DNL_set_ROUTINES nl_access_routines.F > xx5.f90
+time mpif90 -f90=ifort -o nl_set_5_routines.o -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   xx5.f90
+
+real	0m6.517s
+user	0m5.392s
+sys	0m1.083s
+rm -f xx4.f90
+/lib/cpp -P -DNNN=6 -I../inc -DNL_set_ROUTINES nl_access_routines.F > xx6.f90
+time mpif90 -f90=ifort -o nl_set_6_routines.o -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   xx6.f90
+
+real	0m6.636s
+user	0m5.510s
+sys	0m1.084s
+rm -f xx5.f90
+/lib/cpp -P -DNNN=7 -I../inc -DNL_set_ROUTINES nl_access_routines.F > xx7.f90
+time mpif90 -f90=ifort -o nl_set_7_routines.o -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   xx7.f90
+
+real	0m5.893s
+user	0m4.798s
+sys	0m1.051s
+rm -f xx6.f90
+rm -f module_domain.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_domain.F  > module_domain.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_domain.bb | /lib/cpp -P -traditional > module_domain.f90
+rm -f module_domain.b module_domain.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_domain.f90
+
+real	0m6.224s
+user	0m5.141s
+sys	0m1.040s
+rm -f xx7.f90
+
+real	0m4.819s
+user	0m4.602s
+sys	0m0.179s
+rm -f module_nesting.o
+rm -f module_cpl_oasis3.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_nesting.F  > module_nesting.bb
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cpl_oasis3.F  > module_cpl_oasis3.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_nesting.bb | /lib/cpp -P -traditional > module_nesting.f90
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cpl_oasis3.bb | /lib/cpp -P -traditional > module_cpl_oasis3.f90
+rm -f module_nesting.b module_nesting.bb
+rm -f module_cpl_oasis3.b module_cpl_oasis3.bb
+time mpif90 -f90=ifort -o module_nesting.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_nesting.f90
+time mpif90 -f90=ifort -o module_cpl_oasis3.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cpl_oasis3.f90
+
+real	0m0.332s
+user	0m0.238s
+sys	0m0.070s
+rm -f module_tiles.o
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_tiles.F > module_tiles.b 
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_tiles.b  > module_tiles.f90
+rm -f module_tiles.b
+if fgrep -iq '!$OMP' module_tiles.f90 ; then \
+          if [ -n "" ] ; then echo COMPILING module_tiles.F WITH OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include    module_tiles.f90 ; \
+        else \
+          if [ -n "" ] ; then echo COMPILING module_tiles.F WITHOUT OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   module_tiles.f90 ; \
+        fi
+
+real	0m0.391s
+user	0m0.285s
+sys	0m0.080s
+rm -f module_comm_nesting_dm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_comm_nesting_dm.F  > module_comm_nesting_dm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_comm_nesting_dm.bb | /lib/cpp -P -traditional > module_comm_nesting_dm.f90
+rm -f module_comm_nesting_dm.b module_comm_nesting_dm.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_comm_nesting_dm.f90
+
+real	0m1.009s
+user	0m0.898s
+sys	0m0.080s
+rm -f module_comm_dm_0.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_comm_dm_0.F  > module_comm_dm_0.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_comm_dm_0.bb | /lib/cpp -P -traditional > module_comm_dm_0.f90
+rm -f module_comm_dm_0.b module_comm_dm_0.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_comm_dm_0.f90
+
+real	0m7.613s
+user	0m7.294s
+sys	0m0.280s
+rm -f module_comm_dm_1.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_comm_dm_1.F  > module_comm_dm_1.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_comm_dm_1.bb | /lib/cpp -P -traditional > module_comm_dm_1.f90
+rm -f module_comm_dm_1.b module_comm_dm_1.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_comm_dm_1.f90
+
+real	0m7.928s
+user	0m7.567s
+sys	0m0.323s
+rm -f module_comm_dm_2.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_comm_dm_2.F  > module_comm_dm_2.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_comm_dm_2.bb | /lib/cpp -P -traditional > module_comm_dm_2.f90
+rm -f module_comm_dm_2.b module_comm_dm_2.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_comm_dm_2.f90
+
+real	0m8.853s
+user	0m8.436s
+sys	0m0.375s
+rm -f module_comm_dm_3.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_comm_dm_3.F  > module_comm_dm_3.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_comm_dm_3.bb | /lib/cpp -P -traditional > module_comm_dm_3.f90
+rm -f module_comm_dm_3.b module_comm_dm_3.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_comm_dm_3.f90
+
+real	0m8.245s
+user	0m7.883s
+sys	0m0.320s
+rm -f module_comm_dm_4.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_comm_dm_4.F  > module_comm_dm_4.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_comm_dm_4.bb | /lib/cpp -P -traditional > module_comm_dm_4.f90
+rm -f module_comm_dm_4.b module_comm_dm_4.bb
+time mpif90 -f90=ifort -o module_comm_dm_4.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_comm_dm_4.f90
+
+real	0m6.450s
+user	0m6.105s
+sys	0m0.306s
+rm -f module_clear_halos.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_clear_halos.F  > module_clear_halos.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_clear_halos.bb | /lib/cpp -P -traditional > module_clear_halos.f90
+rm -f module_clear_halos.b module_clear_halos.bb
+time mpif90 -f90=ifort -o module_clear_halos.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_clear_halos.f90
+
+real	0m13.729s
+user	0m13.182s
+sys	0m0.502s
+rm -f module_cpl.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cpl.F  > module_cpl.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cpl.bb | /lib/cpp -P -traditional > module_cpl.f90
+rm -f module_cpl.b module_cpl.bb
+time mpif90 -f90=ifort -o module_cpl.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cpl.f90
+
+real	0m0.854s
+user	0m0.759s
+sys	0m0.063s
+rm -f module_comm_dm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_comm_dm.F  > module_comm_dm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_comm_dm.bb | /lib/cpp -P -traditional > module_comm_dm.f90
+rm -f module_comm_dm.b module_comm_dm.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_comm_dm.f90
+
+real	0m0.843s
+user	0m0.581s
+sys	0m0.230s
+rm -f module_integrate.o
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_integrate.F > module_integrate.b 
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_integrate.b  > module_integrate.f90
+rm -f module_integrate.b
+if fgrep -iq '!$OMP' module_integrate.f90 ; then \
+          if [ -n "" ] ; then echo COMPILING module_integrate.F WITH OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include    module_integrate.f90 ; \
+        else \
+          if [ -n "" ] ; then echo COMPILING module_integrate.F WITHOUT OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   module_integrate.f90 ; \
+        fi
+
+real	0m3.469s
+user	0m3.240s
+sys	0m0.194s
+rm -f module_dm.o
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_dm.F > module_dm.b 
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_dm.b  > module_dm.f90
+rm -f module_dm.b
+if fgrep -iq '!$OMP' module_dm.f90 ; then \
+          if [ -n "" ] ; then echo COMPILING module_dm.F WITH OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include    module_dm.f90 ; \
+        else \
+          if [ -n "" ] ; then echo COMPILING module_dm.F WITHOUT OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   module_dm.f90 ; \
+        fi
+
+real	0m15.394s
+user	0m15.201s
+sys	0m0.119s
+
+real	0m9.332s
+user	0m8.805s
+sys	0m0.485s
+rm -f module_io.o
+rm -f module_io_quilt.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_io_quilt.F  > module_io_quilt.bb
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_io.F  > module_io.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_io_quilt.bb | /lib/cpp -P -traditional > module_io_quilt.f90
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_io.bb | /lib/cpp -P -traditional > module_io.f90
+rm -f module_io_quilt.b module_io_quilt.bb
+time mpif90 -f90=ifort -o module_io_quilt.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_io_quilt.f90
+rm -f module_io.b module_io.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_io.f90
+
+real	0m1.388s
+user	0m1.247s
+sys	0m0.098s
+rm -f module_intermediate_nmm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_intermediate_nmm.F  > module_intermediate_nmm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_intermediate_nmm.bb | /lib/cpp -P -traditional > module_intermediate_nmm.f90
+rm -f module_intermediate_nmm.b module_intermediate_nmm.bb
+time mpif90 -f90=ifort -o module_intermediate_nmm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_intermediate_nmm.f90
+
+real	0m0.077s
+user	0m0.021s
+sys	0m0.027s
+
+real	0m3.164s
+user	0m2.902s
+sys	0m0.227s
+ar ru ../main/libwrflib.a module_driver_constants.o module_domain_type.o module_streams.o module_domain.o module_integrate.o module_timing.o module_configure.o module_tiles.o module_machine.o module_nesting.o module_wrf_error.o module_state_description.o module_sm.o module_io.o module_comm_dm.o module_comm_dm_0.o module_comm_dm_1.o module_comm_dm_2.o module_comm_dm_3.o module_comm_dm_4.o module_comm_nesting_dm.o module_dm.o module_quilt_outbuf_ops.o module_io_quilt.o module_intermediate_nmm.o module_cpl.o module_cpl_oasis3.o module_clear_halos.o wrf_num_bytes_between.o wrf_shutdown.o wrf_debug.o libmassv.o collect_on_comm.o hires_timer.o clog.o nl_get_0_routines.o nl_get_1_routines.o nl_get_2_routines.o nl_get_3_routines.o nl_get_4_routines.o nl_get_5_routines.o nl_get_6_routines.o nl_get_7_routines.o nl_set_0_routines.o nl_set_1_routines.o nl_set_2_routines.o nl_set_3_routines.o nl_set_4_routines.o nl_set_5_routines.o nl_set_6_routines.o nl_set_7_routines.o  module_alloc_space_0.o module_alloc_space_1.o module_alloc_space_2.o module_alloc_space_3.o module_alloc_space_4.o module_alloc_space_5.o module_alloc_space_6.o module_alloc_space_7.o module_alloc_space_8.o module_alloc_space_9.o
+ar: creating ../main/libwrflib.a
+ranlib ../main/libwrflib.a
+make[2]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame'
+make[2]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf'
+x=`echo "time mpif90 -f90=ifort -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian  " | awk '{print $1}'` ; export x ; \
+	if [ $x = "gfortran" ] ; then \
+           echo removing external declaration of iargc for gfortran ; \
+	   /lib/cpp -P -P -traditional -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include -I../ioapi_share diffwrf.F90 | sed '/integer *, *external.*iargc/d' > diffwrf.f ;\
+        else \
+	   /lib/cpp -P -P -traditional -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include -I../ioapi_share diffwrf.F90 > diffwrf.f ; \
+        fi
+time mpif90 -f90=ifort -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include -I../ioapi_share diffwrf.f
+0.33user 0.05system 0:00.42elapsed 92%CPU (0avgtext+0avgdata 47060maxresident)k
+0inputs+624outputs (0major+25623minor)pagefaults 0swaps
+diffwrf io_netcdf is being built now. 
+ld: warning: libnetcdf.so.11, needed by /home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/lib/libnetcdff.so, may conflict with libnetcdf.so.6
+
+real	0m0.200s
+user	0m0.080s
+sys	0m0.064s
+make[2]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf'
+make[2]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf'
+SKIPPING PIO BUILD make -i -r NETCDFPATH= FC=ifort -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   RANLIB=ranlib CPP=/lib/cpp -P LDFLAGS= -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -ip   TRADFLAG=-traditional ESMF_IO_LIB_EXT=-L/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90 -lesmf_time LIB_LOCAL= ESMF_MOD_DEPENDENCE=/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90/module_utility.o AR=INTERNAL_BUILD_ERROR_SHOULD_NOT_NEED_AR
+make[2]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int'
+if [ -f ../../frame/pack_utils.o -a -f ../../frame/clog.o ] ; then \
+	  ifort -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -ip   -I../ioapi_share -o diffwrf diffwrf.f \
+		../../frame/pack_utils.o ../../frame/module_internal_header_util.o ../../frame/module_driver_constants.o ../../frame/module_machine.o ../../frame/module_wrf_error.o ../../frame/wrf_debug.o -L/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90 -lesmf_time libwrfio_int.a ; \
+	fi
+make[2]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int'
+make[1]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3'
+make -i -r MODULE_DIRS="-I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include " shared
+make[1]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3'
+--------------------------------------
+if [ "`echo -j 2 | sed -e 's/-j//g' -e 's/ \+//g'`" -gt "6" ] ; then \
+	  ( cd share ; make -i -r -j 6 ) ;  \
+	else \
+	  ( cd share ; make -i -r -j 2 ) ;  \
+	fi
+make[2]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share'
+rm -f module_bc_time_utilities.o
+rm -f module_get_file_names.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bc_time_utilities.F  > module_bc_time_utilities.bb
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_get_file_names.F  > module_get_file_names.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bc_time_utilities.bb | /lib/cpp -P -traditional > module_bc_time_utilities.f90
+rm -f module_bc_time_utilities.b module_bc_time_utilities.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_get_file_names.bb | /lib/cpp -P -traditional > module_get_file_names.f90
+time mpif90 -f90=ifort -o module_bc_time_utilities.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bc_time_utilities.f90
+rm -f module_get_file_names.b module_get_file_names.bb
+time mpif90 -f90=ifort -o module_get_file_names.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_get_file_names.f90
+
+real	0m0.094s
+user	0m0.039s
+sys	0m0.035s
+rm -f module_compute_geop.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_compute_geop.F  > module_compute_geop.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_compute_geop.bb | /lib/cpp -P -traditional > module_compute_geop.f90
+rm -f module_compute_geop.b module_compute_geop.bb
+
+real	0m0.106s
+user	0m0.047s
+sys	0m0.035s
+rm -f module_check_a_mundo.o
+time mpif90 -f90=ifort -o module_compute_geop.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_compute_geop.f90
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_check_a_mundo.F  > module_check_a_mundo.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_check_a_mundo.bb | /lib/cpp -P -traditional > module_check_a_mundo.f90
+rm -f module_check_a_mundo.b module_check_a_mundo.bb
+time mpif90 -f90=ifort -o module_check_a_mundo.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_check_a_mundo.f90
+
+real	0m0.117s
+user	0m0.055s
+sys	0m0.037s
+rm -f bobrand.o
+mpicc -cc=icc -DMPI2_SUPPORT -DFSEEKO64_OK  -o bobrand.o -c -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0 bobrand.c
+rm -f module_llxy.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_llxy.F  > module_llxy.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_llxy.bb | /lib/cpp -P -traditional > module_llxy.f90
+rm -f module_llxy.b module_llxy.bb
+time mpif90 -f90=ifort -o module_llxy.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_llxy.f90
+
+real	0m1.076s
+user	0m1.001s
+sys	0m0.047s
+rm -f module_interp_store.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_interp_store.F  > module_interp_store.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_interp_store.bb | /lib/cpp -P -traditional > module_interp_store.f90
+rm -f module_interp_store.b module_interp_store.bb
+time mpif90 -f90=ifort -o module_interp_store.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_interp_store.f90
+
+real	0m0.257s
+user	0m0.199s
+sys	0m0.027s
+rm -f module_MPP.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_MPP.F  > module_MPP.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_MPP.bb | /lib/cpp -P -traditional > module_MPP.f90
+rm -f module_MPP.b module_MPP.bb
+time mpif90 -f90=ifort -o module_MPP.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_MPP.f90
+
+real	0m0.069s
+user	0m0.017s
+sys	0m0.020s
+rm -f solve_interface.o
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe solve_interface.F > solve_interface.b 
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   solve_interface.b  > solve_interface.f90
+rm -f solve_interface.b
+if fgrep -iq '!$OMP' solve_interface.f90 ; then \
+          if [ -n "" ] ; then echo COMPILING solve_interface.F WITH OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include    solve_interface.f90 ; \
+        else \
+          if [ -n "" ] ; then echo COMPILING solve_interface.F WITHOUT OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   solve_interface.f90 ; \
+        fi
+
+real	0m0.795s
+user	0m0.723s
+sys	0m0.029s
+rm -f mediation_interp_domain.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   mediation_interp_domain.F  > mediation_interp_domain.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe mediation_interp_domain.bb | /lib/cpp -P -traditional > mediation_interp_domain.f90
+rm -f mediation_interp_domain.b mediation_interp_domain.bb
+time mpif90 -f90=ifort -o mediation_interp_domain.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  mediation_interp_domain.f90
+
+real	0m0.697s
+user	0m0.611s
+sys	0m0.051s
+rm -f mediation_force_domain.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   mediation_force_domain.F  > mediation_force_domain.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe mediation_force_domain.bb | /lib/cpp -P -traditional > mediation_force_domain.f90
+rm -f mediation_force_domain.b mediation_force_domain.bb
+time mpif90 -f90=ifort -o mediation_force_domain.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  mediation_force_domain.f90
+
+real	0m2.002s
+user	0m1.876s
+sys	0m0.093s
+rm -f mediation_feedback_domain.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   mediation_feedback_domain.F  > mediation_feedback_domain.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe mediation_feedback_domain.bb | /lib/cpp -P -traditional > mediation_feedback_domain.f90
+rm -f mediation_feedback_domain.b mediation_feedback_domain.bb
+time mpif90 -f90=ifort -o mediation_feedback_domain.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  mediation_feedback_domain.f90
+
+real	0m2.260s
+user	0m2.152s
+sys	0m0.075s
+rm -f module_date_time.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_date_time.F  > module_date_time.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_date_time.bb | /lib/cpp -P -traditional > module_date_time.f90
+rm -f module_date_time.b module_date_time.bb
+time mpif90 -f90=ifort -o module_date_time.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_date_time.f90
+
+real	0m0.399s
+user	0m0.286s
+sys	0m0.078s
+rm -f module_bc.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bc.F  > module_bc.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bc.bb | /lib/cpp -P -traditional > module_bc.f90
+rm -f module_bc.b module_bc.bb
+time mpif90 -f90=ifort -o module_bc.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bc.f90
+
+real	0m2.102s
+user	0m1.984s
+sys	0m0.082s
+rm -f module_io_wrf.o
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_io_wrf.F > module_io_wrf.b 
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_io_wrf.b  > module_io_wrf.f90
+rm -f module_io_wrf.b
+if fgrep -iq '!$OMP' module_io_wrf.f90 ; then \
+          if [ -n "" ] ; then echo COMPILING module_io_wrf.F WITH OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include    module_io_wrf.f90 ; \
+        else \
+          if [ -n "" ] ; then echo COMPILING module_io_wrf.F WITHOUT OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   module_io_wrf.f90 ; \
+        fi
+
+real	0m0.101s
+user	0m0.030s
+sys	0m0.039s
+rm -f module_soil_pre.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_soil_pre.F  > module_soil_pre.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_soil_pre.bb | /lib/cpp -P -traditional > module_soil_pre.f90
+rm -f module_soil_pre.b module_soil_pre.bb
+time mpif90 -f90=ifort -o module_soil_pre.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_soil_pre.f90
+
+real	0m3.058s
+user	0m2.968s
+sys	0m0.057s
+rm -f wrf_tsin.o
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe wrf_tsin.F > wrf_tsin.b 
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   wrf_tsin.b  > wrf_tsin.f90
+rm -f wrf_tsin.b
+if fgrep -iq '!$OMP' wrf_tsin.f90 ; then \
+          if [ -n "" ] ; then echo COMPILING wrf_tsin.F WITH OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include    wrf_tsin.f90 ; \
+        else \
+          if [ -n "" ] ; then echo COMPILING wrf_tsin.F WITHOUT OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   wrf_tsin.f90 ; \
+        fi
+
+real	0m0.346s
+user	0m0.248s
+sys	0m0.066s
+rm -f track_input.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   track_input.F  > track_input.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe track_input.bb | /lib/cpp -P -traditional > track_input.f90
+rm -f track_input.b track_input.bb
+time mpif90 -f90=ifort -o track_input.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  track_input.f90
+
+real	0m0.389s
+user	0m0.315s
+sys	0m0.043s
+rm -f set_timekeeping.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   set_timekeeping.F  > set_timekeeping.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe set_timekeeping.bb | /lib/cpp -P -traditional > set_timekeeping.f90
+rm -f set_timekeeping.b set_timekeeping.bb
+time mpif90 -f90=ifort -o set_timekeeping.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  set_timekeeping.f90
+
+real	0m6.255s
+user	0m6.147s
+sys	0m0.071s
+rm -f sint.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   sint.F  > sint.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe sint.bb | /lib/cpp -P -traditional > sint.f90
+rm -f sint.b sint.bb
+time mpif90 -f90=ifort -o sint.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  sint.f90
+
+real	0m1.109s
+user	0m1.032s
+sys	0m0.044s
+rm -f wrf_ext_write_field.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   wrf_ext_write_field.F  > wrf_ext_write_field.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe wrf_ext_write_field.bb | /lib/cpp -P -traditional > wrf_ext_write_field.f90
+rm -f wrf_ext_write_field.b wrf_ext_write_field.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  wrf_ext_write_field.f90
+
+real	0m2.612s
+user	0m2.509s
+sys	0m0.069s
+rm -f wrf_ext_read_field.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   wrf_ext_read_field.F  > wrf_ext_read_field.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe wrf_ext_read_field.bb | /lib/cpp -P -traditional > wrf_ext_read_field.f90
+rm -f wrf_ext_read_field.b wrf_ext_read_field.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  wrf_ext_read_field.f90
+
+real	0m0.342s
+user	0m0.265s
+sys	0m0.043s
+rm -f module_io_domain.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_io_domain.F  > module_io_domain.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_io_domain.bb | /lib/cpp -P -traditional > module_io_domain.f90
+rm -f module_io_domain.b module_io_domain.bb
+time mpif90 -f90=ifort -o module_io_domain.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_io_domain.f90
+
+real	0m0.332s
+user	0m0.254s
+sys	0m0.046s
+rm -f landread.o
+mpicc -cc=icc -DMPI2_SUPPORT -DFSEEKO64_OK  -o landread.o -c -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0 landread.c
+rm -f wrf_fddaobs_in.o
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe wrf_fddaobs_in.F > wrf_fddaobs_in.b 
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   wrf_fddaobs_in.b  > wrf_fddaobs_in.f90
+rm -f wrf_fddaobs_in.b
+if fgrep -iq '!$OMP' wrf_fddaobs_in.f90 ; then \
+          if [ -n "" ] ; then echo COMPILING wrf_fddaobs_in.F WITH OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include    wrf_fddaobs_in.f90 ; \
+        else \
+          if [ -n "" ] ; then echo COMPILING wrf_fddaobs_in.F WITHOUT OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   wrf_fddaobs_in.f90 ; \
+        fi
+
+real	0m0.451s
+user	0m0.365s
+sys	0m0.054s
+rm -f setfeenv.o
+icc -o setfeenv.o -c -w -O3 -ip  -DDM_PARALLEL -DMAX_HISTORY=25 -DNMM_CORE=0  setfeenv.c
+rm -f input_wrf.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   input_wrf.F  > input_wrf.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe input_wrf.bb | /lib/cpp -P -traditional > input_wrf.f90
+rm -f input_wrf.b input_wrf.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  input_wrf.f90
+
+real	0m1.325s
+user	0m1.216s
+sys	0m0.072s
+rm -f output_wrf.o
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe output_wrf.F > output_wrf.b 
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   output_wrf.b  > output_wrf.f90
+rm -f output_wrf.b
+if fgrep -iq '!$OMP' output_wrf.f90 ; then \
+          if [ -n "" ] ; then echo COMPILING output_wrf.F WITH OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include    output_wrf.f90 ; \
+        else \
+          if [ -n "" ] ; then echo COMPILING output_wrf.F WITHOUT OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   output_wrf.f90 ; \
+        fi
+
+real	0m0.489s
+user	0m0.415s
+sys	0m0.043s
+rm -f wrf_bdyout.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   wrf_bdyout.F  > wrf_bdyout.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe wrf_bdyout.bb | /lib/cpp -P -traditional > wrf_bdyout.f90
+rm -f wrf_bdyout.b wrf_bdyout.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  wrf_bdyout.f90
+
+real	0m0.655s
+user	0m0.514s
+sys	0m0.056s
+rm -f wrf_bdyin.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   wrf_bdyin.F  > wrf_bdyin.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe wrf_bdyin.bb | /lib/cpp -P -traditional > wrf_bdyin.f90
+rm -f wrf_bdyin.b wrf_bdyin.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  wrf_bdyin.f90
+
+real	0m0.710s
+user	0m0.627s
+sys	0m0.051s
+rm -f dfi.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   dfi.F  > dfi.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe dfi.bb | /lib/cpp -P -traditional > dfi.f90
+rm -f dfi.b dfi.bb
+time mpif90 -f90=ifort -o dfi.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  dfi.f90
+
+real	0m0.630s
+user	0m0.547s
+sys	0m0.052s
+rm -f mediation_integrate.o
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe mediation_integrate.F > mediation_integrate.b 
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   mediation_integrate.b  > mediation_integrate.f90
+rm -f mediation_integrate.b
+if fgrep -iq '!$OMP' mediation_integrate.f90 ; then \
+          if [ -n "" ] ; then echo COMPILING mediation_integrate.F WITH OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include    mediation_integrate.f90 ; \
+        else \
+          if [ -n "" ] ; then echo COMPILING mediation_integrate.F WITHOUT OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   mediation_integrate.f90 ; \
+        fi
+
+real	0m4.361s
+user	0m3.848s
+sys	0m0.476s
+rm -f mediation_wrfmain.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   mediation_wrfmain.F  > mediation_wrfmain.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe mediation_wrfmain.bb | /lib/cpp -P -traditional > mediation_wrfmain.f90
+rm -f mediation_wrfmain.b mediation_wrfmain.bb
+time mpif90 -f90=ifort -o mediation_wrfmain.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  mediation_wrfmain.f90
+
+real	0m2.930s
+user	0m2.793s
+sys	0m0.103s
+rm -f module_random.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_random.F  > module_random.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_random.bb | /lib/cpp -P -traditional > module_random.f90
+rm -f module_random.b module_random.bb
+time mpif90 -f90=ifort -o module_random.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_random.f90
+
+real	0m0.144s
+user	0m0.072s
+sys	0m0.042s
+rm -f module_interp_nmm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_interp_nmm.F  > module_interp_nmm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_interp_nmm.bb | /lib/cpp -P -traditional > module_interp_nmm.f90
+rm -f module_interp_nmm.b module_interp_nmm.bb
+time mpif90 -f90=ifort -o module_interp_nmm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_interp_nmm.f90
+
+real	0m3.284s
+user	0m3.183s
+sys	0m0.066s
+rm -f wrf_timeseries.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   wrf_timeseries.F  > wrf_timeseries.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe wrf_timeseries.bb | /lib/cpp -P -traditional > wrf_timeseries.f90
+rm -f wrf_timeseries.b wrf_timeseries.bb
+time mpif90 -f90=ifort -o wrf_timeseries.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  wrf_timeseries.f90
+
+real	0m14.069s
+user	0m12.989s
+sys	0m1.021s
+rm -f track_driver.o
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe track_driver.F > track_driver.b 
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   track_driver.b  > track_driver.f90
+rm -f track_driver.b
+if fgrep -iq '!$OMP' track_driver.f90 ; then \
+          if [ -n "" ] ; then echo COMPILING track_driver.F WITH OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include    track_driver.f90 ; \
+        else \
+          if [ -n "" ] ; then echo COMPILING track_driver.F WITHOUT OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   track_driver.f90 ; \
+        fi
+
+real	0m0.807s
+user	0m0.715s
+sys	0m0.058s
+rm -f init_modules.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   init_modules.F  > init_modules.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe init_modules.bb | /lib/cpp -P -traditional > init_modules.f90
+rm -f init_modules.b init_modules.bb
+time mpif90 -f90=ifort -o init_modules.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  init_modules.f90
+
+real	0m0.148s
+user	0m0.070s
+sys	0m0.046s
+rm -f interp_fcn.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   interp_fcn.F  > interp_fcn.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe interp_fcn.bb | /lib/cpp -P -traditional > interp_fcn.f90
+rm -f interp_fcn.b interp_fcn.bb
+time mpif90 -f90=ifort -o interp_fcn.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  interp_fcn.f90
+
+real	0m5.527s
+user	0m5.355s
+sys	0m0.134s
+rm -f mediation_nest_move.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   mediation_nest_move.F  > mediation_nest_move.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe mediation_nest_move.bb | /lib/cpp -P -traditional > mediation_nest_move.f90
+rm -f mediation_nest_move.b mediation_nest_move.bb
+time mpif90 -f90=ifort -o mediation_nest_move.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  mediation_nest_move.f90
+
+real	0m0.434s
+user	0m0.325s
+sys	0m0.078s
+rm -f module_optional_input.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_optional_input.F  > module_optional_input.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_optional_input.bb | /lib/cpp -P -traditional > module_optional_input.f90
+rm -f module_optional_input.b module_optional_input.bb
+time mpif90 -f90=ifort -o module_optional_input.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_optional_input.f90
+
+real	0m3.209s
+user	0m3.077s
+sys	0m0.094s
+rm -f start_domain.o
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe start_domain.F > start_domain.b 
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   start_domain.b  > start_domain.f90
+rm -f start_domain.b
+if fgrep -iq '!$OMP' start_domain.f90 ; then \
+          if [ -n "" ] ; then echo COMPILING start_domain.F WITH OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include    start_domain.f90 ; \
+        else \
+          if [ -n "" ] ; then echo COMPILING start_domain.F WITHOUT OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   start_domain.f90 ; \
+        fi
+
+real	0m1.212s
+user	0m1.074s
+sys	0m0.102s
+
+real	0m8.553s
+user	0m8.190s
+sys	0m0.321s
+if [ 0 -eq 1 ] ; then \
+                  make -i -r nmm_contrib                                      ; \
+                  ar ru ../main/libwrflib.a module_model_constants.o module_bc_time_utilities.o module_get_file_names.o module_compute_geop.o module_check_a_mundo.o module_random.o module_llxy.o module_interp_nmm.o module_interp_store.o module_MPP.o  module_date_time.o module_bc.o module_io_wrf.o module_soil_pre.o  module_io_domain.o               module_optional_input.o          solve_interface.o mediation_interp_domain.o mediation_force_domain.o mediation_feedback_domain.o start_domain.o init_modules.o set_timekeeping.o interp_fcn.o sint.o wrf_ext_write_field.o wrf_ext_read_field.o  wrf_tsin.o landread.o track_driver.o track_input.o bobrand.o wrf_timeseries.o track_driver.o wrf_fddaobs_in.o mediation_nest_move.o setfeenv.o input_wrf.o output_wrf.o wrf_bdyout.o wrf_bdyin.o dfi.o mediation_integrate.o mediation_wrfmain.o    ; \
+                  else                                                         \
+                  ar ru ../main/libwrflib.a module_model_constants.o module_bc_time_utilities.o module_get_file_names.o module_compute_geop.o module_check_a_mundo.o module_random.o module_llxy.o module_interp_nmm.o module_interp_store.o module_MPP.o  module_date_time.o module_bc.o module_io_wrf.o module_soil_pre.o  module_io_domain.o               module_optional_input.o          solve_interface.o mediation_interp_domain.o mediation_force_domain.o mediation_feedback_domain.o start_domain.o init_modules.o set_timekeeping.o interp_fcn.o sint.o wrf_ext_write_field.o wrf_ext_read_field.o  wrf_tsin.o landread.o track_driver.o track_input.o bobrand.o wrf_timeseries.o track_driver.o wrf_fddaobs_in.o mediation_nest_move.o setfeenv.o input_wrf.o output_wrf.o wrf_bdyout.o wrf_bdyin.o dfi.o mediation_integrate.o mediation_wrfmain.o              ; \
+                fi
+make[2]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share'
+make[1]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3'
+make -i -r MODULE_DIRS="-I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include " physics
+make[1]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3'
+--------------------------------------
+if [ 1  -eq 0 ] ; then \
+		( cd phys ; make -i -r CF2=" " ) ; \
+	else \
+		( cd phys ; make -i -r CF2="../chem/module_data_mosaic_asect.o" ) ; \
+	fi
+make[2]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys'
+if [ 0 -eq 1 ] ; then \
+                  make -i -r -j 2 nmm_contrib  ; \
+                  ar ru ../main/libwrflib.a module_cam_shr_kind_mod.o module_cam_support.o module_cam_shr_const_mod.o module_cam_physconst.o module_cam_cldwat.o module_cam_wv_saturation.o module_cam_esinti.o module_cam_gffgch.o module_cam_error_function.o module_cam_constituents.o module_cam_trb_mtn_stress.o module_cam_molec_diff.o module_cam_upper_bc.o module_cam_bl_diffusion_solver.o module_cam_bl_eddy_diff.o module_cam_mp_microp_aero.o module_cam_mp_cldwat2m_micro.o module_cam_mp_ndrop.o module_cam_mp_modal_aero_initialize_data_phys.o module_cam_mp_radconstants.o module_cam_mp_conv_water.o module_cam_mp_qneg3.o module_data_cam_mam_aero.o module_data_cam_mam_asect.o module_cam_infnan.o module_bl_ysu.o module_bl_shinhong.o module_bl_mrf.o module_bl_gfs.o module_bl_gfs2011.o module_bl_myjpbl.o module_bl_qnsepbl.o module_bl_acm.o module_bl_mynn.o module_bl_fogdes.o module_bl_gwdo.o module_bl_myjurb.o module_bl_boulac.o module_bl_camuwpbl_driver.o module_bl_mfshconvpbl.o module_shcu_camuwshcu_driver.o module_shcu_camuwshcu.o module_shcu_grims.o module_cu_camzm_driver.o module_cu_camzm.o module_bl_temf.o module_bl_gbmpbl.o module_cu_g3.o module_cu_kf.o module_cu_bmj.o module_cu_kfeta.o module_cu_mskf.o module_cu_tiedtke.o module_cu_ntiedtke.o module_cu_gd.o module_cu_gf.o module_cu_nsas.o module_cu_sas.o module_cu_mesosas.o module_cu_osas.o module_cu_kfcup.o module_mp_radar.o module_mp_kessler.o module_mp_lin.o module_mp_sbu_ylin.o module_mp_wsm3.o module_mp_wsm5.o module_mp_wsm6.o module_mp_etanew.o module_mp_HWRF.o module_mp_thompson.o module_mp_full_sbm.o module_mp_fast_sbm.o module_ltng_lpi.o module_mp_gsfcgce.o module_mp_morr_two_moment.o module_mp_milbrandt2mom.o module_mp_nssl_2mom.o module_mp_wdm5.o module_mp_wdm6.o module_mp_cammgmp_driver.o module_ra_sw.o module_ra_clWRF_support.o module_ra_gsfcsw.o module_ra_goddard.o module_ra_rrtm.o module_ra_rrtmg_lw.o module_ra_rrtmg_sw.o module_ra_rrtmg_lwf.o module_ra_rrtmg_swf.o module_ra_cam_support.o module_ra_cam.o module_ra_gfdleta.o module_ra_flg.o module_ra_HWRF.o module_ra_hs.o module_ra_aerosol.o module_sf_sfclay.o module_sf_sfclayrev.o module_sf_gfs.o module_sf_gfdl.o module_sf_slab.o module_sf_noahdrv.o module_sf_noahlsm.o module_sf_clm.o module_sf_ssib.o module_sf_noah_seaice.o module_sf_noah_seaice_drv.o module_sf_noahlsm_glacial_only.o module_sf_noahmp_groundwater.o module_sf_noahmpdrv.o module_sf_noahmplsm.o module_sf_noahmp_glacier.o module_sf_urban.o module_sf_bep.o module_sf_bep_bem.o module_sf_bem.o module_sf_pxlsm.o module_sf_pxlsm_data.o module_sf_ruclsm.o module_sf_sfcdiags.o module_sf_sfcdiags_ruclsm.o module_sf_sstskin.o module_sf_tmnupdate.o module_sf_ocean_driver.o module_sf_oml.o module_sf_3dpwp.o module_sf_myjsfc.o module_sf_qnsesfc.o module_sf_mynn.o module_sf_fogdes.o module_sf_pxsfclay.o module_sf_temfsfclay.o module_sf_idealscmsfclay.o module_sf_scmflux.o module_sf_scmskintemp.o module_physics_addtendc.o module_physics_init.o module_gfs_machine.o module_gfs_funcphys.o module_gfs_physcons.o module_progtm.o module_pbl_driver.o module_data_gocart_dust.o module_cumulus_driver.o module_shallowcu_driver.o module_microphysics_driver.o module_microphysics_zero_out.o module_mixactivate.o module_radiation_driver.o module_surface_driver.o module_lightning_driver.o module_ltng_cpmpr92z.o module_ltng_crmpr92.o module_ltng_iccg.o module_fdda_psufddagd.o module_fdda_spnudging.o module_fddagd_driver.o module_fddaobs_rtfdda.o module_fddaobs_driver.o module_wind_fitch.o module_sf_lake.o module_diagnostics_driver.o  \
+                                     \
+                                   module_diag_refl.o ; \
+                else                                                         \
+                  make -i -r -j 2 non_nmm      ; \
+                  ar ru ../main/libwrflib.a module_cam_shr_kind_mod.o module_cam_support.o module_cam_shr_const_mod.o module_cam_physconst.o module_cam_cldwat.o module_cam_wv_saturation.o module_cam_esinti.o module_cam_gffgch.o module_cam_error_function.o module_cam_constituents.o module_cam_trb_mtn_stress.o module_cam_molec_diff.o module_cam_upper_bc.o module_cam_bl_diffusion_solver.o module_cam_bl_eddy_diff.o module_cam_mp_microp_aero.o module_cam_mp_cldwat2m_micro.o module_cam_mp_ndrop.o module_cam_mp_modal_aero_initialize_data_phys.o module_cam_mp_radconstants.o module_cam_mp_conv_water.o module_cam_mp_qneg3.o module_data_cam_mam_aero.o module_data_cam_mam_asect.o module_cam_infnan.o module_bl_ysu.o module_bl_shinhong.o module_bl_mrf.o module_bl_gfs.o module_bl_gfs2011.o module_bl_myjpbl.o module_bl_qnsepbl.o module_bl_acm.o module_bl_mynn.o module_bl_fogdes.o module_bl_gwdo.o module_bl_myjurb.o module_bl_boulac.o module_bl_camuwpbl_driver.o module_bl_mfshconvpbl.o module_shcu_camuwshcu_driver.o module_shcu_camuwshcu.o module_shcu_grims.o module_cu_camzm_driver.o module_cu_camzm.o module_bl_temf.o module_bl_gbmpbl.o module_cu_g3.o module_cu_kf.o module_cu_bmj.o module_cu_kfeta.o module_cu_mskf.o module_cu_tiedtke.o module_cu_ntiedtke.o module_cu_gd.o module_cu_gf.o module_cu_nsas.o module_cu_sas.o module_cu_mesosas.o module_cu_osas.o module_cu_kfcup.o module_mp_radar.o module_mp_kessler.o module_mp_lin.o module_mp_sbu_ylin.o module_mp_wsm3.o module_mp_wsm5.o module_mp_wsm6.o module_mp_etanew.o module_mp_HWRF.o module_mp_thompson.o module_mp_full_sbm.o module_mp_fast_sbm.o module_ltng_lpi.o module_mp_gsfcgce.o module_mp_morr_two_moment.o module_mp_milbrandt2mom.o module_mp_nssl_2mom.o module_mp_wdm5.o module_mp_wdm6.o module_mp_cammgmp_driver.o module_ra_sw.o module_ra_clWRF_support.o module_ra_gsfcsw.o module_ra_goddard.o module_ra_rrtm.o module_ra_rrtmg_lw.o module_ra_rrtmg_sw.o module_ra_rrtmg_lwf.o module_ra_rrtmg_swf.o module_ra_cam_support.o module_ra_cam.o module_ra_gfdleta.o module_ra_flg.o module_ra_HWRF.o module_ra_hs.o module_ra_aerosol.o module_sf_sfclay.o module_sf_sfclayrev.o module_sf_gfs.o module_sf_gfdl.o module_sf_slab.o module_sf_noahdrv.o module_sf_noahlsm.o module_sf_clm.o module_sf_ssib.o module_sf_noah_seaice.o module_sf_noah_seaice_drv.o module_sf_noahlsm_glacial_only.o module_sf_noahmp_groundwater.o module_sf_noahmpdrv.o module_sf_noahmplsm.o module_sf_noahmp_glacier.o module_sf_urban.o module_sf_bep.o module_sf_bep_bem.o module_sf_bem.o module_sf_pxlsm.o module_sf_pxlsm_data.o module_sf_ruclsm.o module_sf_sfcdiags.o module_sf_sfcdiags_ruclsm.o module_sf_sstskin.o module_sf_tmnupdate.o module_sf_ocean_driver.o module_sf_oml.o module_sf_3dpwp.o module_sf_myjsfc.o module_sf_qnsesfc.o module_sf_mynn.o module_sf_fogdes.o module_sf_pxsfclay.o module_sf_temfsfclay.o module_sf_idealscmsfclay.o module_sf_scmflux.o module_sf_scmskintemp.o module_physics_addtendc.o module_physics_init.o module_gfs_machine.o module_gfs_funcphys.o module_gfs_physcons.o module_progtm.o module_pbl_driver.o module_data_gocart_dust.o module_cumulus_driver.o module_shallowcu_driver.o module_microphysics_driver.o module_microphysics_zero_out.o module_mixactivate.o module_radiation_driver.o module_surface_driver.o module_lightning_driver.o module_ltng_cpmpr92z.o module_ltng_crmpr92.o module_ltng_iccg.o module_fdda_psufddagd.o module_fdda_spnudging.o module_fddagd_driver.o module_fddaobs_rtfdda.o module_fddaobs_driver.o module_wind_fitch.o module_sf_lake.o module_diagnostics_driver.o  \
+                                   module_fr_fire_driver.o module_fr_fire_driver_wrf.o module_fr_fire_atm.o module_fr_fire_model.o module_fr_fire_core.o module_fr_fire_phys.o module_fr_fire_util.o \
+                                   module_diag_afwa.o module_diag_afwa_hail.o module_diag_cl.o module_diag_misc.o module_diag_pld.o module_diag_zld.o  ; \
+                fi
+make[3]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys'
+rm -f module_cam_shr_kind_mod.o
+rm -f module_cam_error_function.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_shr_kind_mod.F  > module_cam_shr_kind_mod.bb
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_error_function.F  > module_cam_error_function.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_shr_kind_mod.bb | /lib/cpp -P -traditional > module_cam_shr_kind_mod.f90
+rm -f module_cam_shr_kind_mod.b module_cam_shr_kind_mod.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_error_function.bb | /lib/cpp -P -traditional > module_cam_error_function.f90
+time mpif90 -f90=ifort -o module_cam_shr_kind_mod.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_shr_kind_mod.f90
+rm -f module_cam_error_function.b module_cam_error_function.bb
+time mpif90 -f90=ifort -o module_cam_error_function.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_error_function.f90
+
+real	0m0.079s
+user	0m0.016s
+sys	0m0.039s
+rm -f module_bl_ysu.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bl_ysu.F  > module_bl_ysu.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bl_ysu.bb | /lib/cpp -P -traditional > module_bl_ysu.f90
+rm -f module_bl_ysu.b module_bl_ysu.bb
+time mpif90 -f90=ifort -o module_bl_ysu.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bl_ysu.f90
+
+real	0m0.153s
+user	0m0.099s
+sys	0m0.033s
+rm -f module_bl_shinhong.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bl_shinhong.F  > module_bl_shinhong.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bl_shinhong.bb | /lib/cpp -P -traditional > module_bl_shinhong.f90
+rm -f module_bl_shinhong.b module_bl_shinhong.bb
+time mpif90 -f90=ifort -o module_bl_shinhong.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bl_shinhong.f90
+
+real	0m3.981s
+user	0m3.877s
+sys	0m0.068s
+rm -f module_bl_mrf.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bl_mrf.F  > module_bl_mrf.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bl_mrf.bb | /lib/cpp -P -traditional > module_bl_mrf.f90
+rm -f module_bl_mrf.b module_bl_mrf.bb
+time mpif90 -f90=ifort -o module_bl_mrf.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bl_mrf.f90
+
+real	0m5.945s
+user	0m5.830s
+sys	0m0.076s
+rm -f module_gfs_machine.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_gfs_machine.F  > module_gfs_machine.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_gfs_machine.bb | /lib/cpp -P -traditional > module_gfs_machine.f90
+rm -f module_gfs_machine.b module_gfs_machine.bb
+
+real	0m2.049s
+user	0m1.939s
+sys	0m0.078s
+rm -f module_bl_myjpbl.o
+time mpif90 -f90=ifort -o module_gfs_machine.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_gfs_machine.f90
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bl_myjpbl.F  > module_bl_myjpbl.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bl_myjpbl.bb | /lib/cpp -P -traditional > module_bl_myjpbl.f90
+rm -f module_bl_myjpbl.b module_bl_myjpbl.bb
+time mpif90 -f90=ifort -o module_bl_myjpbl.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bl_myjpbl.f90
+
+real	0m0.093s
+user	0m0.018s
+sys	0m0.050s
+rm -f module_bl_qnsepbl.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bl_qnsepbl.F  > module_bl_qnsepbl.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bl_qnsepbl.bb | /lib/cpp -P -traditional > module_bl_qnsepbl.f90
+rm -f module_bl_qnsepbl.b module_bl_qnsepbl.bb
+time mpif90 -f90=ifort -o module_bl_qnsepbl.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bl_qnsepbl.f90
+
+real	0m1.497s
+user	0m1.405s
+sys	0m0.056s
+rm -f module_bl_acm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bl_acm.F  > module_bl_acm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bl_acm.bb | /lib/cpp -P -traditional > module_bl_acm.f90
+rm -f module_bl_acm.b module_bl_acm.bb
+time mpif90 -f90=ifort -o module_bl_acm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bl_acm.f90
+
+real	0m1.993s
+user	0m1.896s
+sys	0m0.067s
+rm -f module_bl_mynn.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bl_mynn.F  > module_bl_mynn.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bl_mynn.bb | /lib/cpp -P -traditional > module_bl_mynn.f90
+rm -f module_bl_mynn.b module_bl_mynn.bb
+time mpif90 -f90=ifort -o module_bl_mynn.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bl_mynn.f90
+
+real	0m1.921s
+user	0m1.839s
+sys	0m0.047s
+rm -f module_bl_gwdo.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bl_gwdo.F  > module_bl_gwdo.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bl_gwdo.bb | /lib/cpp -P -traditional > module_bl_gwdo.f90
+rm -f module_bl_gwdo.b module_bl_gwdo.bb
+time mpif90 -f90=ifort -o module_bl_gwdo.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bl_gwdo.f90
+
+real	0m2.644s
+user	0m2.516s
+sys	0m0.094s
+rm -f module_bl_myjurb.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bl_myjurb.F  > module_bl_myjurb.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bl_myjurb.bb | /lib/cpp -P -traditional > module_bl_myjurb.f90
+rm -f module_bl_myjurb.b module_bl_myjurb.bb
+time mpif90 -f90=ifort -o module_bl_myjurb.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bl_myjurb.f90
+
+real	0m1.252s
+user	0m1.179s
+sys	0m0.041s
+rm -f module_bl_boulac.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bl_boulac.F  > module_bl_boulac.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bl_boulac.bb | /lib/cpp -P -traditional > module_bl_boulac.f90
+rm -f module_bl_boulac.b module_bl_boulac.bb
+time mpif90 -f90=ifort -o module_bl_boulac.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bl_boulac.f90
+
+real	0m2.223s
+user	0m2.134s
+sys	0m0.054s
+rm -f module_bl_mfshconvpbl.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bl_mfshconvpbl.F  > module_bl_mfshconvpbl.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bl_mfshconvpbl.bb | /lib/cpp -P -traditional > module_bl_mfshconvpbl.f90
+rm -f module_bl_mfshconvpbl.b module_bl_mfshconvpbl.bb
+time mpif90 -f90=ifort -o module_bl_mfshconvpbl.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bl_mfshconvpbl.f90
+
+real	0m2.165s
+user	0m2.080s
+sys	0m0.050s
+rm -f module_shcu_grims.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_shcu_grims.F  > module_shcu_grims.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_shcu_grims.bb | /lib/cpp -P -traditional > module_shcu_grims.f90
+rm -f module_shcu_grims.b module_shcu_grims.bb
+time mpif90 -f90=ifort -o module_shcu_grims.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_shcu_grims.f90
+
+real	0m1.410s
+user	0m1.323s
+sys	0m0.053s
+rm -f module_bl_temf.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bl_temf.F  > module_bl_temf.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bl_temf.bb | /lib/cpp -P -traditional > module_bl_temf.f90
+rm -f module_bl_temf.b module_bl_temf.bb
+time mpif90 -f90=ifort -o module_bl_temf.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bl_temf.f90
+
+real	0m6.277s
+user	0m6.137s
+sys	0m0.097s
+rm -f module_bl_gbmpbl.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bl_gbmpbl.F  > module_bl_gbmpbl.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bl_gbmpbl.bb | /lib/cpp -P -traditional > module_bl_gbmpbl.f90
+rm -f module_bl_gbmpbl.b module_bl_gbmpbl.bb
+time mpif90 -f90=ifort -o module_bl_gbmpbl.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bl_gbmpbl.f90
+
+real	0m2.055s
+user	0m1.948s
+sys	0m0.069s
+rm -f module_cu_g3.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cu_g3.F  > module_cu_g3.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cu_g3.bb | /lib/cpp -P -traditional > module_cu_g3.f90
+rm -f module_cu_g3.b module_cu_g3.bb
+time mpif90 -f90=ifort -o module_cu_g3.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cu_g3.f90
+
+real	0m17.678s
+user	0m17.525s
+sys	0m0.102s
+rm -f module_cu_kf.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cu_kf.F  > module_cu_kf.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cu_kf.bb | /lib/cpp -P -traditional > module_cu_kf.f90
+rm -f module_cu_kf.b module_cu_kf.bb
+time mpif90 -f90=ifort -o module_cu_kf.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cu_kf.f90
+
+real	0m9.100s
+user	0m8.933s
+sys	0m0.131s
+rm -f module_cu_bmj.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cu_bmj.F  > module_cu_bmj.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cu_bmj.bb | /lib/cpp -P -traditional > module_cu_bmj.f90
+rm -f module_cu_bmj.b module_cu_bmj.bb
+time mpif90 -f90=ifort -o module_cu_bmj.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cu_bmj.f90
+
+real	0m0.948s
+user	0m0.851s
+sys	0m0.061s
+rm -f module_cu_kfeta.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cu_kfeta.F  > module_cu_kfeta.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cu_kfeta.bb | /lib/cpp -P -traditional > module_cu_kfeta.f90
+rm -f module_cu_kfeta.b module_cu_kfeta.bb
+time mpif90 -f90=ifort -o module_cu_kfeta.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cu_kfeta.f90
+
+real	0m2.648s
+user	0m2.529s
+sys	0m0.083s
+rm -f module_cu_mskf.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cu_mskf.F  > module_cu_mskf.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cu_mskf.bb | /lib/cpp -P -traditional > module_cu_mskf.f90
+rm -f module_cu_mskf.b module_cu_mskf.bb
+time mpif90 -f90=ifort -o module_cu_mskf.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cu_mskf.f90
+
+real	0m4.641s
+user	0m4.524s
+sys	0m0.081s
+rm -f module_cu_ntiedtke.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cu_ntiedtke.F  > module_cu_ntiedtke.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cu_ntiedtke.bb | /lib/cpp -P -traditional > module_cu_ntiedtke.f90
+rm -f module_cu_ntiedtke.b module_cu_ntiedtke.bb
+time mpif90 -f90=ifort -o module_cu_ntiedtke.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cu_ntiedtke.f90
+
+real	0m4.525s
+user	0m4.407s
+sys	0m0.082s
+rm -f module_cu_gd.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cu_gd.F  > module_cu_gd.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cu_gd.bb | /lib/cpp -P -traditional > module_cu_gd.f90
+rm -f module_cu_gd.b module_cu_gd.bb
+time mpif90 -f90=ifort -o module_cu_gd.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cu_gd.f90
+
+real	0m3.594s
+user	0m3.487s
+sys	0m0.070s
+rm -f module_cu_gf.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cu_gf.F  > module_cu_gf.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cu_gf.bb | /lib/cpp -P -traditional > module_cu_gf.f90
+rm -f module_cu_gf.b module_cu_gf.bb
+time mpif90 -f90=ifort -o module_cu_gf.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cu_gf.f90
+
+real	0m5.635s
+user	0m5.510s
+sys	0m0.085s
+rm -f module_cu_nsas.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cu_nsas.F  > module_cu_nsas.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cu_nsas.bb | /lib/cpp -P -traditional > module_cu_nsas.f90
+rm -f module_cu_nsas.b module_cu_nsas.bb
+time mpif90 -f90=ifort -o module_cu_nsas.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cu_nsas.f90
+
+real	0m8.540s
+user	0m8.393s
+sys	0m0.106s
+rm -f ../chem/module_data_mosaic_asect.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   ../chem/module_data_mosaic_asect.F  > ../chem/module_data_mosaic_asect.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe ../chem/module_data_mosaic_asect.bb | /lib/cpp -P -traditional > ../chem/module_data_mosaic_asect.f90
+rm -f ../chem/module_data_mosaic_asect.b ../chem/module_data_mosaic_asect.bb
+time mpif90 -f90=ifort -o ../chem/module_data_mosaic_asect.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  ../chem/module_data_mosaic_asect.f90
+
+real	0m0.119s
+user	0m0.023s
+sys	0m0.065s
+rm -f module_ra_sw.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ra_sw.F  > module_ra_sw.bb
+
+real	0m6.428s
+user	0m6.284s
+sys	0m0.105s
+rm -f module_ra_gsfcsw.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ra_gsfcsw.F  > module_ra_gsfcsw.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ra_sw.bb | /lib/cpp -P -traditional > module_ra_sw.f90
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ra_gsfcsw.bb | /lib/cpp -P -traditional > module_ra_gsfcsw.f90
+rm -f module_ra_sw.b module_ra_sw.bb
+rm -f module_ra_gsfcsw.b module_ra_gsfcsw.bb
+time mpif90 -f90=ifort -o module_ra_sw.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ra_sw.f90
+time mpif90 -f90=ifort -o module_ra_gsfcsw.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ra_gsfcsw.f90
+
+real	0m0.552s
+user	0m0.474s
+sys	0m0.046s
+rm -f module_ra_clWRF_support.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ra_clWRF_support.F  > module_ra_clWRF_support.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ra_clWRF_support.bb | /lib/cpp -P -traditional > module_ra_clWRF_support.f90
+rm -f module_ra_clWRF_support.b module_ra_clWRF_support.bb
+time mpif90 -f90=ifort -o module_ra_clWRF_support.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ra_clWRF_support.f90
+
+real	0m0.274s
+user	0m0.220s
+sys	0m0.023s
+rm -f module_mp_etanew.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_etanew.F  > module_mp_etanew.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_etanew.bb | /lib/cpp -P -traditional > module_mp_etanew.f90
+rm -f module_mp_etanew.b module_mp_etanew.bb
+time mpif90 -f90=ifort -o module_mp_etanew.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_etanew.f90
+
+real	0m1.429s
+user	0m1.357s
+sys	0m0.041s
+rm -f module_mp_HWRF.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_HWRF.F  > module_mp_HWRF.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_HWRF.bb | /lib/cpp -P -traditional > module_mp_HWRF.f90
+rm -f module_mp_HWRF.b module_mp_HWRF.bb
+time mpif90 -f90=ifort -o module_mp_HWRF.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_HWRF.f90
+
+real	0m1.503s
+user	0m1.429s
+sys	0m0.039s
+rm -f module_ra_hs.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ra_hs.F  > module_ra_hs.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ra_hs.bb | /lib/cpp -P -traditional > module_ra_hs.f90
+rm -f module_ra_hs.b module_ra_hs.bb
+time mpif90 -f90=ifort -o module_ra_hs.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ra_hs.f90
+
+real	0m0.103s
+user	0m0.047s
+sys	0m0.024s
+rm -f module_ra_goddard.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ra_goddard.F  > module_ra_goddard.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ra_goddard.bb | /lib/cpp -P -traditional > module_ra_goddard.f90
+rm -f module_ra_goddard.b module_ra_goddard.bb
+time mpif90 -f90=ifort -o module_ra_goddard.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ra_goddard.f90
+
+real	0m4.380s
+user	0m4.297s
+sys	0m0.046s
+rm -f module_ra_flg.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ra_flg.F  > module_ra_flg.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ra_flg.bb | /lib/cpp -P -traditional > module_ra_flg.f90
+rm -f module_ra_flg.b module_ra_flg.bb
+time mpif90 -f90=ifort -o module_ra_flg.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ra_flg.f90
+
+real	0m7.289s
+user	0m7.171s
+sys	0m0.079s
+rm -f module_ra_aerosol.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ra_aerosol.F  > module_ra_aerosol.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ra_aerosol.bb | /lib/cpp -P -traditional > module_ra_aerosol.f90
+rm -f module_ra_aerosol.b module_ra_aerosol.bb
+time mpif90 -f90=ifort -o module_ra_aerosol.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ra_aerosol.f90
+
+real	0m1.674s
+user	0m1.579s
+sys	0m0.063s
+rm -f module_mp_radar.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_radar.F  > module_mp_radar.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_radar.bb | /lib/cpp -P -traditional > module_mp_radar.f90
+rm -f module_mp_radar.b module_mp_radar.bb
+time mpif90 -f90=ifort -o module_mp_radar.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_radar.f90
+
+real	0m0.335s
+user	0m0.241s
+sys	0m0.047s
+rm -f module_mp_kessler.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_kessler.F  > module_mp_kessler.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_kessler.bb | /lib/cpp -P -traditional > module_mp_kessler.f90
+rm -f module_mp_kessler.b module_mp_kessler.bb
+time mpif90 -f90=ifort -o module_mp_kessler.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_kessler.f90
+
+real	0m0.221s
+user	0m0.129s
+sys	0m0.058s
+rm -f module_mp_lin.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_lin.F  > module_mp_lin.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_lin.bb | /lib/cpp -P -traditional > module_mp_lin.f90
+rm -f module_mp_lin.b module_mp_lin.bb
+time mpif90 -f90=ifort -o module_mp_lin.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_lin.f90
+
+real	0m12.228s
+user	0m12.041s
+sys	0m0.144s
+rm -f module_mp_sbu_ylin.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_sbu_ylin.F  > module_mp_sbu_ylin.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_sbu_ylin.bb | /lib/cpp -P -traditional > module_mp_sbu_ylin.f90
+rm -f module_mp_sbu_ylin.b module_mp_sbu_ylin.bb
+time mpif90 -f90=ifort -o module_mp_sbu_ylin.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_sbu_ylin.f90
+
+real	0m2.365s
+user	0m2.260s
+sys	0m0.071s
+rm -f module_mp_wsm3.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_wsm3.F  > module_mp_wsm3.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_wsm3.bb | /lib/cpp -P -traditional > module_mp_wsm3.f90
+rm -f module_mp_wsm3.b module_mp_wsm3.bb
+time mpif90 -f90=ifort -o module_mp_wsm3.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_wsm3.f90
+
+real	0m1.368s
+user	0m1.252s
+sys	0m0.078s
+rm -f module_mp_wsm5.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_wsm5.F  > module_mp_wsm5.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_wsm5.bb | /lib/cpp -P -traditional > module_mp_wsm5.f90
+rm -f module_mp_wsm5.b module_mp_wsm5.bb
+time mpif90 -f90=ifort -o module_mp_wsm5.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_wsm5.f90
+
+real	0m2.398s
+user	0m2.306s
+sys	0m0.059s
+rm -f module_mp_wsm6.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_wsm6.F  > module_mp_wsm6.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_wsm6.bb | /lib/cpp -P -traditional > module_mp_wsm6.f90
+rm -f module_mp_wsm6.b module_mp_wsm6.bb
+time mpif90 -f90=ifort -o module_mp_wsm6.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_wsm6.f90
+
+real	0m4.491s
+user	0m4.382s
+sys	0m0.071s
+rm -f module_mp_full_sbm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_full_sbm.F  > module_mp_full_sbm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_full_sbm.bb | /lib/cpp -P -traditional > module_mp_full_sbm.f90
+rm -f module_mp_full_sbm.b module_mp_full_sbm.bb
+time mpif90 -f90=ifort -o module_mp_full_sbm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_full_sbm.f90
+
+real	0m8.900s
+user	0m8.721s
+sys	0m0.137s
+rm -f module_mp_fast_sbm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_fast_sbm.F  > module_mp_fast_sbm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_fast_sbm.bb | /lib/cpp -P -traditional > module_mp_fast_sbm.f90
+rm -f module_mp_fast_sbm.b module_mp_fast_sbm.bb
+time mpif90 -f90=ifort -o module_mp_fast_sbm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_fast_sbm.f90
+
+real	0m12.226s
+user	0m12.061s
+sys	0m0.121s
+rm -f module_ltng_lpi.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ltng_lpi.F  > module_ltng_lpi.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ltng_lpi.bb | /lib/cpp -P -traditional > module_ltng_lpi.f90
+rm -f module_ltng_lpi.b module_ltng_lpi.bb
+time mpif90 -f90=ifort -o module_ltng_lpi.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ltng_lpi.f90
+
+real	0m0.174s
+user	0m0.102s
+sys	0m0.040s
+rm -f module_mp_gsfcgce.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_gsfcgce.F  > module_mp_gsfcgce.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_gsfcgce.bb | /lib/cpp -P -traditional > module_mp_gsfcgce.f90
+rm -f module_mp_gsfcgce.b module_mp_gsfcgce.bb
+time mpif90 -f90=ifort -o module_mp_gsfcgce.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_gsfcgce.f90
+
+real	0m8.679s
+user	0m8.527s
+sys	0m0.113s
+rm -f module_mp_morr_two_moment.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_morr_two_moment.F  > module_mp_morr_two_moment.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_morr_two_moment.bb | /lib/cpp -P -traditional > module_mp_morr_two_moment.f90
+rm -f module_mp_morr_two_moment.b module_mp_morr_two_moment.bb
+time mpif90 -f90=ifort -o module_mp_morr_two_moment.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_morr_two_moment.f90
+
+real	0m6.603s
+user	0m6.468s
+sys	0m0.098s
+rm -f module_mp_milbrandt2mom.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_milbrandt2mom.F  > module_mp_milbrandt2mom.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_milbrandt2mom.bb | /lib/cpp -P -traditional > module_mp_milbrandt2mom.f90
+rm -f module_mp_milbrandt2mom.b module_mp_milbrandt2mom.bb
+time mpif90 -f90=ifort -o module_mp_milbrandt2mom.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_milbrandt2mom.f90
+
+real	0m5.665s
+user	0m5.523s
+sys	0m0.104s
+rm -f module_mp_nssl_2mom.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_nssl_2mom.F  > module_mp_nssl_2mom.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_nssl_2mom.bb | /lib/cpp -P -traditional > module_mp_nssl_2mom.f90
+rm -f module_mp_nssl_2mom.b module_mp_nssl_2mom.bb
+time mpif90 -f90=ifort -o module_mp_nssl_2mom.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_nssl_2mom.f90
+
+real	0m10.050s
+user	0m9.882s
+sys	0m0.128s
+rm -f module_mp_wdm5.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_wdm5.F  > module_mp_wdm5.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_wdm5.bb | /lib/cpp -P -traditional > module_mp_wdm5.f90
+rm -f module_mp_wdm5.b module_mp_wdm5.bb
+time mpif90 -f90=ifort -o module_mp_wdm5.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_wdm5.f90
+
+real	0m11.575s
+user	0m11.374s
+sys	0m0.152s
+rm -f module_mp_wdm6.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_wdm6.F  > module_mp_wdm6.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_wdm6.bb | /lib/cpp -P -traditional > module_mp_wdm6.f90
+rm -f module_mp_wdm6.b module_mp_wdm6.bb
+time mpif90 -f90=ifort -o module_mp_wdm6.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_wdm6.f90
+
+real	0m6.000s
+user	0m5.860s
+sys	0m0.102s
+rm -f module_sf_sfclay.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_sfclay.F  > module_sf_sfclay.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_sfclay.bb | /lib/cpp -P -traditional > module_sf_sfclay.f90
+rm -f module_sf_sfclay.b module_sf_sfclay.bb
+time mpif90 -f90=ifort -o module_sf_sfclay.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_sfclay.f90
+
+real	0m0.499s
+user	0m0.416s
+sys	0m0.049s
+rm -f module_sf_sfclayrev.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_sfclayrev.F  > module_sf_sfclayrev.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_sfclayrev.bb | /lib/cpp -P -traditional > module_sf_sfclayrev.f90
+rm -f module_sf_sfclayrev.b module_sf_sfclayrev.bb
+time mpif90 -f90=ifort -o module_sf_sfclayrev.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_sfclayrev.f90
+
+real	0m0.868s
+user	0m0.795s
+sys	0m0.039s
+rm -f module_progtm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_progtm.F  > module_progtm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_progtm.bb | /lib/cpp -P -traditional > module_progtm.f90
+rm -f module_progtm.b module_progtm.bb
+time mpif90 -f90=ifort -o module_progtm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_progtm.f90
+
+real	0m10.209s
+user	0m10.049s
+sys	0m0.117s
+rm -f module_sf_slab.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_slab.F  > module_sf_slab.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_slab.bb | /lib/cpp -P -traditional > module_sf_slab.f90
+rm -f module_sf_slab.b module_sf_slab.bb
+time mpif90 -f90=ifort -o module_sf_slab.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_slab.f90
+
+real	0m0.088s
+user	0m0.030s
+sys	0m0.025s
+rm -f module_sf_noahlsm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_noahlsm.F  > module_sf_noahlsm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_noahlsm.bb | /lib/cpp -P -traditional > module_sf_noahlsm.f90
+rm -f module_sf_noahlsm.b module_sf_noahlsm.bb
+time mpif90 -f90=ifort -o module_sf_noahlsm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_noahlsm.f90
+
+real	0m0.422s
+user	0m0.353s
+sys	0m0.045s
+rm -f module_sf_myjsfc.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_myjsfc.F  > module_sf_myjsfc.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_myjsfc.bb | /lib/cpp -P -traditional > module_sf_myjsfc.f90
+rm -f module_sf_myjsfc.b module_sf_myjsfc.bb
+time mpif90 -f90=ifort -o module_sf_myjsfc.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_myjsfc.f90
+
+real	0m0.869s
+user	0m0.792s
+sys	0m0.051s
+rm -f module_data_gocart_dust.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_gocart_dust.F  > module_data_gocart_dust.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_gocart_dust.bb | /lib/cpp -P -traditional > module_data_gocart_dust.f90
+rm -f module_data_gocart_dust.b module_data_gocart_dust.bb
+time mpif90 -f90=ifort -o module_data_gocart_dust.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_gocart_dust.f90
+
+real	0m0.067s
+user	0m0.020s
+sys	0m0.015s
+rm -f module_sf_urban.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_urban.F  > module_sf_urban.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_urban.bb | /lib/cpp -P -traditional > module_sf_urban.f90
+rm -f module_sf_urban.b module_sf_urban.bb
+time mpif90 -f90=ifort -o module_sf_urban.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_urban.f90
+
+real	0m0.586s
+user	0m0.518s
+sys	0m0.035s
+rm -f module_sf_bem.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_bem.F  > module_sf_bem.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_bem.bb | /lib/cpp -P -traditional > module_sf_bem.f90
+rm -f module_sf_bem.b module_sf_bem.bb
+time mpif90 -f90=ifort -o module_sf_bem.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_bem.f90
+
+real	0m0.777s
+user	0m0.709s
+sys	0m0.035s
+rm -f module_sf_ssib.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_ssib.F  > module_sf_ssib.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_ssib.bb | /lib/cpp -P -traditional > module_sf_ssib.f90
+rm -f module_sf_ssib.b module_sf_ssib.bb
+time mpif90 -f90=ifort -o module_sf_ssib.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_ssib.f90
+
+real	0m2.233s
+user	0m2.145s
+sys	0m0.055s
+rm -f module_sf_noah_seaice.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_noah_seaice.F  > module_sf_noah_seaice.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_noah_seaice.bb | /lib/cpp -P -traditional > module_sf_noah_seaice.f90
+rm -f module_sf_noah_seaice.b module_sf_noah_seaice.bb
+time mpif90 -f90=ifort -o module_sf_noah_seaice.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_noah_seaice.f90
+
+real	0m3.415s
+user	0m3.305s
+sys	0m0.074s
+rm -f module_sf_noahmp_glacier.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_noahmp_glacier.F  > module_sf_noahmp_glacier.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_noahmp_glacier.bb | /lib/cpp -P -traditional > module_sf_noahmp_glacier.f90
+rm -f module_sf_noahmp_glacier.b module_sf_noahmp_glacier.bb
+time mpif90 -f90=ifort -o module_sf_noahmp_glacier.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_noahmp_glacier.f90
+
+real	0m0.274s
+user	0m0.214s
+sys	0m0.028s
+rm -f module_sf_pxlsm_data.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_pxlsm_data.F  > module_sf_pxlsm_data.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_pxlsm_data.bb | /lib/cpp -P -traditional > module_sf_pxlsm_data.f90
+rm -f module_sf_pxlsm_data.b module_sf_pxlsm_data.bb
+time mpif90 -f90=ifort -o module_sf_pxlsm_data.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_pxlsm_data.f90
+
+real	0m0.071s
+user	0m0.019s
+sys	0m0.021s
+rm -f module_sf_ruclsm.o
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_ruclsm.F > module_sf_ruclsm.b 
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_ruclsm.b  > module_sf_ruclsm.f90
+rm -f module_sf_ruclsm.b
+if fgrep -iq '!$OMP' module_sf_ruclsm.f90 ; then \
+          echo COMPILING module_sf_ruclsm.F WITH OMP ; \
+          if [ -n "" ] ; then echo COMPILING module_sf_ruclsm.F WITH OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include    module_sf_ruclsm.f90 ; \
+        else \
+          if [ -n "" ] ; then echo COMPILING module_sf_ruclsm.F WITHOUT OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   module_sf_ruclsm.f90 ; \
+        fi
+
+real	0m1.617s
+user	0m1.543s
+sys	0m0.043s
+rm -f module_sf_sfcdiags.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_sfcdiags.F  > module_sf_sfcdiags.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_sfcdiags.bb | /lib/cpp -P -traditional > module_sf_sfcdiags.f90
+rm -f module_sf_sfcdiags.b module_sf_sfcdiags.bb
+time mpif90 -f90=ifort -o module_sf_sfcdiags.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_sfcdiags.f90
+
+real	0m0.090s
+user	0m0.039s
+sys	0m0.019s
+rm -f module_sf_sfcdiags_ruclsm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_sfcdiags_ruclsm.F  > module_sf_sfcdiags_ruclsm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_sfcdiags_ruclsm.bb | /lib/cpp -P -traditional > module_sf_sfcdiags_ruclsm.f90
+rm -f module_sf_sfcdiags_ruclsm.b module_sf_sfcdiags_ruclsm.bb
+time mpif90 -f90=ifort -o module_sf_sfcdiags_ruclsm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_sfcdiags_ruclsm.f90
+
+real	0m0.104s
+user	0m0.045s
+sys	0m0.027s
+rm -f module_sf_sstskin.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_sstskin.F  > module_sf_sstskin.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_sstskin.bb | /lib/cpp -P -traditional > module_sf_sstskin.f90
+rm -f module_sf_sstskin.b module_sf_sstskin.bb
+time mpif90 -f90=ifort -o module_sf_sstskin.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_sstskin.f90
+
+real	0m0.097s
+user	0m0.040s
+sys	0m0.026s
+rm -f module_sf_tmnupdate.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_tmnupdate.F  > module_sf_tmnupdate.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_tmnupdate.bb | /lib/cpp -P -traditional > module_sf_tmnupdate.f90
+rm -f module_sf_tmnupdate.b module_sf_tmnupdate.bb
+time mpif90 -f90=ifort -o module_sf_tmnupdate.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_tmnupdate.f90
+
+real	0m0.147s
+user	0m0.091s
+sys	0m0.023s
+rm -f module_sf_oml.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_oml.F  > module_sf_oml.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_oml.bb | /lib/cpp -P -traditional > module_sf_oml.f90
+rm -f module_sf_oml.b module_sf_oml.bb
+time mpif90 -f90=ifort -o module_sf_oml.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_oml.f90
+
+real	0m0.131s
+user	0m0.072s
+sys	0m0.028s
+rm -f module_sf_3dpwp.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_3dpwp.F  > module_sf_3dpwp.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_3dpwp.bb | /lib/cpp -P -traditional > module_sf_3dpwp.f90
+rm -f module_sf_3dpwp.b module_sf_3dpwp.bb
+time mpif90 -f90=ifort -o module_sf_3dpwp.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_3dpwp.f90
+
+real	0m5.406s
+user	0m5.298s
+sys	0m0.072s
+rm -f module_sf_qnsesfc.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_qnsesfc.F  > module_sf_qnsesfc.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_qnsesfc.bb | /lib/cpp -P -traditional > module_sf_qnsesfc.f90
+rm -f module_sf_qnsesfc.b module_sf_qnsesfc.bb
+time mpif90 -f90=ifort -o module_sf_qnsesfc.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_qnsesfc.f90
+
+real	0m3.520s
+user	0m3.431s
+sys	0m0.051s
+rm -f module_sf_mynn.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_mynn.F  > module_sf_mynn.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_mynn.bb | /lib/cpp -P -traditional > module_sf_mynn.f90
+rm -f module_sf_mynn.b module_sf_mynn.bb
+time mpif90 -f90=ifort -o module_sf_mynn.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_mynn.f90
+
+real	0m0.586s
+user	0m0.490s
+sys	0m0.063s
+rm -f module_sf_fogdes.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_fogdes.F  > module_sf_fogdes.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_fogdes.bb | /lib/cpp -P -traditional > module_sf_fogdes.f90
+rm -f module_sf_fogdes.b module_sf_fogdes.bb
+time mpif90 -f90=ifort -o module_sf_fogdes.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_fogdes.f90
+
+real	0m0.277s
+user	0m0.218s
+sys	0m0.026s
+rm -f module_sf_pxsfclay.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_pxsfclay.F  > module_sf_pxsfclay.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_pxsfclay.bb | /lib/cpp -P -traditional > module_sf_pxsfclay.f90
+rm -f module_sf_pxsfclay.b module_sf_pxsfclay.bb
+time mpif90 -f90=ifort -o module_sf_pxsfclay.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_pxsfclay.f90
+
+real	0m0.658s
+user	0m0.585s
+sys	0m0.041s
+rm -f module_sf_temfsfclay.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_temfsfclay.F  > module_sf_temfsfclay.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_temfsfclay.bb | /lib/cpp -P -traditional > module_sf_temfsfclay.f90
+rm -f module_sf_temfsfclay.b module_sf_temfsfclay.bb
+time mpif90 -f90=ifort -o module_sf_temfsfclay.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_temfsfclay.f90
+
+real	0m0.292s
+user	0m0.228s
+sys	0m0.032s
+rm -f module_sf_idealscmsfclay.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_idealscmsfclay.F  > module_sf_idealscmsfclay.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_idealscmsfclay.bb | /lib/cpp -P -traditional > module_sf_idealscmsfclay.f90
+rm -f module_sf_idealscmsfclay.b module_sf_idealscmsfclay.bb
+time mpif90 -f90=ifort -o module_sf_idealscmsfclay.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_idealscmsfclay.f90
+
+real	0m0.436s
+user	0m0.371s
+sys	0m0.032s
+rm -f module_sf_scmflux.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_scmflux.F  > module_sf_scmflux.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_scmflux.bb | /lib/cpp -P -traditional > module_sf_scmflux.f90
+rm -f module_sf_scmflux.b module_sf_scmflux.bb
+time mpif90 -f90=ifort -o module_sf_scmflux.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_scmflux.f90
+
+real	0m0.133s
+user	0m0.080s
+sys	0m0.024s
+rm -f module_sf_scmskintemp.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_scmskintemp.F  > module_sf_scmskintemp.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_scmskintemp.bb | /lib/cpp -P -traditional > module_sf_scmskintemp.f90
+rm -f module_sf_scmskintemp.b module_sf_scmskintemp.bb
+time mpif90 -f90=ifort -o module_sf_scmskintemp.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_scmskintemp.f90
+
+real	0m0.092s
+user	0m0.035s
+sys	0m0.028s
+rm -f module_physics_addtendc.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_physics_addtendc.F  > module_physics_addtendc.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_physics_addtendc.bb | /lib/cpp -P -traditional > module_physics_addtendc.f90
+rm -f module_physics_addtendc.b module_physics_addtendc.bb
+time mpif90 -f90=ifort -o module_physics_addtendc.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_physics_addtendc.f90
+
+real	0m0.176s
+user	0m0.115s
+sys	0m0.039s
+rm -f module_sf_lake.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_lake.F  > module_sf_lake.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_lake.bb | /lib/cpp -P -traditional > module_sf_lake.f90
+rm -f module_sf_lake.b module_sf_lake.bb
+time mpif90 -f90=ifort -o module_sf_lake.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_lake.f90
+
+real	0m2.767s
+user	0m2.684s
+sys	0m0.062s
+rm -f module_fdda_psufddagd.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_fdda_psufddagd.F  > module_fdda_psufddagd.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_fdda_psufddagd.bb | /lib/cpp -P -traditional > module_fdda_psufddagd.f90
+rm -f module_fdda_psufddagd.b module_fdda_psufddagd.bb
+time mpif90 -f90=ifort -o module_fdda_psufddagd.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_fdda_psufddagd.f90
+
+real	0m1.345s
+user	0m1.243s
+sys	0m0.069s
+rm -f module_fdda_spnudging.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_fdda_spnudging.F  > module_fdda_spnudging.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_fdda_spnudging.bb | /lib/cpp -P -traditional > module_fdda_spnudging.f90
+rm -f module_fdda_spnudging.b module_fdda_spnudging.bb
+time mpif90 -f90=ifort -o module_fdda_spnudging.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_fdda_spnudging.f90
+
+real	0m5.412s
+user	0m5.286s
+sys	0m0.104s
+rm -f module_fddaobs_rtfdda.o
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_fddaobs_rtfdda.F > module_fddaobs_rtfdda.b 
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_fddaobs_rtfdda.b  > module_fddaobs_rtfdda.f90
+rm -f module_fddaobs_rtfdda.b
+if fgrep -iq '!$OMP' module_fddaobs_rtfdda.f90 ; then \
+          if [ -n "" ] ; then echo COMPILING module_fddaobs_rtfdda.F WITH OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include    module_fddaobs_rtfdda.f90 ; \
+        else \
+          if [ -n "" ] ; then echo COMPILING module_fddaobs_rtfdda.F WITHOUT OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   module_fddaobs_rtfdda.f90 ; \
+        fi
+
+real	0m0.783s
+user	0m0.682s
+sys	0m0.067s
+rm -f module_wind_fitch.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_wind_fitch.F  > module_wind_fitch.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_wind_fitch.bb | /lib/cpp -P -traditional > module_wind_fitch.f90
+rm -f module_wind_fitch.b module_wind_fitch.bb
+time mpif90 -f90=ifort -o module_wind_fitch.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_wind_fitch.f90
+
+real	0m0.351s
+user	0m0.272s
+sys	0m0.044s
+rm -f module_microphysics_zero_out.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_microphysics_zero_out.F  > module_microphysics_zero_out.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_microphysics_zero_out.bb | /lib/cpp -P -traditional > module_microphysics_zero_out.f90
+rm -f module_microphysics_zero_out.b module_microphysics_zero_out.bb
+time mpif90 -f90=ifort -o module_microphysics_zero_out.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_microphysics_zero_out.f90
+
+real	0m0.303s
+user	0m0.200s
+sys	0m0.068s
+rm -f module_ltng_crmpr92.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ltng_crmpr92.F  > module_ltng_crmpr92.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ltng_crmpr92.bb | /lib/cpp -P -traditional > module_ltng_crmpr92.f90
+rm -f module_ltng_crmpr92.b module_ltng_crmpr92.bb
+time mpif90 -f90=ifort -o module_ltng_crmpr92.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ltng_crmpr92.f90
+
+real	0m0.215s
+user	0m0.147s
+sys	0m0.035s
+rm -f module_ltng_cpmpr92z.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ltng_cpmpr92z.F  > module_ltng_cpmpr92z.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ltng_cpmpr92z.bb | /lib/cpp -P -traditional > module_ltng_cpmpr92z.f90
+rm -f module_ltng_cpmpr92z.b module_ltng_cpmpr92z.bb
+time mpif90 -f90=ifort -o module_ltng_cpmpr92z.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ltng_cpmpr92z.f90
+
+real	0m0.112s
+user	0m0.054s
+sys	0m0.026s
+rm -f module_ltng_iccg.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ltng_iccg.F  > module_ltng_iccg.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ltng_iccg.bb | /lib/cpp -P -traditional > module_ltng_iccg.f90
+rm -f module_ltng_iccg.b module_ltng_iccg.bb
+time mpif90 -f90=ifort -o module_ltng_iccg.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ltng_iccg.f90
+
+real	0m0.199s
+user	0m0.141s
+sys	0m0.024s
+rm -f module_fddaobs_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_fddaobs_driver.F  > module_fddaobs_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_fddaobs_driver.bb | /lib/cpp -P -traditional > module_fddaobs_driver.f90
+rm -f module_fddaobs_driver.b module_fddaobs_driver.bb
+time mpif90 -f90=ifort -o module_fddaobs_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_fddaobs_driver.f90
+
+real	0m3.530s
+user	0m3.394s
+sys	0m0.099s
+rm -f module_diag_misc.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_diag_misc.F  > module_diag_misc.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_diag_misc.bb | /lib/cpp -P -traditional > module_diag_misc.f90
+rm -f module_diag_misc.b module_diag_misc.bb
+time mpif90 -f90=ifort -o module_diag_misc.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_diag_misc.f90
+
+real	0m0.556s
+user	0m0.478s
+sys	0m0.046s
+rm -f module_diag_cl.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_diag_cl.F  > module_diag_cl.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_diag_cl.bb | /lib/cpp -P -traditional > module_diag_cl.f90
+rm -f module_diag_cl.b module_diag_cl.bb
+time mpif90 -f90=ifort -o module_diag_cl.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_diag_cl.f90
+
+real	0m0.957s
+user	0m0.866s
+sys	0m0.059s
+rm -f module_diag_pld.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_diag_pld.F  > module_diag_pld.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_diag_pld.bb | /lib/cpp -P -traditional > module_diag_pld.f90
+rm -f module_diag_pld.b module_diag_pld.bb
+
+real	0m1.433s
+user	0m1.348s
+sys	0m0.053s
+rm -f module_diag_zld.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_diag_zld.F  > module_diag_zld.bb
+time mpif90 -f90=ifort -o module_diag_pld.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_diag_pld.f90
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_diag_zld.bb | /lib/cpp -P -traditional > module_diag_zld.f90
+rm -f module_diag_zld.b module_diag_zld.bb
+time mpif90 -f90=ifort -o module_diag_zld.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_diag_zld.f90
+
+real	0m0.234s
+user	0m0.172s
+sys	0m0.045s
+rm -f module_diag_afwa_hail.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_diag_afwa_hail.F  > module_diag_afwa_hail.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_diag_afwa_hail.bb | /lib/cpp -P -traditional > module_diag_afwa_hail.f90
+
+real	0m0.227s
+user	0m0.155s
+sys	0m0.055s
+rm -f module_fr_fire_util.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_fr_fire_util.F  > module_fr_fire_util.bb
+rm -f module_diag_afwa_hail.b module_diag_afwa_hail.bb
+time mpif90 -f90=ifort -o module_diag_afwa_hail.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_diag_afwa_hail.f90
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_fr_fire_util.bb | /lib/cpp -P -traditional > module_fr_fire_util.f90
+rm -f module_fr_fire_util.b module_fr_fire_util.bb
+time mpif90 -f90=ifort -o module_fr_fire_util.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_fr_fire_util.f90
+
+real	0m0.229s
+user	0m0.159s
+sys	0m0.046s
+rm -f module_cam_support.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_support.F  > module_cam_support.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_support.bb | /lib/cpp -P -traditional > module_cam_support.f90
+rm -f module_cam_support.b module_cam_support.bb
+time mpif90 -f90=ifort -o module_cam_support.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_support.f90
+
+real	0m0.094s
+user	0m0.039s
+sys	0m0.025s
+rm -f module_cam_shr_const_mod.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_shr_const_mod.F  > module_cam_shr_const_mod.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_shr_const_mod.bb | /lib/cpp -P -traditional > module_cam_shr_const_mod.f90
+rm -f module_cam_shr_const_mod.b module_cam_shr_const_mod.bb
+time mpif90 -f90=ifort -o module_cam_shr_const_mod.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_shr_const_mod.f90
+
+real	0m0.073s
+user	0m0.018s
+sys	0m0.022s
+rm -f module_cam_trb_mtn_stress.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_trb_mtn_stress.F  > module_cam_trb_mtn_stress.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_trb_mtn_stress.bb | /lib/cpp -P -traditional > module_cam_trb_mtn_stress.f90
+rm -f module_cam_trb_mtn_stress.b module_cam_trb_mtn_stress.bb
+time mpif90 -f90=ifort -o module_cam_trb_mtn_stress.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_trb_mtn_stress.f90
+
+real	0m0.091s
+user	0m0.034s
+sys	0m0.029s
+rm -f module_cam_upper_bc.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_upper_bc.F  > module_cam_upper_bc.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_upper_bc.bb | /lib/cpp -P -traditional > module_cam_upper_bc.f90
+rm -f module_cam_upper_bc.b module_cam_upper_bc.bb
+time mpif90 -f90=ifort -o module_cam_upper_bc.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_upper_bc.f90
+
+real	0m0.076s
+user	0m0.020s
+sys	0m0.024s
+rm -f module_cam_bl_diffusion_solver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_bl_diffusion_solver.F  > module_cam_bl_diffusion_solver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_bl_diffusion_solver.bb | /lib/cpp -P -traditional > module_cam_bl_diffusion_solver.f90
+rm -f module_cam_bl_diffusion_solver.b module_cam_bl_diffusion_solver.bb
+time mpif90 -f90=ifort -o module_cam_bl_diffusion_solver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_bl_diffusion_solver.f90
+
+real	0m1.220s
+user	0m1.153s
+sys	0m0.043s
+rm -f module_cam_mp_radconstants.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mp_radconstants.F  > module_cam_mp_radconstants.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mp_radconstants.bb | /lib/cpp -P -traditional > module_cam_mp_radconstants.f90
+rm -f module_cam_mp_radconstants.b module_cam_mp_radconstants.bb
+time mpif90 -f90=ifort -o module_cam_mp_radconstants.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mp_radconstants.f90
+
+real	0m0.115s
+user	0m0.059s
+sys	0m0.023s
+rm -f module_cam_mp_qneg3.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mp_qneg3.F  > module_cam_mp_qneg3.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mp_qneg3.bb | /lib/cpp -P -traditional > module_cam_mp_qneg3.f90
+rm -f module_cam_mp_qneg3.b module_cam_mp_qneg3.bb
+time mpif90 -f90=ifort -o module_cam_mp_qneg3.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mp_qneg3.f90
+
+real	0m0.144s
+user	0m0.093s
+sys	0m0.024s
+rm -f module_cam_infnan.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_infnan.F  > module_cam_infnan.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_infnan.bb | /lib/cpp -P -traditional > module_cam_infnan.f90
+rm -f module_cam_infnan.b module_cam_infnan.bb
+time mpif90 -f90=ifort -o module_cam_infnan.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_infnan.f90
+
+real	0m0.074s
+user	0m0.021s
+sys	0m0.020s
+rm -f module_gfs_physcons.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_gfs_physcons.F  > module_gfs_physcons.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_gfs_physcons.bb | /lib/cpp -P -traditional > module_gfs_physcons.f90
+rm -f module_gfs_physcons.b module_gfs_physcons.bb
+time mpif90 -f90=ifort -o module_gfs_physcons.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_gfs_physcons.f90
+
+real	0m0.070s
+user	0m0.017s
+sys	0m0.021s
+rm -f module_bl_fogdes.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bl_fogdes.F  > module_bl_fogdes.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bl_fogdes.bb | /lib/cpp -P -traditional > module_bl_fogdes.f90
+rm -f module_bl_fogdes.b module_bl_fogdes.bb
+time mpif90 -f90=ifort -o module_bl_fogdes.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bl_fogdes.f90
+
+real	0m0.096s
+user	0m0.039s
+sys	0m0.024s
+rm -f module_gfs_funcphys.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_gfs_funcphys.F  > module_gfs_funcphys.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_gfs_funcphys.bb | /lib/cpp -P -traditional > module_gfs_funcphys.f90
+rm -f module_gfs_funcphys.b module_gfs_funcphys.bb
+time mpif90 -f90=ifort -o module_gfs_funcphys.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_gfs_funcphys.f90
+
+real	0m0.318s
+user	0m0.252s
+sys	0m0.033s
+rm -f module_ra_rrtm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ra_rrtm.F  > module_ra_rrtm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ra_rrtm.bb | /lib/cpp -P -traditional > module_ra_rrtm.f90
+rm -f module_ra_rrtm.b module_ra_rrtm.bb
+time mpif90 -f90=ifort -o module_ra_rrtm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ra_rrtm.f90
+
+real	0m2.798s
+user	0m2.659s
+sys	0m0.058s
+rm -f module_ra_rrtmg_lw.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ra_rrtmg_lw.F  > module_ra_rrtmg_lw.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ra_rrtmg_lw.bb | /lib/cpp -P -traditional > module_ra_rrtmg_lw.f90
+rm -f module_ra_rrtmg_lw.b module_ra_rrtmg_lw.bb
+time mpif90 -f90=ifort -o module_ra_rrtmg_lw.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ra_rrtmg_lw.f90
+
+real	0m3.387s
+user	0m3.246s
+sys	0m0.064s
+rm -f module_ra_rrtmg_lwf.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ra_rrtmg_lwf.F  > module_ra_rrtmg_lwf.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ra_rrtmg_lwf.bb | /lib/cpp -P -traditional > module_ra_rrtmg_lwf.f90
+rm -f module_ra_rrtmg_lwf.b module_ra_rrtmg_lwf.bb
+time mpif90 -f90=ifort -o module_ra_rrtmg_lwf.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ra_rrtmg_lwf.f90
+
+real	0m30.094s
+user	0m29.712s
+sys	0m0.167s
+rm -f module_ra_cam_support.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ra_cam_support.F  > module_ra_cam_support.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ra_cam_support.bb | /lib/cpp -P -traditional > module_ra_cam_support.f90
+rm -f module_ra_cam_support.b module_ra_cam_support.bb
+time mpif90 -f90=ifort -o module_ra_cam_support.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ra_cam_support.f90
+
+real	0m1.742s
+user	0m1.628s
+sys	0m0.077s
+rm -f module_ra_gfdleta.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ra_gfdleta.F  > module_ra_gfdleta.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ra_gfdleta.bb | /lib/cpp -P -traditional > module_ra_gfdleta.f90
+rm -f module_ra_gfdleta.b module_ra_gfdleta.bb
+time mpif90 -f90=ifort -o module_ra_gfdleta.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ra_gfdleta.f90
+
+real	0m42.423s
+user	0m41.964s
+sys	0m0.157s
+rm -f module_ra_HWRF.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ra_HWRF.F  > module_ra_HWRF.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ra_HWRF.bb | /lib/cpp -P -traditional > module_ra_HWRF.f90
+rm -f module_ra_HWRF.b module_ra_HWRF.bb
+time mpif90 -f90=ifort -o module_ra_HWRF.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ra_HWRF.f90
+
+real	0m34.128s
+user	0m33.712s
+sys	0m0.318s
+rm -f module_mp_thompson.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_thompson.F  > module_mp_thompson.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_thompson.bb | /lib/cpp -P -traditional > module_mp_thompson.f90
+rm -f module_mp_thompson.b module_mp_thompson.bb
+time mpif90 -f90=ifort -o module_mp_thompson.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_thompson.f90
+
+real	0m33.385s
+user	0m33.082s
+sys	0m0.239s
+rm -f module_sf_gfs.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_gfs.F  > module_sf_gfs.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_gfs.bb | /lib/cpp -P -traditional > module_sf_gfs.f90
+rm -f module_sf_gfs.b module_sf_gfs.bb
+time mpif90 -f90=ifort -o module_sf_gfs.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_gfs.f90
+
+real	0m0.920s
+user	0m0.709s
+sys	0m0.062s
+rm -f module_sf_gfdl.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_gfdl.F  > module_sf_gfdl.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_gfdl.bb | /lib/cpp -P -traditional > module_sf_gfdl.f90
+rm -f module_sf_gfdl.b module_sf_gfdl.bb
+time mpif90 -f90=ifort -o module_sf_gfdl.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_gfdl.f90
+
+real	0m8.712s
+user	0m8.361s
+sys	0m0.129s
+rm -f module_sf_noahmplsm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_noahmplsm.F  > module_sf_noahmplsm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_noahmplsm.bb | /lib/cpp -P -traditional > module_sf_noahmplsm.f90
+rm -f module_sf_noahmplsm.b module_sf_noahmplsm.bb
+time mpif90 -f90=ifort -o module_sf_noahmplsm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_noahmplsm.f90
+
+real	0m1.128s
+user	0m1.018s
+sys	0m0.077s
+rm -f module_sf_bep.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_bep.F  > module_sf_bep.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_bep.bb | /lib/cpp -P -traditional > module_sf_bep.f90
+rm -f module_sf_bep.b module_sf_bep.bb
+time mpif90 -f90=ifort -o module_sf_bep.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_bep.f90
+
+real	0m3.611s
+user	0m3.441s
+sys	0m0.139s
+rm -f module_sf_bep_bem.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_bep_bem.F  > module_sf_bep_bem.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_bep_bem.bb | /lib/cpp -P -traditional > module_sf_bep_bem.f90
+rm -f module_sf_bep_bem.b module_sf_bep_bem.bb
+time mpif90 -f90=ifort -o module_sf_bep_bem.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_bep_bem.f90
+
+real	0m6.631s
+user	0m6.438s
+sys	0m0.145s
+rm -f module_sf_clm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_clm.F  > module_sf_clm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_clm.bb | /lib/cpp -P -traditional > module_sf_clm.f90
+rm -f module_sf_clm.b module_sf_clm.bb
+time mpif90 -f90=ifort -o module_sf_clm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_clm.f90
+
+real	0m36.187s
+user	0m35.557s
+sys	0m0.482s
+rm -f module_sf_noah_seaice_drv.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_noah_seaice_drv.F  > module_sf_noah_seaice_drv.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_noah_seaice_drv.bb | /lib/cpp -P -traditional > module_sf_noah_seaice_drv.f90
+rm -f module_sf_noah_seaice_drv.b module_sf_noah_seaice_drv.bb
+time mpif90 -f90=ifort -o module_sf_noah_seaice_drv.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_noah_seaice_drv.f90
+
+real	0m0.434s
+user	0m0.133s
+sys	0m0.082s
+rm -f module_sf_noahmp_groundwater.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_noahmp_groundwater.F  > module_sf_noahmp_groundwater.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_noahmp_groundwater.bb | /lib/cpp -P -traditional > module_sf_noahmp_groundwater.f90
+rm -f module_sf_noahmp_groundwater.b module_sf_noahmp_groundwater.bb
+time mpif90 -f90=ifort -o module_sf_noahmp_groundwater.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_noahmp_groundwater.f90
+
+real	0m0.604s
+user	0m0.493s
+sys	0m0.048s
+rm -f module_sf_pxlsm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_pxlsm.F  > module_sf_pxlsm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_pxlsm.bb | /lib/cpp -P -traditional > module_sf_pxlsm.f90
+rm -f module_sf_pxlsm.b module_sf_pxlsm.bb
+time mpif90 -f90=ifort -o module_sf_pxlsm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_pxlsm.f90
+
+real	0m1.004s
+user	0m0.896s
+sys	0m0.090s
+rm -f module_sf_ocean_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_ocean_driver.F  > module_sf_ocean_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_ocean_driver.bb | /lib/cpp -P -traditional > module_sf_ocean_driver.f90
+rm -f module_sf_ocean_driver.b module_sf_ocean_driver.bb
+time mpif90 -f90=ifort -o module_sf_ocean_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_ocean_driver.f90
+
+real	0m0.151s
+user	0m0.076s
+sys	0m0.051s
+rm -f module_lightning_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_lightning_driver.F  > module_lightning_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_lightning_driver.bb | /lib/cpp -P -traditional > module_lightning_driver.f90
+rm -f module_lightning_driver.b module_lightning_driver.bb
+time mpif90 -f90=ifort -o module_lightning_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_lightning_driver.f90
+
+real	0m0.319s
+user	0m0.233s
+sys	0m0.064s
+rm -f module_fddagd_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_fddagd_driver.F  > module_fddagd_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_fddagd_driver.bb | /lib/cpp -P -traditional > module_fddagd_driver.f90
+rm -f module_fddagd_driver.b module_fddagd_driver.bb
+time mpif90 -f90=ifort -o module_fddagd_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_fddagd_driver.f90
+
+real	0m0.580s
+user	0m0.479s
+sys	0m0.064s
+rm -f module_diag_afwa.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_diag_afwa.F  > module_diag_afwa.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_diag_afwa.bb | /lib/cpp -P -traditional > module_diag_afwa.f90
+rm -f module_diag_afwa.b module_diag_afwa.bb
+time mpif90 -f90=ifort -o module_diag_afwa.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_diag_afwa.f90
+
+real	0m5.133s
+user	0m4.979s
+sys	0m0.111s
+rm -f module_fr_fire_phys.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_fr_fire_phys.F  > module_fr_fire_phys.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_fr_fire_phys.bb | /lib/cpp -P -traditional > module_fr_fire_phys.f90
+rm -f module_fr_fire_phys.b module_fr_fire_phys.bb
+time mpif90 -f90=ifort -o module_fr_fire_phys.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_fr_fire_phys.f90
+
+real	0m0.671s
+user	0m0.577s
+sys	0m0.069s
+rm -f module_fr_fire_atm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_fr_fire_atm.F  > module_fr_fire_atm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_fr_fire_atm.bb | /lib/cpp -P -traditional > module_fr_fire_atm.f90
+rm -f module_fr_fire_atm.b module_fr_fire_atm.bb
+time mpif90 -f90=ifort -o module_fr_fire_atm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_fr_fire_atm.f90
+
+real	0m0.213s
+user	0m0.149s
+sys	0m0.038s
+rm -f module_cam_physconst.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_physconst.F  > module_cam_physconst.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_physconst.bb | /lib/cpp -P -traditional > module_cam_physconst.f90
+rm -f module_cam_physconst.b module_cam_physconst.bb
+time mpif90 -f90=ifort -o module_cam_physconst.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_physconst.f90
+
+real	0m0.088s
+user	0m0.023s
+sys	0m0.042s
+rm -f module_cam_bl_eddy_diff.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_bl_eddy_diff.F  > module_cam_bl_eddy_diff.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_bl_eddy_diff.bb | /lib/cpp -P -traditional > module_cam_bl_eddy_diff.f90
+rm -f module_cam_bl_eddy_diff.b module_cam_bl_eddy_diff.bb
+time mpif90 -f90=ifort -o module_cam_bl_eddy_diff.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_bl_eddy_diff.f90
+
+real	0m4.257s
+user	0m4.121s
+sys	0m0.110s
+rm -f module_data_cam_mam_aero.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_cam_mam_aero.F  > module_data_cam_mam_aero.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_cam_mam_aero.bb | /lib/cpp -P -traditional > module_data_cam_mam_aero.f90
+rm -f module_data_cam_mam_aero.b module_data_cam_mam_aero.bb
+time mpif90 -f90=ifort -o module_data_cam_mam_aero.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_cam_mam_aero.f90
+
+real	0m0.099s
+user	0m0.024s
+sys	0m0.028s
+rm -f module_cam_mp_conv_water.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mp_conv_water.F  > module_cam_mp_conv_water.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mp_conv_water.bb | /lib/cpp -P -traditional > module_cam_mp_conv_water.f90
+rm -f module_cam_mp_conv_water.b module_cam_mp_conv_water.bb
+time mpif90 -f90=ifort -o module_cam_mp_conv_water.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mp_conv_water.f90
+
+real	0m0.112s
+user	0m0.060s
+sys	0m0.018s
+rm -f module_data_cam_mam_asect.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_cam_mam_asect.F  > module_data_cam_mam_asect.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_cam_mam_asect.bb | /lib/cpp -P -traditional > module_data_cam_mam_asect.f90
+rm -f module_data_cam_mam_asect.b module_data_cam_mam_asect.bb
+time mpif90 -f90=ifort -o module_data_cam_mam_asect.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_cam_mam_asect.f90
+
+real	0m0.075s
+user	0m0.023s
+sys	0m0.019s
+rm -f module_bl_gfs.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bl_gfs.F  > module_bl_gfs.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bl_gfs.bb | /lib/cpp -P -traditional > module_bl_gfs.f90
+rm -f module_bl_gfs.b module_bl_gfs.bb
+time mpif90 -f90=ifort -o module_bl_gfs.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bl_gfs.f90
+
+real	0m2.458s
+user	0m2.344s
+sys	0m0.063s
+rm -f module_bl_gfs2011.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bl_gfs2011.F  > module_bl_gfs2011.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bl_gfs2011.bb | /lib/cpp -P -traditional > module_bl_gfs2011.f90
+rm -f module_bl_gfs2011.b module_bl_gfs2011.bb
+time mpif90 -f90=ifort -o module_bl_gfs2011.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bl_gfs2011.f90
+
+real	0m3.079s
+user	0m2.950s
+sys	0m0.091s
+rm -f module_cu_tiedtke.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cu_tiedtke.F  > module_cu_tiedtke.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cu_tiedtke.bb | /lib/cpp -P -traditional > module_cu_tiedtke.f90
+rm -f module_cu_tiedtke.b module_cu_tiedtke.bb
+time mpif90 -f90=ifort -o module_cu_tiedtke.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cu_tiedtke.f90
+
+real	0m3.962s
+user	0m3.835s
+sys	0m0.094s
+rm -f module_cu_sas.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cu_sas.F  > module_cu_sas.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cu_sas.bb | /lib/cpp -P -traditional > module_cu_sas.f90
+rm -f module_cu_sas.b module_cu_sas.bb
+time mpif90 -f90=ifort -o module_cu_sas.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cu_sas.f90
+
+real	0m6.260s
+user	0m6.078s
+sys	0m0.132s
+rm -f module_cu_mesosas.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cu_mesosas.F  > module_cu_mesosas.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cu_mesosas.bb | /lib/cpp -P -traditional > module_cu_mesosas.f90
+rm -f module_cu_mesosas.b module_cu_mesosas.bb
+time mpif90 -f90=ifort -o module_cu_mesosas.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cu_mesosas.f90
+
+real	0m9.501s
+user	0m9.288s
+sys	0m0.162s
+rm -f module_cu_osas.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cu_osas.F  > module_cu_osas.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cu_osas.bb | /lib/cpp -P -traditional > module_cu_osas.f90
+rm -f module_cu_osas.b module_cu_osas.bb
+time mpif90 -f90=ifort -o module_cu_osas.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cu_osas.f90
+
+real	0m3.226s
+user	0m2.930s
+sys	0m0.159s
+rm -f module_ra_rrtmg_sw.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ra_rrtmg_sw.F  > module_ra_rrtmg_sw.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ra_rrtmg_sw.bb | /lib/cpp -P -traditional > module_ra_rrtmg_sw.f90
+rm -f module_ra_rrtmg_sw.b module_ra_rrtmg_sw.bb
+time mpif90 -f90=ifort -o module_ra_rrtmg_sw.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ra_rrtmg_sw.f90
+
+real	0m31.243s
+user	0m30.975s
+sys	0m0.159s
+rm -f module_ra_rrtmg_swf.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ra_rrtmg_swf.F  > module_ra_rrtmg_swf.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ra_rrtmg_swf.bb | /lib/cpp -P -traditional > module_ra_rrtmg_swf.f90
+rm -f module_ra_rrtmg_swf.b module_ra_rrtmg_swf.bb
+time mpif90 -f90=ifort -o module_ra_rrtmg_swf.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ra_rrtmg_swf.f90
+
+real	0m36.164s
+user	0m35.766s
+sys	0m0.151s
+rm -f module_ra_cam.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ra_cam.F  > module_ra_cam.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ra_cam.bb | /lib/cpp -P -traditional > module_ra_cam.f90
+rm -f module_ra_cam.b module_ra_cam.bb
+time mpif90 -f90=ifort -o module_ra_cam.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ra_cam.f90
+
+real	0m10.108s
+user	0m9.941s
+sys	0m0.123s
+rm -f module_sf_noahlsm_glacial_only.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_noahlsm_glacial_only.F  > module_sf_noahlsm_glacial_only.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_noahlsm_glacial_only.bb | /lib/cpp -P -traditional > module_sf_noahlsm_glacial_only.f90
+rm -f module_sf_noahlsm_glacial_only.b module_sf_noahlsm_glacial_only.bb
+time mpif90 -f90=ifort -o module_sf_noahlsm_glacial_only.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_noahlsm_glacial_only.f90
+
+real	0m0.458s
+user	0m0.355s
+sys	0m0.093s
+rm -f module_sf_noahmpdrv.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_noahmpdrv.F  > module_sf_noahmpdrv.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_noahmpdrv.bb | /lib/cpp -P -traditional > module_sf_noahmpdrv.f90
+rm -f module_sf_noahmpdrv.b module_sf_noahmpdrv.bb
+time mpif90 -f90=ifort -o module_sf_noahmpdrv.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_noahmpdrv.f90
+
+real	0m1.804s
+user	0m1.667s
+sys	0m0.116s
+rm -f module_diagnostics_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_diagnostics_driver.F  > module_diagnostics_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_diagnostics_driver.bb | /lib/cpp -P -traditional > module_diagnostics_driver.f90
+rm -f module_diagnostics_driver.b module_diagnostics_driver.bb
+time mpif90 -f90=ifort -o module_diagnostics_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_diagnostics_driver.f90
+
+real	0m2.889s
+user	0m2.772s
+sys	0m0.082s
+rm -f module_fr_fire_core.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_fr_fire_core.F  > module_fr_fire_core.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_fr_fire_core.bb | /lib/cpp -P -traditional > module_fr_fire_core.f90
+rm -f module_fr_fire_core.b module_fr_fire_core.bb
+time mpif90 -f90=ifort -o module_fr_fire_core.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_fr_fire_core.f90
+
+real	0m0.595s
+user	0m0.526s
+sys	0m0.036s
+rm -f module_cam_gffgch.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_gffgch.F  > module_cam_gffgch.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_gffgch.bb | /lib/cpp -P -traditional > module_cam_gffgch.f90
+rm -f module_cam_gffgch.b module_cam_gffgch.bb
+time mpif90 -f90=ifort -o module_cam_gffgch.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_gffgch.f90
+
+real	0m0.089s
+user	0m0.027s
+sys	0m0.033s
+rm -f module_cam_constituents.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_constituents.F  > module_cam_constituents.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_constituents.bb | /lib/cpp -P -traditional > module_cam_constituents.f90
+rm -f module_cam_constituents.b module_cam_constituents.bb
+time mpif90 -f90=ifort -o module_cam_constituents.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_constituents.f90
+
+real	0m0.144s
+user	0m0.081s
+sys	0m0.030s
+rm -f module_cam_mp_modal_aero_initialize_data_phys.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mp_modal_aero_initialize_data_phys.F  > module_cam_mp_modal_aero_initialize_data_phys.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mp_modal_aero_initialize_data_phys.bb | /lib/cpp -P -traditional > module_cam_mp_modal_aero_initialize_data_phys.f90
+rm -f module_cam_mp_modal_aero_initialize_data_phys.b module_cam_mp_modal_aero_initialize_data_phys.bb
+time mpif90 -f90=ifort -o module_cam_mp_modal_aero_initialize_data_phys.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mp_modal_aero_initialize_data_phys.f90
+
+real	0m0.127s
+user	0m0.070s
+sys	0m0.024s
+rm -f module_radiation_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_radiation_driver.F  > module_radiation_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_radiation_driver.bb | /lib/cpp -P -traditional > module_radiation_driver.f90
+rm -f module_radiation_driver.b module_radiation_driver.bb
+time mpif90 -f90=ifort -o module_radiation_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_radiation_driver.f90
+
+real	0m6.281s
+user	0m5.768s
+sys	0m0.420s
+rm -f module_sf_noahdrv.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sf_noahdrv.F  > module_sf_noahdrv.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sf_noahdrv.bb | /lib/cpp -P -traditional > module_sf_noahdrv.f90
+rm -f module_sf_noahdrv.b module_sf_noahdrv.bb
+time mpif90 -f90=ifort -o module_sf_noahdrv.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sf_noahdrv.f90
+
+real	0m5.727s
+user	0m5.500s
+sys	0m0.197s
+rm -f module_fr_fire_model.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_fr_fire_model.F  > module_fr_fire_model.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_fr_fire_model.bb | /lib/cpp -P -traditional > module_fr_fire_model.f90
+rm -f module_fr_fire_model.b module_fr_fire_model.bb
+time mpif90 -f90=ifort -o module_fr_fire_model.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_fr_fire_model.f90
+
+real	0m0.293s
+user	0m0.189s
+sys	0m0.064s
+rm -f module_cam_wv_saturation.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_wv_saturation.F  > module_cam_wv_saturation.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_wv_saturation.bb | /lib/cpp -P -traditional > module_cam_wv_saturation.f90
+rm -f module_cam_wv_saturation.b module_cam_wv_saturation.bb
+time mpif90 -f90=ifort -o module_cam_wv_saturation.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_wv_saturation.f90
+
+real	0m0.391s
+user	0m0.304s
+sys	0m0.053s
+rm -f module_cam_molec_diff.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_molec_diff.F  > module_cam_molec_diff.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_molec_diff.bb | /lib/cpp -P -traditional > module_cam_molec_diff.f90
+rm -f module_cam_molec_diff.b module_cam_molec_diff.bb
+time mpif90 -f90=ifort -o module_cam_molec_diff.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_molec_diff.f90
+
+real	0m0.600s
+user	0m0.482s
+sys	0m0.089s
+rm -f module_cam_mp_ndrop.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mp_ndrop.F  > module_cam_mp_ndrop.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mp_ndrop.bb | /lib/cpp -P -traditional > module_cam_mp_ndrop.f90
+rm -f module_cam_mp_ndrop.b module_cam_mp_ndrop.bb
+time mpif90 -f90=ifort -o module_cam_mp_ndrop.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mp_ndrop.f90
+
+real	0m2.900s
+user	0m2.785s
+sys	0m0.077s
+rm -f module_cam_mp_cldwat2m_micro.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mp_cldwat2m_micro.F  > module_cam_mp_cldwat2m_micro.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mp_cldwat2m_micro.bb | /lib/cpp -P -traditional > module_cam_mp_cldwat2m_micro.f90
+rm -f module_cam_mp_cldwat2m_micro.b module_cam_mp_cldwat2m_micro.bb
+time mpif90 -f90=ifort -o module_cam_mp_cldwat2m_micro.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mp_cldwat2m_micro.f90
+
+real	0m9.402s
+user	0m9.202s
+sys	0m0.155s
+rm -f module_mixactivate.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mixactivate.F  > module_mixactivate.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mixactivate.bb | /lib/cpp -P -traditional > module_mixactivate.f90
+rm -f module_mixactivate.b module_mixactivate.bb
+time mpif90 -f90=ifort -o module_mixactivate.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mixactivate.f90
+
+real	0m6.865s
+user	0m6.701s
+sys	0m0.126s
+rm -f module_fr_fire_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_fr_fire_driver.F  > module_fr_fire_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_fr_fire_driver.bb | /lib/cpp -P -traditional > module_fr_fire_driver.f90
+rm -f module_fr_fire_driver.b module_fr_fire_driver.bb
+time mpif90 -f90=ifort -o module_fr_fire_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_fr_fire_driver.f90
+
+real	0m1.866s
+user	0m1.514s
+sys	0m0.316s
+rm -f module_cam_cldwat.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_cldwat.F  > module_cam_cldwat.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_cldwat.bb | /lib/cpp -P -traditional > module_cam_cldwat.f90
+rm -f module_cam_cldwat.b module_cam_cldwat.bb
+time mpif90 -f90=ifort -o module_cam_cldwat.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_cldwat.f90
+
+real	0m0.097s
+user	0m0.033s
+sys	0m0.034s
+rm -f module_cam_esinti.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_esinti.F  > module_cam_esinti.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_esinti.bb | /lib/cpp -P -traditional > module_cam_esinti.f90
+rm -f module_cam_esinti.b module_cam_esinti.bb
+time mpif90 -f90=ifort -o module_cam_esinti.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_esinti.f90
+
+real	0m0.083s
+user	0m0.027s
+sys	0m0.026s
+rm -f module_cam_mp_microp_aero.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mp_microp_aero.F  > module_cam_mp_microp_aero.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mp_microp_aero.bb | /lib/cpp -P -traditional > module_cam_mp_microp_aero.f90
+rm -f module_cam_mp_microp_aero.b module_cam_mp_microp_aero.bb
+time mpif90 -f90=ifort -o module_cam_mp_microp_aero.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mp_microp_aero.f90
+
+real	0m0.872s
+user	0m0.731s
+sys	0m0.112s
+rm -f module_bl_camuwpbl_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bl_camuwpbl_driver.F  > module_bl_camuwpbl_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bl_camuwpbl_driver.bb | /lib/cpp -P -traditional > module_bl_camuwpbl_driver.f90
+rm -f module_bl_camuwpbl_driver.b module_bl_camuwpbl_driver.bb
+time mpif90 -f90=ifort -o module_bl_camuwpbl_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bl_camuwpbl_driver.f90
+
+real	0m5.792s
+user	0m5.638s
+sys	0m0.122s
+rm -f module_mp_cammgmp_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mp_cammgmp_driver.F  > module_mp_cammgmp_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mp_cammgmp_driver.bb | /lib/cpp -P -traditional > module_mp_cammgmp_driver.f90
+rm -f module_mp_cammgmp_driver.b module_mp_cammgmp_driver.bb
+time mpif90 -f90=ifort -o module_mp_cammgmp_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mp_cammgmp_driver.f90
+
+real	0m6.831s
+user	0m6.622s
+sys	0m0.170s
+rm -f module_shcu_camuwshcu.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_shcu_camuwshcu.F  > module_shcu_camuwshcu.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_shcu_camuwshcu.bb | /lib/cpp -P -traditional > module_shcu_camuwshcu.f90
+rm -f module_shcu_camuwshcu.b module_shcu_camuwshcu.bb
+time mpif90 -f90=ifort -o module_shcu_camuwshcu.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_shcu_camuwshcu.f90
+
+real	0m20.349s
+user	0m20.043s
+sys	0m0.247s
+rm -f module_cu_camzm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cu_camzm.F  > module_cu_camzm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cu_camzm.bb | /lib/cpp -P -traditional > module_cu_camzm.f90
+rm -f module_cu_camzm.b module_cu_camzm.bb
+time mpif90 -f90=ifort -o module_cu_camzm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cu_camzm.f90
+
+real	0m4.456s
+user	0m4.299s
+sys	0m0.120s
+rm -f module_cu_kfcup.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cu_kfcup.F  > module_cu_kfcup.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cu_kfcup.bb | /lib/cpp -P -traditional > module_cu_kfcup.f90
+rm -f module_cu_kfcup.b module_cu_kfcup.bb
+time mpif90 -f90=ifort -o module_cu_kfcup.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cu_kfcup.f90
+
+real	0m13.609s
+user	0m13.378s
+sys	0m0.176s
+rm -f module_pbl_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_pbl_driver.F  > module_pbl_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_pbl_driver.bb | /lib/cpp -P -traditional > module_pbl_driver.f90
+rm -f module_pbl_driver.b module_pbl_driver.bb
+time mpif90 -f90=ifort -o module_pbl_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_pbl_driver.f90
+
+real	0m2.858s
+user	0m2.654s
+sys	0m0.135s
+rm -f module_microphysics_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_microphysics_driver.F  > module_microphysics_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_microphysics_driver.bb | /lib/cpp -P -traditional > module_microphysics_driver.f90
+rm -f module_microphysics_driver.b module_microphysics_driver.bb
+time mpif90 -f90=ifort -o module_microphysics_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_microphysics_driver.f90
+
+real	0m1.818s
+user	0m1.294s
+sys	0m0.134s
+rm -f module_fr_fire_driver_wrf.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_fr_fire_driver_wrf.F  > module_fr_fire_driver_wrf.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_fr_fire_driver_wrf.bb | /lib/cpp -P -traditional > module_fr_fire_driver_wrf.f90
+rm -f module_fr_fire_driver_wrf.b module_fr_fire_driver_wrf.bb
+time mpif90 -f90=ifort -o module_fr_fire_driver_wrf.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_fr_fire_driver_wrf.f90
+
+real	0m0.911s
+user	0m0.782s
+sys	0m0.100s
+rm -f module_shcu_camuwshcu_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_shcu_camuwshcu_driver.F  > module_shcu_camuwshcu_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_shcu_camuwshcu_driver.bb | /lib/cpp -P -traditional > module_shcu_camuwshcu_driver.f90
+rm -f module_shcu_camuwshcu_driver.b module_shcu_camuwshcu_driver.bb
+time mpif90 -f90=ifort -o module_shcu_camuwshcu_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_shcu_camuwshcu_driver.f90
+
+real	0m1.705s
+user	0m1.608s
+sys	0m0.067s
+rm -f module_cu_camzm_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cu_camzm_driver.F  > module_cu_camzm_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cu_camzm_driver.bb | /lib/cpp -P -traditional > module_cu_camzm_driver.f90
+rm -f module_cu_camzm_driver.b module_cu_camzm_driver.bb
+time mpif90 -f90=ifort -o module_cu_camzm_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cu_camzm_driver.f90
+
+real	0m3.980s
+user	0m3.826s
+sys	0m0.118s
+rm -f module_shallowcu_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_shallowcu_driver.F  > module_shallowcu_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_shallowcu_driver.bb | /lib/cpp -P -traditional > module_shallowcu_driver.f90
+rm -f module_shallowcu_driver.b module_shallowcu_driver.bb
+time mpif90 -f90=ifort -o module_shallowcu_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_shallowcu_driver.f90
+
+real	0m0.406s
+user	0m0.291s
+sys	0m0.083s
+rm -f module_cumulus_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cumulus_driver.F  > module_cumulus_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cumulus_driver.bb | /lib/cpp -P -traditional > module_cumulus_driver.f90
+rm -f module_cumulus_driver.b module_cumulus_driver.bb
+time mpif90 -f90=ifort -o module_cumulus_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cumulus_driver.f90
+
+real	0m1.646s
+user	0m1.183s
+sys	0m0.351s
+
+real	11m22.946s
+user	11m5.048s
+sys	0m17.043s
+rm -f module_physics_init.o
+rm -f module_surface_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_surface_driver.F  > module_surface_driver.bb
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_physics_init.F  > module_physics_init.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_physics_init.bb | /lib/cpp -P -traditional > module_physics_init.f90
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_surface_driver.bb | /lib/cpp -P -traditional > module_surface_driver.f90
+rm -f module_surface_driver.b module_surface_driver.bb
+rm -f module_physics_init.b module_physics_init.bb
+time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4  -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  module_physics_init.f90
+time mpif90 -f90=ifort -o module_surface_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_surface_driver.f90
+
+real	0m1.361s
+user	0m1.196s
+sys	0m0.126s
+
+real	0m14.250s
+user	0m14.038s
+sys	0m0.172s
+make[3]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys'
+make[2]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys'
+make[1]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3'
+if [ 1  -eq 1 ]    ; then make -i -r MODULE_DIRS="-I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include " chemics ; fi
+make[1]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3'
+--------------------------------------
+if [ 0 -eq 1 ] ; then ( cd chem ; make -i -r ) ; fi
+if [ 0 -eq 0 ] ; then \
+	  if  [ "`echo -j 2 | sed -e 's/-j//g' -e 's/ \+//g'`" -gt "16" ] ; then \
+	    ( cd chem ; make -i -r -j 16 ) ;  \
+	  else \
+	    ( cd chem ; make -i -r -j 2 ) ; \
+	  fi \
+	fi
+make[2]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem'
+rm -f module_data_isrpia_data.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_isrpia_data.F  > module_data_isrpia_data.bb
+rm -f module_data_isrpia_asrc.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_isrpia_asrc.F  > module_data_isrpia_asrc.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_isrpia_data.bb | /lib/cpp -P -traditional > module_data_isrpia_data.f90
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_isrpia_asrc.bb | /lib/cpp -P -traditional > module_data_isrpia_asrc.f90
+rm -f module_data_isrpia_asrc.b module_data_isrpia_asrc.bb
+rm -f module_data_isrpia_data.b module_data_isrpia_data.bb
+time mpif90 -f90=ifort -o module_data_isrpia_asrc.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_isrpia_asrc.f90
+time mpif90 -f90=ifort -o module_data_isrpia_data.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_isrpia_data.f90
+
+real	0m0.098s
+user	0m0.014s
+sys	0m0.054s
+rm -f module_data_isrpia_solut.o
+
+real	0m0.098s
+user	0m0.021s
+sys	0m0.042s
+rm -f module_data_isrpia_kmc198.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_isrpia_solut.F  > module_data_isrpia_solut.bb
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_isrpia_kmc198.F  > module_data_isrpia_kmc198.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_isrpia_solut.bb | /lib/cpp -P -traditional > module_data_isrpia_solut.f90
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_isrpia_kmc198.bb | /lib/cpp -P -traditional > module_data_isrpia_kmc198.f90
+rm -f module_data_isrpia_solut.b module_data_isrpia_solut.bb
+rm -f module_data_isrpia_kmc198.b module_data_isrpia_kmc198.bb
+time mpif90 -f90=ifort -o module_data_isrpia_solut.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_isrpia_solut.f90
+time mpif90 -f90=ifort -o module_data_isrpia_kmc198.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_isrpia_kmc198.f90
+
+real	0m0.071s
+user	0m0.018s
+sys	0m0.025s
+rm -f module_data_isrpia_kmc223.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_isrpia_kmc223.F  > module_data_isrpia_kmc223.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_isrpia_kmc223.bb | /lib/cpp -P -traditional > module_data_isrpia_kmc223.f90
+rm -f module_data_isrpia_kmc223.b module_data_isrpia_kmc223.bb
+time mpif90 -f90=ifort -o module_data_isrpia_kmc223.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_isrpia_kmc223.f90
+
+real	0m0.113s
+user	0m0.047s
+sys	0m0.036s
+rm -f module_data_isrpia_kmc248.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_isrpia_kmc248.F  > module_data_isrpia_kmc248.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_isrpia_kmc248.bb | /lib/cpp -P -traditional > module_data_isrpia_kmc248.f90
+rm -f module_data_isrpia_kmc248.b module_data_isrpia_kmc248.bb
+time mpif90 -f90=ifort -o module_data_isrpia_kmc248.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_isrpia_kmc248.f90
+
+real	0m0.114s
+user	0m0.051s
+sys	0m0.032s
+rm -f module_data_isrpia_kmc273.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_isrpia_kmc273.F  > module_data_isrpia_kmc273.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_isrpia_kmc273.bb | /lib/cpp -P -traditional > module_data_isrpia_kmc273.f90
+rm -f module_data_isrpia_kmc273.b module_data_isrpia_kmc273.bb
+
+real	0m0.106s
+user	0m0.049s
+sys	0m0.025s
+rm -f module_data_isrpia_kmc298.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_isrpia_kmc298.F  > module_data_isrpia_kmc298.bb
+time mpif90 -f90=ifort -o module_data_isrpia_kmc273.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_isrpia_kmc273.f90
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_isrpia_kmc298.bb | /lib/cpp -P -traditional > module_data_isrpia_kmc298.f90
+rm -f module_data_isrpia_kmc298.b module_data_isrpia_kmc298.bb
+time mpif90 -f90=ifort -o module_data_isrpia_kmc298.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_isrpia_kmc298.f90
+
+real	0m0.109s
+user	0m0.052s
+sys	0m0.026s
+rm -f module_data_isrpia_kmc323.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_isrpia_kmc323.F  > module_data_isrpia_kmc323.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_isrpia_kmc323.bb | /lib/cpp -P -traditional > module_data_isrpia_kmc323.f90
+rm -f module_data_isrpia_kmc323.b module_data_isrpia_kmc323.bb
+time mpif90 -f90=ifort -o module_data_isrpia_kmc323.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_isrpia_kmc323.f90
+
+real	0m0.110s
+user	0m0.049s
+sys	0m0.029s
+rm -f module_data_isrpia_expnc.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_isrpia_expnc.F  > module_data_isrpia_expnc.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_isrpia_expnc.bb | /lib/cpp -P -traditional > module_data_isrpia_expnc.f90
+rm -f module_data_isrpia_expnc.b module_data_isrpia_expnc.bb
+time mpif90 -f90=ifort -o module_data_isrpia_expnc.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_isrpia_expnc.f90
+
+real	0m0.069s
+user	0m0.018s
+sys	0m0.020s
+rm -f module_data_isrpia_caseg.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_isrpia_caseg.F  > module_data_isrpia_caseg.bb
+
+real	0m0.111s
+user	0m0.052s
+sys	0m0.031s
+rm -f module_data_isrpia_casej.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_isrpia_casej.F  > module_data_isrpia_casej.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_isrpia_caseg.bb | /lib/cpp -P -traditional > module_data_isrpia_caseg.f90
+rm -f module_data_isrpia_caseg.b module_data_isrpia_caseg.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_isrpia_casej.bb | /lib/cpp -P -traditional > module_data_isrpia_casej.f90
+time mpif90 -f90=ifort -o module_data_isrpia_caseg.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_isrpia_caseg.f90
+rm -f module_data_isrpia_casej.b module_data_isrpia_casej.bb
+time mpif90 -f90=ifort -o module_data_isrpia_casej.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_isrpia_casej.f90
+
+real	0m0.074s
+user	0m0.014s
+sys	0m0.028s
+rm -f moduleHETDATA.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   moduleHETDATA.F  > moduleHETDATA.bb
+
+real	0m0.071s
+user	0m0.017s
+sys	0m0.022s
+rm -f moduleAERODATA.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   moduleAERODATA.F  > moduleAERODATA.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe moduleHETDATA.bb | /lib/cpp -P -traditional > moduleHETDATA.f90
+rm -f moduleHETDATA.b moduleHETDATA.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe moduleAERODATA.bb | /lib/cpp -P -traditional > moduleAERODATA.f90
+time mpif90 -f90=ifort -o moduleHETDATA.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  moduleHETDATA.f90
+rm -f moduleAERODATA.b moduleAERODATA.bb
+time mpif90 -f90=ifort -o moduleAERODATA.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  moduleAERODATA.f90
+
+real	0m0.084s
+user	0m0.013s
+sys	0m0.047s
+rm -f module_aer_opt_out.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_aer_opt_out.F  > module_aer_opt_out.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_aer_opt_out.bb | /lib/cpp -P -traditional > module_aer_opt_out.f90
+
+real	0m0.085s
+user	0m0.020s
+sys	0m0.045s
+rm -f module_add_emiss_burn.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_add_emiss_burn.F  > module_add_emiss_burn.bb
+rm -f module_aer_opt_out.b module_aer_opt_out.bb
+time mpif90 -f90=ifort -o module_aer_opt_out.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_aer_opt_out.f90
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_add_emiss_burn.bb | /lib/cpp -P -traditional > module_add_emiss_burn.f90
+rm -f module_add_emiss_burn.b module_add_emiss_burn.bb
+time mpif90 -f90=ifort -o module_add_emiss_burn.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_add_emiss_burn.f90
+
+real	0m0.165s
+user	0m0.068s
+sys	0m0.074s
+rm -f module_add_emis_cptec.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_add_emis_cptec.F  > module_add_emis_cptec.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_add_emis_cptec.bb | /lib/cpp -P -traditional > module_add_emis_cptec.f90
+rm -f module_add_emis_cptec.b module_add_emis_cptec.bb
+time mpif90 -f90=ifort -o module_add_emis_cptec.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_add_emis_cptec.f90
+
+real	0m2.836s
+user	0m2.727s
+sys	0m0.076s
+rm -f module_bioemi_beis314.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bioemi_beis314.F  > module_bioemi_beis314.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bioemi_beis314.bb | /lib/cpp -P -traditional > module_bioemi_beis314.f90
+rm -f module_bioemi_beis314.b module_bioemi_beis314.bb
+time mpif90 -f90=ifort -o module_bioemi_beis314.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bioemi_beis314.f90
+
+real	0m0.268s
+user	0m0.181s
+sys	0m0.056s
+rm -f module_chem_utilities.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_chem_utilities.F  > module_chem_utilities.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_chem_utilities.bb | /lib/cpp -P -traditional > module_chem_utilities.f90
+rm -f module_chem_utilities.b module_chem_utilities.bb
+time mpif90 -f90=ifort -o module_chem_utilities.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_chem_utilities.f90
+
+real	0m0.497s
+user	0m0.429s
+sys	0m0.037s
+rm -f module_cmu_dvode_solver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cmu_dvode_solver.F  > module_cmu_dvode_solver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cmu_dvode_solver.bb | /lib/cpp -P -traditional > module_cmu_dvode_solver.f90
+rm -f module_cmu_dvode_solver.b module_cmu_dvode_solver.bb
+time mpif90 -f90=ifort -o module_cmu_dvode_solver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cmu_dvode_solver.f90
+
+real	0m4.389s
+user	0m4.248s
+sys	0m0.106s
+rm -f module_ctrans_aqchem.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ctrans_aqchem.F  > module_ctrans_aqchem.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ctrans_aqchem.bb | /lib/cpp -P -traditional > module_ctrans_aqchem.f90
+rm -f module_ctrans_aqchem.b module_ctrans_aqchem.bb
+time mpif90 -f90=ifort -o module_ctrans_aqchem.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ctrans_aqchem.f90
+
+real	0m0.528s
+user	0m0.413s
+sys	0m0.078s
+rm -f module_peg_util.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_peg_util.F  > module_peg_util.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_peg_util.bb | /lib/cpp -P -traditional > module_peg_util.f90
+rm -f module_peg_util.b module_peg_util.bb
+time mpif90 -f90=ifort -o module_peg_util.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_peg_util.f90
+
+real	0m0.121s
+user	0m0.030s
+sys	0m0.059s
+rm -f module_data_cmu_bulkaqchem.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_cmu_bulkaqchem.F  > module_data_cmu_bulkaqchem.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_cmu_bulkaqchem.bb | /lib/cpp -P -traditional > module_data_cmu_bulkaqchem.f90
+rm -f module_data_cmu_bulkaqchem.b module_data_cmu_bulkaqchem.bb
+time mpif90 -f90=ifort -o module_data_cmu_bulkaqchem.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_cmu_bulkaqchem.f90
+
+real	0m0.078s
+user	0m0.020s
+sys	0m0.026s
+rm -f module_data_gocartchem.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_gocartchem.F  > module_data_gocartchem.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_gocartchem.bb | /lib/cpp -P -traditional > module_data_gocartchem.f90
+rm -f module_data_gocartchem.b module_data_gocartchem.bb
+time mpif90 -f90=ifort -o module_data_gocartchem.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_gocartchem.f90
+
+real	0m0.070s
+user	0m0.015s
+sys	0m0.020s
+rm -f module_data_gocart_seas.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_gocart_seas.F  > module_data_gocart_seas.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_gocart_seas.bb | /lib/cpp -P -traditional > module_data_gocart_seas.f90
+rm -f module_data_gocart_seas.b module_data_gocart_seas.bb
+time mpif90 -f90=ifort -o module_data_gocart_seas.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_gocart_seas.f90
+
+real	0m0.067s
+user	0m0.016s
+sys	0m0.020s
+rm -f module_data_mosaic_other.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_mosaic_other.F  > module_data_mosaic_other.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_mosaic_other.bb | /lib/cpp -P -traditional > module_data_mosaic_other.f90
+rm -f module_data_mosaic_other.b module_data_mosaic_other.bb
+time mpif90 -f90=ifort -o module_data_mosaic_other.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_mosaic_other.f90
+
+real	0m0.112s
+user	0m0.020s
+sys	0m0.063s
+rm -f module_data_mosaic_therm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_mosaic_therm.F  > module_data_mosaic_therm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_mosaic_therm.bb | /lib/cpp -P -traditional > module_data_mosaic_therm.f90
+rm -f module_data_mosaic_therm.b module_data_mosaic_therm.bb
+time mpif90 -f90=ifort -o module_data_mosaic_therm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_mosaic_therm.f90
+
+real	0m0.122s
+user	0m0.033s
+sys	0m0.064s
+rm -f module_data_radm2.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_radm2.F  > module_data_radm2.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_radm2.bb | /lib/cpp -P -traditional > module_data_radm2.f90
+rm -f module_data_radm2.b module_data_radm2.bb
+time mpif90 -f90=ifort -o module_data_radm2.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_radm2.f90
+
+real	0m0.086s
+user	0m0.020s
+sys	0m0.034s
+rm -f module_data_rrtmgaeropt.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_rrtmgaeropt.F  > module_data_rrtmgaeropt.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_rrtmgaeropt.bb | /lib/cpp -P -traditional > module_data_rrtmgaeropt.f90
+rm -f module_data_rrtmgaeropt.b module_data_rrtmgaeropt.bb
+time mpif90 -f90=ifort -o module_data_rrtmgaeropt.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_rrtmgaeropt.f90
+
+real	0m0.072s
+user	0m0.023s
+sys	0m0.019s
+rm -f module_data_megan2.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_megan2.F  > module_data_megan2.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_megan2.bb | /lib/cpp -P -traditional > module_data_megan2.f90
+rm -f module_data_megan2.b module_data_megan2.bb
+time mpif90 -f90=ifort -o module_data_megan2.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_megan2.f90
+
+real	0m0.104s
+user	0m0.025s
+sys	0m0.050s
+rm -f module_data_soa_vbs.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_soa_vbs.F  > module_data_soa_vbs.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_soa_vbs.bb | /lib/cpp -P -traditional > module_data_soa_vbs.f90
+rm -f module_data_soa_vbs.b module_data_soa_vbs.bb
+time mpif90 -f90=ifort -o module_data_soa_vbs.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_soa_vbs.f90
+
+real	0m0.072s
+user	0m0.020s
+sys	0m0.022s
+rm -f module_data_sorgam.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_sorgam.F  > module_data_sorgam.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_sorgam.bb | /lib/cpp -P -traditional > module_data_sorgam.f90
+rm -f module_data_sorgam.b module_data_sorgam.bb
+time mpif90 -f90=ifort -o module_data_sorgam.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_sorgam.f90
+
+real	0m0.072s
+user	0m0.017s
+sys	0m0.023s
+rm -f module_data_sorgam_vbs.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_sorgam_vbs.F  > module_data_sorgam_vbs.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_sorgam_vbs.bb | /lib/cpp -P -traditional > module_data_sorgam_vbs.f90
+rm -f module_data_sorgam_vbs.b module_data_sorgam_vbs.bb
+time mpif90 -f90=ifort -o module_data_sorgam_vbs.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_sorgam_vbs.f90
+
+real	0m0.071s
+user	0m0.017s
+sys	0m0.023s
+rm -f module_wave_data.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_wave_data.F  > module_wave_data.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_wave_data.bb | /lib/cpp -P -traditional > module_wave_data.f90
+rm -f module_wave_data.b module_wave_data.bb
+time mpif90 -f90=ifort -o module_wave_data.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_wave_data.f90
+
+
+real	0m2.878s
+real	0m0.431s
+user	0m2.793s
+user	0m0.361s
+sys	0m0.054s
+sys	0m0.038s
+rm -f module_ghg_fluxes.o
+rm -f module_gocart_drydep.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ghg_fluxes.F  > module_ghg_fluxes.bb
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_gocart_drydep.F  > module_gocart_drydep.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_gocart_drydep.bb | /lib/cpp -P -traditional > module_gocart_drydep.f90
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ghg_fluxes.bb | /lib/cpp -P -traditional > module_ghg_fluxes.f90
+rm -f module_gocart_drydep.b module_gocart_drydep.bb
+rm -f module_ghg_fluxes.b module_ghg_fluxes.bb
+time mpif90 -f90=ifort -o module_gocart_drydep.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_gocart_drydep.f90
+time mpif90 -f90=ifort -o module_ghg_fluxes.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ghg_fluxes.f90
+
+real	0m0.251s
+user	0m0.178s
+sys	0m0.040s
+rm -f module_gocart_settling.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_gocart_settling.F  > module_gocart_settling.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_gocart_settling.bb | /lib/cpp -P -traditional > module_gocart_settling.f90
+rm -f module_gocart_settling.b module_gocart_settling.bb
+time mpif90 -f90=ifort -o module_gocart_settling.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_gocart_settling.f90
+
+real	0m0.610s
+user	0m0.541s
+sys	0m0.037s
+rm -f module_gocart_so2so4.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_gocart_so2so4.F  > module_gocart_so2so4.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_gocart_so2so4.bb | /lib/cpp -P -traditional > module_gocart_so2so4.f90
+rm -f module_gocart_so2so4.b module_gocart_so2so4.bb
+time mpif90 -f90=ifort -o module_gocart_so2so4.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_gocart_so2so4.f90
+
+real	0m0.177s
+user	0m0.096s
+sys	0m0.051s
+rm -f module_input_tracer_data.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_input_tracer_data.F  > module_input_tracer_data.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_input_tracer_data.bb | /lib/cpp -P -traditional > module_input_tracer_data.f90
+rm -f module_input_tracer_data.b module_input_tracer_data.bb
+time mpif90 -f90=ifort -o module_input_tracer_data.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_input_tracer_data.f90
+
+real	0m1.191s
+user	0m1.115s
+sys	0m0.045s
+rm -f module_interpolate.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_interpolate.F  > module_interpolate.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_interpolate.bb | /lib/cpp -P -traditional > module_interpolate.f90
+rm -f module_interpolate.b module_interpolate.bb
+time mpif90 -f90=ifort -o module_interpolate.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_interpolate.f90
+
+real	0m0.115s
+user	0m0.024s
+sys	0m0.058s
+rm -f module_mosaic_csuesat.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mosaic_csuesat.F  > module_mosaic_csuesat.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mosaic_csuesat.bb | /lib/cpp -P -traditional > module_mosaic_csuesat.f90
+rm -f module_mosaic_csuesat.b module_mosaic_csuesat.bb
+time mpif90 -f90=ifort -o module_mosaic_csuesat.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mosaic_csuesat.f90
+
+real	0m0.098s
+user	0m0.032s
+sys	0m0.040s
+rm -f module_mozcart_wetscav.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mozcart_wetscav.F  > module_mozcart_wetscav.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mozcart_wetscav.bb | /lib/cpp -P -traditional > module_mozcart_wetscav.f90
+rm -f module_mozcart_wetscav.b module_mozcart_wetscav.bb
+time mpif90 -f90=ifort -o module_mozcart_wetscav.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mozcart_wetscav.f90
+
+real	0m0.691s
+user	0m0.630s
+sys	0m0.041s
+rm -f module_vertmx_wrf.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_vertmx_wrf.F  > module_vertmx_wrf.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_vertmx_wrf.bb | /lib/cpp -P -traditional > module_vertmx_wrf.f90
+rm -f module_vertmx_wrf.b module_vertmx_wrf.bb
+time mpif90 -f90=ifort -o module_vertmx_wrf.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_vertmx_wrf.f90
+
+real	0m0.245s
+user	0m0.190s
+sys	0m0.022s
+rm -f module_wetdep_ls.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_wetdep_ls.F  > module_wetdep_ls.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_wetdep_ls.bb | /lib/cpp -P -traditional > module_wetdep_ls.f90
+rm -f module_wetdep_ls.b module_wetdep_ls.bb
+time mpif90 -f90=ifort -o module_wetdep_ls.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_wetdep_ls.f90
+
+real	0m0.137s
+user	0m0.082s
+sys	0m0.022s
+rm -f module_zero_plumegen_coms.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_zero_plumegen_coms.F  > module_zero_plumegen_coms.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_zero_plumegen_coms.bb | /lib/cpp -P -traditional > module_zero_plumegen_coms.f90
+rm -f module_zero_plumegen_coms.b module_zero_plumegen_coms.bb
+time mpif90 -f90=ifort -o module_zero_plumegen_coms.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_zero_plumegen_coms.f90
+
+real	0m0.115s
+user	0m0.059s
+sys	0m0.025s
+rm -f module_vash_settling.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_vash_settling.F  > module_vash_settling.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_vash_settling.bb | /lib/cpp -P -traditional > module_vash_settling.f90
+rm -f module_vash_settling.b module_vash_settling.bb
+time mpif90 -f90=ifort -o module_vash_settling.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_vash_settling.f90
+
+real	0m1.209s
+user	0m1.137s
+sys	0m0.048s
+rm -f module_chem_plumerise_scalar.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_chem_plumerise_scalar.F  > module_chem_plumerise_scalar.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_chem_plumerise_scalar.bb | /lib/cpp -P -traditional > module_chem_plumerise_scalar.f90
+rm -f module_chem_plumerise_scalar.b module_chem_plumerise_scalar.bb
+time mpif90 -f90=ifort -o module_chem_plumerise_scalar.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_chem_plumerise_scalar.f90
+
+real	0m0.827s
+user	0m0.721s
+sys	0m0.075s
+rm -f module_radm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_radm.F  > module_radm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_radm.bb | /lib/cpp -P -traditional > module_radm.f90
+rm -f module_radm.b module_radm.bb
+time mpif90 -f90=ifort -o module_radm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_radm.f90
+
+real	0m1.801s
+user	0m1.698s
+sys	0m0.072s
+rm -f module_mosaic_addemiss.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mosaic_addemiss.F  > module_mosaic_addemiss.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mosaic_addemiss.bb | /lib/cpp -P -traditional > module_mosaic_addemiss.f90
+rm -f module_mosaic_addemiss.b module_mosaic_addemiss.bb
+time mpif90 -f90=ifort -o module_mosaic_addemiss.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mosaic_addemiss.f90
+
+real	0m1.364s
+user	0m1.237s
+sys	0m0.093s
+rm -f module_gocart_dmsemis.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_gocart_dmsemis.F  > module_gocart_dmsemis.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_gocart_dmsemis.bb | /lib/cpp -P -traditional > module_gocart_dmsemis.f90
+rm -f module_gocart_dmsemis.b module_gocart_dmsemis.bb
+time mpif90 -f90=ifort -o module_gocart_dmsemis.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_gocart_dmsemis.f90
+
+real	0m0.211s
+user	0m0.116s
+sys	0m0.069s
+rm -f module_gocart_aerosols.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_gocart_aerosols.F  > module_gocart_aerosols.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_gocart_aerosols.bb | /lib/cpp -P -traditional > module_gocart_aerosols.f90
+rm -f module_gocart_aerosols.b module_gocart_aerosols.bb
+time mpif90 -f90=ifort -o module_gocart_aerosols.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_gocart_aerosols.f90
+
+real	0m0.559s
+user	0m0.460s
+sys	0m0.066s
+rm -f module_gocart_dust.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_gocart_dust.F  > module_gocart_dust.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_gocart_dust.bb | /lib/cpp -P -traditional > module_gocart_dust.f90
+rm -f module_gocart_dust.b module_gocart_dust.bb
+time mpif90 -f90=ifort -o module_gocart_dust.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_gocart_dust.f90
+
+real	0m0.222s
+user	0m0.160s
+sys	0m0.032s
+rm -f module_gocart_dust_afwa.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_gocart_dust_afwa.F  > module_gocart_dust_afwa.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_gocart_dust_afwa.bb | /lib/cpp -P -traditional > module_gocart_dust_afwa.f90
+rm -f module_gocart_dust_afwa.b module_gocart_dust_afwa.bb
+time mpif90 -f90=ifort -o module_gocart_dust_afwa.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_gocart_dust_afwa.f90
+
+real	0m0.417s
+user	0m0.349s
+sys	0m0.038s
+rm -f module_gocart_seasalt.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_gocart_seasalt.F  > module_gocart_seasalt.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_gocart_seasalt.bb | /lib/cpp -P -traditional > module_gocart_seasalt.f90
+rm -f module_gocart_seasalt.b module_gocart_seasalt.bb
+time mpif90 -f90=ifort -o module_gocart_seasalt.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_gocart_seasalt.f90
+
+real	0m0.201s
+user	0m0.137s
+sys	0m0.032s
+rm -f module_qf03.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_qf03.F  > module_qf03.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_qf03.bb | /lib/cpp -P -traditional > module_qf03.f90
+rm -f module_qf03.b module_qf03.bb
+time mpif90 -f90=ifort -o module_qf03.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_qf03.f90
+
+real	0m0.605s
+user	0m0.539s
+sys	0m0.033s
+rm -f module_soilpsd.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_soilpsd.F  > module_soilpsd.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_soilpsd.bb | /lib/cpp -P -traditional > module_soilpsd.f90
+rm -f module_soilpsd.b module_soilpsd.bb
+time mpif90 -f90=ifort -o module_soilpsd.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_soilpsd.f90
+
+real	0m0.069s
+user	0m0.019s
+sys	0m0.019s
+rm -f module_dust_load.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_dust_load.F  > module_dust_load.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_dust_load.bb | /lib/cpp -P -traditional > module_dust_load.f90
+rm -f module_dust_load.b module_dust_load.bb
+time mpif90 -f90=ifort -o module_dust_load.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_dust_load.f90
+
+real	0m0.163s
+user	0m0.099s
+sys	0m0.031s
+rm -f module_mosaic_initmixrats.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mosaic_initmixrats.F  > module_mosaic_initmixrats.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mosaic_initmixrats.bb | /lib/cpp -P -traditional > module_mosaic_initmixrats.f90
+rm -f module_mosaic_initmixrats.b module_mosaic_initmixrats.bb
+time mpif90 -f90=ifort -o module_mosaic_initmixrats.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mosaic_initmixrats.f90
+
+real	0m0.540s
+user	0m0.431s
+sys	0m0.078s
+rm -f module_mosaic_movesect.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mosaic_movesect.F  > module_mosaic_movesect.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mosaic_movesect.bb | /lib/cpp -P -traditional > module_mosaic_movesect.f90
+rm -f module_mosaic_movesect.b module_mosaic_movesect.bb
+time mpif90 -f90=ifort -o module_mosaic_movesect.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mosaic_movesect.f90
+
+real	0m1.036s
+user	0m0.947s
+sys	0m0.058s
+rm -f module_cbmz_lsodes_solver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cbmz_lsodes_solver.F  > module_cbmz_lsodes_solver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cbmz_lsodes_solver.bb | /lib/cpp -P -traditional > module_cbmz_lsodes_solver.f90
+rm -f module_cbmz_lsodes_solver.b module_cbmz_lsodes_solver.bb
+time mpif90 -f90=ifort -o module_cbmz_lsodes_solver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cbmz_lsodes_solver.f90
+
+real	0m2.377s
+user	0m2.294s
+sys	0m0.050s
+rm -f module_cbmz_rodas3_solver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cbmz_rodas3_solver.F  > module_cbmz_rodas3_solver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cbmz_rodas3_solver.bb | /lib/cpp -P -traditional > module_cbmz_rodas3_solver.f90
+rm -f module_cbmz_rodas3_solver.b module_cbmz_rodas3_solver.bb
+time mpif90 -f90=ifort -o module_cbmz_rodas3_solver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cbmz_rodas3_solver.f90
+
+real	0m0.140s
+user	0m0.082s
+sys	0m0.028s
+rm -f module_cmu_bulkaqchem.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cmu_bulkaqchem.F  > module_cmu_bulkaqchem.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cmu_bulkaqchem.bb | /lib/cpp -P -traditional > module_cmu_bulkaqchem.f90
+rm -f module_cmu_bulkaqchem.b module_cmu_bulkaqchem.bb
+time mpif90 -f90=ifort -o module_cmu_bulkaqchem.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cmu_bulkaqchem.f90
+
+real	0m0.755s
+user	0m0.689s
+sys	0m0.036s
+rm -f module_data_mgn2mech.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_mgn2mech.F  > module_data_mgn2mech.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_mgn2mech.bb | /lib/cpp -P -traditional > module_data_mgn2mech.f90
+rm -f module_data_mgn2mech.b module_data_mgn2mech.bb
+time mpif90 -f90=ifort -o module_data_mgn2mech.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_mgn2mech.f90
+
+real	0m0.662s
+user	0m0.567s
+sys	0m0.065s
+rm -f module_fastj_data.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_fastj_data.F  > module_fastj_data.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_fastj_data.bb | /lib/cpp -P -traditional > module_fastj_data.f90
+rm -f module_fastj_data.b module_fastj_data.bb
+time mpif90 -f90=ifort -o module_fastj_data.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_fastj_data.f90
+
+real	0m0.337s
+user	0m0.216s
+sys	0m0.089s
+rm -f module_fastj_mie.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_fastj_mie.F  > module_fastj_mie.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_fastj_mie.bb | /lib/cpp -P -traditional > module_fastj_mie.f90
+rm -f module_fastj_mie.b module_fastj_mie.bb
+time mpif90 -f90=ifort -o module_fastj_mie.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_fastj_mie.f90
+
+real	0m1.542s
+user	0m1.451s
+sys	0m0.040s
+rm -f module_cam_mam_rename.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_rename.F  > module_cam_mam_rename.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_rename.bb | /lib/cpp -P -traditional > module_cam_mam_rename.f90
+rm -f module_cam_mam_rename.b module_cam_mam_rename.bb
+time mpif90 -f90=ifort -o module_cam_mam_rename.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_rename.f90
+
+real	0m0.260s
+user	0m0.198s
+sys	0m0.030s
+rm -f module_cam_mam_wetdep.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_wetdep.F  > module_cam_mam_wetdep.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_wetdep.bb | /lib/cpp -P -traditional > module_cam_mam_wetdep.f90
+rm -f module_cam_mam_wetdep.b module_cam_mam_wetdep.bb
+time mpif90 -f90=ifort -o module_cam_mam_wetdep.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_wetdep.f90
+
+real	0m0.878s
+user	0m0.795s
+sys	0m0.051s
+rm -f module_cam_mam_mo_chem_utls.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_mo_chem_utls.F  > module_cam_mam_mo_chem_utls.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_mo_chem_utls.bb | /lib/cpp -P -traditional > module_cam_mam_mo_chem_utls.f90
+rm -f module_cam_mam_mo_chem_utls.b module_cam_mam_mo_chem_utls.bb
+time mpif90 -f90=ifort -o module_cam_mam_mo_chem_utls.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_mo_chem_utls.f90
+
+real	0m0.084s
+user	0m0.025s
+sys	0m0.027s
+rm -f module_mosaic_coag.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mosaic_coag.F  > module_mosaic_coag.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mosaic_coag.bb | /lib/cpp -P -traditional > module_mosaic_coag.f90
+rm -f module_mosaic_coag.b module_mosaic_coag.bb
+time mpif90 -f90=ifort -o module_mosaic_coag.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mosaic_coag.f90
+
+real	0m0.598s
+user	0m0.535s
+sys	0m0.031s
+rm -f module_mosaic_gly.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mosaic_gly.F  > module_mosaic_gly.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mosaic_gly.bb | /lib/cpp -P -traditional > module_mosaic_gly.f90
+rm -f module_mosaic_gly.b module_mosaic_gly.bb
+time mpif90 -f90=ifort -o module_mosaic_gly.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mosaic_gly.f90
+
+real	0m0.191s
+user	0m0.134s
+sys	0m0.024s
+rm -f module_mosaic_therm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mosaic_therm.F  > module_mosaic_therm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mosaic_therm.bb | /lib/cpp -P -traditional > module_mosaic_therm.f90
+rm -f module_mosaic_therm.b module_mosaic_therm.bb
+time mpif90 -f90=ifort -o module_mosaic_therm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mosaic_therm.f90
+
+real	0m15.821s
+user	0m15.636s
+sys	0m0.089s
+rm -f module_phot_mad.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_phot_mad.F  > module_phot_mad.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_phot_mad.bb | /lib/cpp -P -traditional > module_phot_mad.f90
+rm -f module_phot_mad.b module_phot_mad.bb
+time mpif90 -f90=ifort -o module_phot_mad.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_phot_mad.f90
+
+real	0m1.530s
+user	0m1.451s
+sys	0m0.046s
+rm -f module_sorgam_aqchem.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sorgam_aqchem.F  > module_sorgam_aqchem.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sorgam_aqchem.bb | /lib/cpp -P -traditional > module_sorgam_aqchem.f90
+rm -f module_sorgam_aqchem.b module_sorgam_aqchem.bb
+time mpif90 -f90=ifort -o module_sorgam_aqchem.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sorgam_aqchem.f90
+
+real	0m0.277s
+user	0m0.199s
+sys	0m0.044s
+rm -f module_sorgam_vbs_aqchem.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sorgam_vbs_aqchem.F  > module_sorgam_vbs_aqchem.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sorgam_vbs_aqchem.bb | /lib/cpp -P -traditional > module_sorgam_vbs_aqchem.f90
+rm -f module_sorgam_vbs_aqchem.b module_sorgam_vbs_aqchem.bb
+time mpif90 -f90=ifort -o module_sorgam_vbs_aqchem.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sorgam_vbs_aqchem.f90
+
+real	0m0.254s
+user	0m0.186s
+sys	0m0.036s
+rm -f module_bioemi_megan2.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bioemi_megan2.F  > module_bioemi_megan2.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bioemi_megan2.bb | /lib/cpp -P -traditional > module_bioemi_megan2.f90
+rm -f module_bioemi_megan2.b module_bioemi_megan2.bb
+time mpif90 -f90=ifort -o module_bioemi_megan2.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bioemi_megan2.f90
+
+real	0m6.204s
+user	0m6.080s
+sys	0m0.089s
+rm -f module_bioemi_simple.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bioemi_simple.F  > module_bioemi_simple.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bioemi_simple.bb | /lib/cpp -P -traditional > module_bioemi_simple.f90
+rm -f module_bioemi_simple.b module_bioemi_simple.bb
+time mpif90 -f90=ifort -o module_bioemi_simple.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bioemi_simple.f90
+
+real	0m0.424s
+user	0m0.328s
+sys	0m0.061s
+rm -f module_gocart_chem.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_gocart_chem.F  > module_gocart_chem.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_gocart_chem.bb | /lib/cpp -P -traditional > module_gocart_chem.f90
+rm -f module_gocart_chem.b module_gocart_chem.bb
+time mpif90 -f90=ifort -o module_gocart_chem.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_gocart_chem.f90
+
+real	0m0.576s
+user	0m0.481s
+sys	0m0.062s
+rm -f module_lightning_nox_ott.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_lightning_nox_ott.F  > module_lightning_nox_ott.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_lightning_nox_ott.bb | /lib/cpp -P -traditional > module_lightning_nox_ott.f90
+rm -f module_lightning_nox_ott.b module_lightning_nox_ott.bb
+time mpif90 -f90=ifort -o module_lightning_nox_ott.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_lightning_nox_ott.f90
+
+real	0m0.179s
+user	0m0.068s
+sys	0m0.087s
+rm -f module_lightning_nox_decaria.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_lightning_nox_decaria.F  > module_lightning_nox_decaria.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_lightning_nox_decaria.bb | /lib/cpp -P -traditional > module_lightning_nox_decaria.f90
+rm -f module_lightning_nox_decaria.b module_lightning_nox_decaria.bb
+time mpif90 -f90=ifort -o module_lightning_nox_decaria.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_lightning_nox_decaria.f90
+
+real	0m0.576s
+user	0m0.496s
+sys	0m0.048s
+rm -f module_mixactivate_wrappers.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mixactivate_wrappers.F  > module_mixactivate_wrappers.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mixactivate_wrappers.bb | /lib/cpp -P -traditional > module_mixactivate_wrappers.f90
+rm -f module_mixactivate_wrappers.b module_mixactivate_wrappers.bb
+time mpif90 -f90=ifort -o module_mixactivate_wrappers.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mixactivate_wrappers.f90
+
+real	0m0.421s
+user	0m0.343s
+sys	0m0.046s
+rm -f module_optical_averaging.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_optical_averaging.F  > module_optical_averaging.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_optical_averaging.bb | /lib/cpp -P -traditional > module_optical_averaging.f90
+rm -f module_optical_averaging.b module_optical_averaging.bb
+time mpif90 -f90=ifort -o module_optical_averaging.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_optical_averaging.f90
+
+real	0m12.672s
+user	0m12.462s
+sys	0m0.167s
+rm -f module_plumerise1.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_plumerise1.F  > module_plumerise1.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_plumerise1.bb | /lib/cpp -P -traditional > module_plumerise1.f90
+rm -f module_plumerise1.b module_plumerise1.bb
+time mpif90 -f90=ifort -o module_plumerise1.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_plumerise1.f90
+
+real	0m1.644s
+user	0m1.564s
+sys	0m0.046s
+rm -f module_cam_mam_wateruptake.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_wateruptake.F  > module_cam_mam_wateruptake.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_wateruptake.bb | /lib/cpp -P -traditional > module_cam_mam_wateruptake.f90
+rm -f module_cam_mam_wateruptake.b module_cam_mam_wateruptake.bb
+time mpif90 -f90=ifort -o module_cam_mam_wateruptake.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_wateruptake.f90
+
+real	0m0.377s
+user	0m0.304s
+sys	0m0.041s
+rm -f module_cam_mam_dust_sediment.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_dust_sediment.F  > module_cam_mam_dust_sediment.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_dust_sediment.bb | /lib/cpp -P -traditional > module_cam_mam_dust_sediment.f90
+rm -f module_cam_mam_dust_sediment.b module_cam_mam_dust_sediment.bb
+time mpif90 -f90=ifort -o module_cam_mam_dust_sediment.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_dust_sediment.f90
+
+real	0m0.069s
+user	0m0.019s
+sys	0m0.021s
+rm -f module_cam_mam_drydep.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_drydep.F  > module_cam_mam_drydep.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_drydep.bb | /lib/cpp -P -traditional > module_cam_mam_drydep.f90
+rm -f module_cam_mam_drydep.b module_cam_mam_drydep.bb
+time mpif90 -f90=ifort -o module_cam_mam_drydep.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_drydep.f90
+
+real	0m0.119s
+user	0m0.062s
+sys	0m0.024s
+rm -f ../dyn_em/module_convtrans_prep.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   ../dyn_em/module_convtrans_prep.F  > ../dyn_em/module_convtrans_prep.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe ../dyn_em/module_convtrans_prep.bb | /lib/cpp -P -traditional > ../dyn_em/module_convtrans_prep.f90
+rm -f ../dyn_em/module_convtrans_prep.b ../dyn_em/module_convtrans_prep.bb
+time mpif90 -f90=ifort -o ../dyn_em/module_convtrans_prep.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  ../dyn_em/module_convtrans_prep.f90
+
+real	0m0.306s
+user	0m0.234s
+sys	0m0.044s
+rm -f module_data_ISRPIA.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_ISRPIA.F  > module_data_ISRPIA.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_ISRPIA.bb | /lib/cpp -P -traditional > module_data_ISRPIA.f90
+rm -f module_data_ISRPIA.b module_data_ISRPIA.bb
+time mpif90 -f90=ifort -o module_data_ISRPIA.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_ISRPIA.f90
+
+real	0m0.068s
+user	0m0.018s
+sys	0m0.019s
+rm -f moduleHETAERO.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   moduleHETAERO.F  > moduleHETAERO.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe moduleHETAERO.bb | /lib/cpp -P -traditional > moduleHETAERO.f90
+rm -f moduleHETAERO.b moduleHETAERO.bb
+time mpif90 -f90=ifort -o moduleHETAERO.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  moduleHETAERO.f90
+
+real	0m0.067s
+user	0m0.019s
+sys	0m0.016s
+rm -f module_data_cbmz.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_data_cbmz.F  > module_data_cbmz.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_data_cbmz.bb | /lib/cpp -P -traditional > module_data_cbmz.f90
+rm -f module_data_cbmz.b module_data_cbmz.bb
+time mpif90 -f90=ifort -o module_data_cbmz.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_data_cbmz.f90
+
+real	0m0.070s
+user	0m0.023s
+sys	0m0.015s
+rm -f module_ftuv_subs.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ftuv_subs.F  > module_ftuv_subs.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ftuv_subs.bb | /lib/cpp -P -traditional > module_ftuv_subs.f90
+rm -f module_ftuv_subs.b module_ftuv_subs.bb
+time mpif90 -f90=ifort -o module_ftuv_subs.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ftuv_subs.f90
+
+real	0m5.305s
+user	0m5.158s
+sys	0m0.094s
+rm -f module_tropopause.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_tropopause.F  > module_tropopause.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_tropopause.bb | /lib/cpp -P -traditional > module_tropopause.f90
+rm -f module_tropopause.b module_tropopause.bb
+time mpif90 -f90=ifort -o module_tropopause.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_tropopause.f90
+
+real	0m0.526s
+user	0m0.462s
+sys	0m0.033s
+rm -f module_aerosols_soa_vbs.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_aerosols_soa_vbs.F  > module_aerosols_soa_vbs.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_aerosols_soa_vbs.bb | /lib/cpp -P -traditional > module_aerosols_soa_vbs.f90
+rm -f module_aerosols_soa_vbs.b module_aerosols_soa_vbs.bb
+time mpif90 -f90=ifort -o module_aerosols_soa_vbs.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_aerosols_soa_vbs.f90
+
+real	0m2.676s
+user	0m2.577s
+sys	0m0.065s
+rm -f module_uoc_dust.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_uoc_dust.F  > module_uoc_dust.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_uoc_dust.bb | /lib/cpp -P -traditional > module_uoc_dust.f90
+rm -f module_uoc_dust.b module_uoc_dust.bb
+time mpif90 -f90=ifort -o module_uoc_dust.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_uoc_dust.f90
+
+real	0m0.357s
+user	0m0.256s
+sys	0m0.064s
+rm -f module_mosaic_newnuc.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mosaic_newnuc.F  > module_mosaic_newnuc.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mosaic_newnuc.bb | /lib/cpp -P -traditional > module_mosaic_newnuc.f90
+rm -f module_mosaic_newnuc.b module_mosaic_newnuc.bb
+time mpif90 -f90=ifort -o module_mosaic_newnuc.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mosaic_newnuc.f90
+
+real	0m0.220s
+user	0m0.163s
+sys	0m0.026s
+rm -f module_ftuv_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ftuv_driver.F  > module_ftuv_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ftuv_driver.bb | /lib/cpp -P -traditional > module_ftuv_driver.f90
+rm -f module_ftuv_driver.b module_ftuv_driver.bb
+time mpif90 -f90=ifort -o module_ftuv_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ftuv_driver.f90
+
+real	0m2.464s
+user	0m2.359s
+sys	0m0.072s
+rm -f module_cam_mam_calcsize.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_calcsize.F  > module_cam_mam_calcsize.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_calcsize.bb | /lib/cpp -P -traditional > module_cam_mam_calcsize.f90
+rm -f module_cam_mam_calcsize.b module_cam_mam_calcsize.bb
+time mpif90 -f90=ifort -o module_cam_mam_calcsize.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_calcsize.f90
+
+real	0m0.743s
+user	0m0.671s
+sys	0m0.040s
+rm -f module_cam_mam_gasaerexch.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_gasaerexch.F  > module_cam_mam_gasaerexch.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_gasaerexch.bb | /lib/cpp -P -traditional > module_cam_mam_gasaerexch.f90
+rm -f module_cam_mam_gasaerexch.b module_cam_mam_gasaerexch.bb
+time mpif90 -f90=ifort -o module_cam_mam_gasaerexch.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_gasaerexch.f90
+
+real	0m4.848s
+user	0m4.727s
+sys	0m0.085s
+rm -f module_cam_mam_newnuc.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_newnuc.F  > module_cam_mam_newnuc.bb
+module_cam_mam_newnuc.F:1750: 警告：#endif 指示的末尾有多余的标识符
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_newnuc.bb | /lib/cpp -P -traditional > module_cam_mam_newnuc.f90
+rm -f module_cam_mam_newnuc.b module_cam_mam_newnuc.bb
+time mpif90 -f90=ifort -o module_cam_mam_newnuc.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_newnuc.f90
+
+real	0m0.427s
+user	0m0.364s
+sys	0m0.033s
+rm -f module_cam_mam_mz_aerosols_intr.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_mz_aerosols_intr.F  > module_cam_mam_mz_aerosols_intr.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_mz_aerosols_intr.bb | /lib/cpp -P -traditional > module_cam_mam_mz_aerosols_intr.f90
+rm -f module_cam_mam_mz_aerosols_intr.b module_cam_mam_mz_aerosols_intr.bb
+time mpif90 -f90=ifort -o module_cam_mam_mz_aerosols_intr.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_mz_aerosols_intr.f90
+
+real	0m0.716s
+user	0m0.646s
+sys	0m0.039s
+rm -f module_cam_mam_setsox.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_setsox.F  > module_cam_mam_setsox.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_setsox.bb | /lib/cpp -P -traditional > module_cam_mam_setsox.f90
+rm -f module_cam_mam_setsox.b module_cam_mam_setsox.bb
+time mpif90 -f90=ifort -o module_cam_mam_setsox.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_setsox.f90
+
+real	0m0.785s
+user	0m0.699s
+sys	0m0.055s
+rm -f module_cam_mam_mo_sethet.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_mo_sethet.F  > module_cam_mam_mo_sethet.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_mo_sethet.bb | /lib/cpp -P -traditional > module_cam_mam_mo_sethet.f90
+rm -f module_cam_mam_mo_sethet.b module_cam_mam_mo_sethet.bb
+time mpif90 -f90=ifort -o module_cam_mam_mo_sethet.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_mo_sethet.f90
+
+real	0m1.231s
+user	0m1.155s
+sys	0m0.046s
+rm -f module_cbmz_rodas_prep.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cbmz_rodas_prep.F  > module_cbmz_rodas_prep.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cbmz_rodas_prep.bb | /lib/cpp -P -traditional > module_cbmz_rodas_prep.f90
+rm -f module_cbmz_rodas_prep.b module_cbmz_rodas_prep.bb
+time mpif90 -f90=ifort -o module_cbmz_rodas_prep.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cbmz_rodas_prep.f90
+
+real	0m5.497s
+user	0m5.346s
+sys	0m0.116s
+rm -f module_lightning_nox_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_lightning_nox_driver.F  > module_lightning_nox_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_lightning_nox_driver.bb | /lib/cpp -P -traditional > module_lightning_nox_driver.f90
+rm -f module_lightning_nox_driver.b module_lightning_nox_driver.bb
+time mpif90 -f90=ifort -o module_lightning_nox_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_lightning_nox_driver.f90
+
+real	0m0.241s
+user	0m0.164s
+sys	0m0.046s
+rm -f module_cam_mam_wetscav.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_wetscav.F  > module_cam_mam_wetscav.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_wetscav.bb | /lib/cpp -P -traditional > module_cam_mam_wetscav.f90
+rm -f module_cam_mam_wetscav.b module_cam_mam_wetscav.bb
+time mpif90 -f90=ifort -o module_cam_mam_wetscav.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_wetscav.f90
+
+real	0m0.464s
+user	0m0.363s
+sys	0m0.069s
+rm -f optical_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   optical_driver.F  > optical_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe optical_driver.bb | /lib/cpp -P -traditional > optical_driver.f90
+rm -f optical_driver.b optical_driver.bb
+time mpif90 -f90=ifort -o optical_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  optical_driver.f90
+
+real	0m2.909s
+user	0m2.790s
+sys	0m0.088s
+rm -f isofwd.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   isofwd.F  > isofwd.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe isofwd.bb | /lib/cpp -P -traditional > isofwd.f90
+rm -f isofwd.b isofwd.bb
+time mpif90 -f90=ifort -o isofwd.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  isofwd.f90
+
+real	0m2.118s
+user	0m1.979s
+sys	0m0.081s
+rm -f isorev.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   isorev.F  > isorev.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe isorev.bb | /lib/cpp -P -traditional > isorev.f90
+rm -f isorev.b isorev.bb
+time mpif90 -f90=ifort -o isorev.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  isorev.f90
+
+real	0m1.080s
+user	0m1.010s
+sys	0m0.038s
+rm -f aerorate_so2.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   aerorate_so2.F  > aerorate_so2.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe aerorate_so2.bb | /lib/cpp -P -traditional > aerorate_so2.f90
+rm -f aerorate_so2.b aerorate_so2.bb
+time mpif90 -f90=ifort -o aerorate_so2.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  aerorate_so2.f90
+
+real	0m0.113s
+user	0m0.030s
+sys	0m0.048s
+rm -f module_upper_bc_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_upper_bc_driver.F  > module_upper_bc_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_upper_bc_driver.bb | /lib/cpp -P -traditional > module_upper_bc_driver.f90
+rm -f module_upper_bc_driver.b module_upper_bc_driver.bb
+time mpif90 -f90=ifort -o module_upper_bc_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_upper_bc_driver.f90
+
+real	0m13.361s
+user	0m13.235s
+sys	0m0.083s
+rm -f module_dep_simple.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_dep_simple.F  > module_dep_simple.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_dep_simple.bb | /lib/cpp -P -traditional > module_dep_simple.f90
+rm -f module_dep_simple.b module_dep_simple.bb
+time mpif90 -f90=ifort -o module_dep_simple.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_dep_simple.f90
+
+real	0m1.131s
+user	0m1.049s
+sys	0m0.048s
+rm -f module_cam_mam_coag.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_coag.F  > module_cam_mam_coag.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_coag.bb | /lib/cpp -P -traditional > module_cam_mam_coag.f90
+rm -f module_cam_mam_coag.b module_cam_mam_coag.bb
+time mpif90 -f90=ifort -o module_cam_mam_coag.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_coag.f90
+
+real	0m0.529s
+user	0m0.462s
+sys	0m0.034s
+rm -f module_cam_mam_cloudchem.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_cloudchem.F  > module_cam_mam_cloudchem.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_cloudchem.bb | /lib/cpp -P -traditional > module_cam_mam_cloudchem.f90
+rm -f module_cam_mam_cloudchem.b module_cam_mam_cloudchem.bb
+time mpif90 -f90=ifort -o module_cam_mam_cloudchem.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_cloudchem.f90
+
+real	0m0.386s
+user	0m0.316s
+sys	0m0.038s
+rm -f module_cam_mam_gas_wetdep_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_gas_wetdep_driver.F  > module_cam_mam_gas_wetdep_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_gas_wetdep_driver.bb | /lib/cpp -P -traditional > module_cam_mam_gas_wetdep_driver.f90
+rm -f module_cam_mam_gas_wetdep_driver.b module_cam_mam_gas_wetdep_driver.bb
+time mpif90 -f90=ifort -o module_cam_mam_gas_wetdep_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_gas_wetdep_driver.f90
+
+real	0m0.317s
+user	0m0.212s
+sys	0m0.078s
+rm -f module_cbmz.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cbmz.F  > module_cbmz.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cbmz.bb | /lib/cpp -P -traditional > module_cbmz.f90
+rm -f module_cbmz.b module_cbmz.bb
+time mpif90 -f90=ifort -o module_cbmz.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cbmz.f90
+
+real	0m1.552s
+user	0m1.450s
+sys	0m0.067s
+rm -f module_cam_mam_aerchem_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_aerchem_driver.F  > module_cam_mam_aerchem_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_aerchem_driver.bb | /lib/cpp -P -traditional > module_cam_mam_aerchem_driver.f90
+rm -f module_cam_mam_aerchem_driver.b module_cam_mam_aerchem_driver.bb
+time mpif90 -f90=ifort -o module_cam_mam_aerchem_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_aerchem_driver.f90
+
+real	0m1.079s
+user	0m0.974s
+sys	0m0.068s
+rm -f isocom.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   isocom.F  > isocom.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe isocom.bb | /lib/cpp -P -traditional > isocom.f90
+rm -f isocom.b isocom.bb
+time mpif90 -f90=ifort -o isocom.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  isocom.f90
+
+real	0m0.668s
+user	0m0.576s
+sys	0m0.052s
+rm -f module_cam_mam_initaerodata.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_initaerodata.F  > module_cam_mam_initaerodata.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_initaerodata.bb | /lib/cpp -P -traditional > module_cam_mam_initaerodata.f90
+rm -f module_cam_mam_initaerodata.b module_cam_mam_initaerodata.bb
+time mpif90 -f90=ifort -o module_cam_mam_initaerodata.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_initaerodata.f90
+
+real	0m0.688s
+user	0m0.615s
+sys	0m0.042s
+rm -f module_cam_mam_init.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_init.F  > module_cam_mam_init.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_init.bb | /lib/cpp -P -traditional > module_cam_mam_init.f90
+rm -f module_cam_mam_init.b module_cam_mam_init.bb
+time mpif90 -f90=ifort -o module_cam_mam_init.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_init.f90
+
+real	0m0.698s
+user	0m0.591s
+sys	0m0.076s
+rm -f module_cam_mam_initmixrats.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_initmixrats.F  > module_cam_mam_initmixrats.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_initmixrats.bb | /lib/cpp -P -traditional > module_cam_mam_initmixrats.f90
+rm -f module_cam_mam_initmixrats.b module_cam_mam_initmixrats.bb
+time mpif90 -f90=ifort -o module_cam_mam_initmixrats.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_initmixrats.f90
+
+real	0m0.347s
+user	0m0.282s
+sys	0m0.035s
+rm -f module_cam_mam_addemiss.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cam_mam_addemiss.F  > module_cam_mam_addemiss.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cam_mam_addemiss.bb | /lib/cpp -P -traditional > module_cam_mam_addemiss.f90
+rm -f module_cam_mam_addemiss.b module_cam_mam_addemiss.bb
+time mpif90 -f90=ifort -o module_cam_mam_addemiss.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cam_mam_addemiss.f90
+
+real	0m0.776s
+user	0m0.695s
+sys	0m0.049s
+
+real	0m8.243s
+user	0m8.068s
+sys	0m0.136s
+rm -f module_mosaic_wetscav.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mosaic_wetscav.F  > module_mosaic_wetscav.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mosaic_wetscav.bb | /lib/cpp -P -traditional > module_mosaic_wetscav.f90
+rm -f module_mosaic_wetscav.b module_mosaic_wetscav.bb
+time mpif90 -f90=ifort -o module_mosaic_wetscav.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mosaic_wetscav.f90
+
+real	0m1.249s
+user	0m1.138s
+sys	0m0.075s
+rm -f module_aerosols_sorgam.o
+rm -f module_aerosols_sorgam_vbs.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_aerosols_sorgam_vbs.F  > module_aerosols_sorgam_vbs.bb
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_aerosols_sorgam.F  > module_aerosols_sorgam.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_aerosols_sorgam.bb | /lib/cpp -P -traditional > module_aerosols_sorgam.f90
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_aerosols_sorgam_vbs.bb | /lib/cpp -P -traditional > module_aerosols_sorgam_vbs.f90
+rm -f module_aerosols_sorgam.b module_aerosols_sorgam.bb
+time mpif90 -f90=ifort -o module_aerosols_sorgam.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_aerosols_sorgam.f90
+rm -f module_aerosols_sorgam_vbs.b module_aerosols_sorgam_vbs.bb
+time mpif90 -f90=ifort -o module_aerosols_sorgam_vbs.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_aerosols_sorgam_vbs.f90
+
+real	0m6.226s
+user	0m6.097s
+sys	0m0.091s
+rm -f module_mosaic_driver.o
+
+real	0m6.236s
+user	0m6.096s
+sys	0m0.104s
+rm -f module_sorgam_vbs_cloudchem.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mosaic_driver.F  > module_mosaic_driver.bb
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sorgam_vbs_cloudchem.F  > module_sorgam_vbs_cloudchem.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sorgam_vbs_cloudchem.bb | /lib/cpp -P -traditional > module_sorgam_vbs_cloudchem.f90
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mosaic_driver.bb | /lib/cpp -P -traditional > module_mosaic_driver.f90
+rm -f module_sorgam_vbs_cloudchem.b module_sorgam_vbs_cloudchem.bb
+time mpif90 -f90=ifort -o module_sorgam_vbs_cloudchem.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sorgam_vbs_cloudchem.f90
+rm -f module_mosaic_driver.b module_mosaic_driver.bb
+time mpif90 -f90=ifort -o module_mosaic_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mosaic_driver.f90
+
+real	0m0.686s
+user	0m0.573s
+sys	0m0.083s
+rm -f mechanism_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   mechanism_driver.F  > mechanism_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe mechanism_driver.bb | /lib/cpp -P -traditional > mechanism_driver.f90
+rm -f mechanism_driver.b mechanism_driver.bb
+time mpif90 -f90=ifort -o mechanism_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  mechanism_driver.f90
+
+real	0m0.502s
+user	0m0.387s
+sys	0m0.085s
+rm -f module_input_chem_data.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_input_chem_data.F  > module_input_chem_data.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_input_chem_data.bb | /lib/cpp -P -traditional > module_input_chem_data.f90
+rm -f module_input_chem_data.b module_input_chem_data.bb
+time mpif90 -f90=ifort -o module_input_chem_data.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_input_chem_data.f90
+
+real	0m3.263s
+user	0m3.159s
+sys	0m0.070s
+rm -f module_wetscav_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_wetscav_driver.F  > module_wetscav_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_wetscav_driver.bb | /lib/cpp -P -traditional > module_wetscav_driver.f90
+rm -f module_wetscav_driver.b module_wetscav_driver.bb
+time mpif90 -f90=ifort -o module_wetscav_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_wetscav_driver.f90
+
+real	0m3.204s
+user	0m3.025s
+sys	0m0.091s
+rm -f module_input_chem_bioemiss.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_input_chem_bioemiss.F  > module_input_chem_bioemiss.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_input_chem_bioemiss.bb | /lib/cpp -P -traditional > module_input_chem_bioemiss.f90
+rm -f module_input_chem_bioemiss.b module_input_chem_bioemiss.bb
+time mpif90 -f90=ifort -o module_input_chem_bioemiss.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_input_chem_bioemiss.f90
+
+real	0m1.401s
+user	0m1.275s
+sys	0m0.093s
+rm -f module_input_dust_errosion.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_input_dust_errosion.F  > module_input_dust_errosion.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_input_dust_errosion.bb | /lib/cpp -P -traditional > module_input_dust_errosion.f90
+rm -f module_input_dust_errosion.b module_input_dust_errosion.bb
+time mpif90 -f90=ifort -o module_input_dust_errosion.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_input_dust_errosion.f90
+
+real	0m0.415s
+user	0m0.324s
+sys	0m0.061s
+rm -f module_input_gocart_dms.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_input_gocart_dms.F  > module_input_gocart_dms.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_input_gocart_dms.bb | /lib/cpp -P -traditional > module_input_gocart_dms.f90
+rm -f module_input_gocart_dms.b module_input_gocart_dms.bb
+time mpif90 -f90=ifort -o module_input_gocart_dms.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_input_gocart_dms.f90
+
+real	0m0.412s
+user	0m0.282s
+sys	0m0.103s
+rm -f module_cbmz_addemiss.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cbmz_addemiss.F  > module_cbmz_addemiss.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cbmz_addemiss.bb | /lib/cpp -P -traditional > module_cbmz_addemiss.f90
+rm -f module_cbmz_addemiss.b module_cbmz_addemiss.bb
+time mpif90 -f90=ifort -o module_cbmz_addemiss.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cbmz_addemiss.f90
+
+real	0m1.159s
+user	0m1.087s
+sys	0m0.038s
+rm -f module_cbm4_addemiss.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cbm4_addemiss.F  > module_cbm4_addemiss.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cbm4_addemiss.bb | /lib/cpp -P -traditional > module_cbm4_addemiss.f90
+rm -f module_cbm4_addemiss.b module_cbm4_addemiss.bb
+time mpif90 -f90=ifort -o module_cbm4_addemiss.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cbm4_addemiss.f90
+
+real	0m0.648s
+user	0m0.565s
+sys	0m0.050s
+rm -f module_cb05_addemiss.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cb05_addemiss.F  > module_cb05_addemiss.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cb05_addemiss.bb | /lib/cpp -P -traditional > module_cb05_addemiss.f90
+rm -f module_cb05_addemiss.b module_cb05_addemiss.bb
+time mpif90 -f90=ifort -o module_cb05_addemiss.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cb05_addemiss.f90
+
+real	0m1.946s
+user	0m1.818s
+sys	0m0.095s
+rm -f module_emissions_anthropogenics.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_emissions_anthropogenics.F  > module_emissions_anthropogenics.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_emissions_anthropogenics.bb | /lib/cpp -P -traditional > module_emissions_anthropogenics.f90
+rm -f module_emissions_anthropogenics.b module_emissions_anthropogenics.bb
+time mpif90 -f90=ifort -o module_emissions_anthropogenics.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_emissions_anthropogenics.f90
+
+real	0m7.486s
+user	0m7.329s
+sys	0m0.119s
+rm -f module_sorgam_cloudchem.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sorgam_cloudchem.F  > module_sorgam_cloudchem.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sorgam_cloudchem.bb | /lib/cpp -P -traditional > module_sorgam_cloudchem.f90
+rm -f module_sorgam_cloudchem.b module_sorgam_cloudchem.bb
+time mpif90 -f90=ifort -o module_sorgam_cloudchem.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sorgam_cloudchem.f90
+
+real	0m0.718s
+user	0m0.594s
+sys	0m0.087s
+rm -f emissions_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   emissions_driver.F  > emissions_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe emissions_driver.bb | /lib/cpp -P -traditional > emissions_driver.f90
+rm -f emissions_driver.b emissions_driver.bb
+time mpif90 -f90=ifort -o emissions_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  emissions_driver.f90
+
+real	0m4.857s
+user	0m4.706s
+sys	0m0.114s
+rm -f module_cbm4_initmixrats.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cbm4_initmixrats.F  > module_cbm4_initmixrats.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cbm4_initmixrats.bb | /lib/cpp -P -traditional > module_cbm4_initmixrats.f90
+rm -f module_cbm4_initmixrats.b module_cbm4_initmixrats.bb
+time mpif90 -f90=ifort -o module_cbm4_initmixrats.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cbm4_initmixrats.f90
+
+real	0m0.666s
+user	0m0.494s
+sys	0m0.090s
+rm -f module_cb05_initmixrats.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cb05_initmixrats.F  > module_cb05_initmixrats.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cb05_initmixrats.bb | /lib/cpp -P -traditional > module_cb05_initmixrats.f90
+rm -f module_cb05_initmixrats.b module_cb05_initmixrats.bb
+time mpif90 -f90=ifort -o module_cb05_initmixrats.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cb05_initmixrats.f90
+
+real	0m0.261s
+user	0m0.167s
+sys	0m0.063s
+rm -f module_cb05_vbs_initmixrats.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cb05_vbs_initmixrats.F  > module_cb05_vbs_initmixrats.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cb05_vbs_initmixrats.bb | /lib/cpp -P -traditional > module_cb05_vbs_initmixrats.f90
+rm -f module_cb05_vbs_initmixrats.b module_cb05_vbs_initmixrats.bb
+time mpif90 -f90=ifort -o module_cb05_vbs_initmixrats.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cb05_vbs_initmixrats.f90
+
+real	0m0.264s
+user	0m0.175s
+sys	0m0.057s
+rm -f module_cbmz_initmixrats.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_cbmz_initmixrats.F  > module_cbmz_initmixrats.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_cbmz_initmixrats.bb | /lib/cpp -P -traditional > module_cbmz_initmixrats.f90
+rm -f module_cbmz_initmixrats.b module_cbmz_initmixrats.bb
+time mpif90 -f90=ifort -o module_cbmz_initmixrats.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_cbmz_initmixrats.f90
+
+real	0m0.598s
+user	0m0.489s
+sys	0m0.073s
+rm -f module_ctrans_grell.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_ctrans_grell.F  > module_ctrans_grell.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_ctrans_grell.bb | /lib/cpp -P -traditional > module_ctrans_grell.f90
+rm -f module_ctrans_grell.b module_ctrans_grell.bb
+time mpif90 -f90=ifort -o module_ctrans_grell.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_ctrans_grell.f90
+
+real	0m4.605s
+user	0m4.472s
+sys	0m0.097s
+rm -f module_input_tracer.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_input_tracer.F  > module_input_tracer.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_input_tracer.bb | /lib/cpp -P -traditional > module_input_tracer.f90
+rm -f module_input_tracer.b module_input_tracer.bb
+time mpif90 -f90=ifort -o module_input_tracer.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_input_tracer.f90
+
+real	0m0.332s
+user	0m0.252s
+sys	0m0.049s
+
+real	2m8.289s
+user	2m7.767s
+sys	0m0.308s
+rm -f module_mosaic_drydep.o
+rm -f module_mosaic_cloudchem.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mosaic_cloudchem.F  > module_mosaic_cloudchem.bb
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_mosaic_drydep.F  > module_mosaic_drydep.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mosaic_cloudchem.bb | /lib/cpp -P -traditional > module_mosaic_cloudchem.f90
+rm -f module_mosaic_cloudchem.b module_mosaic_cloudchem.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_mosaic_drydep.bb | /lib/cpp -P -traditional > module_mosaic_drydep.f90
+time mpif90 -f90=ifort -o module_mosaic_cloudchem.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mosaic_cloudchem.f90
+rm -f module_mosaic_drydep.b module_mosaic_drydep.bb
+time mpif90 -f90=ifort -o module_mosaic_drydep.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_mosaic_drydep.f90
+
+real	0m0.284s
+user	0m0.188s
+sys	0m0.062s
+rm -f module_phot_fastj.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_phot_fastj.F  > module_phot_fastj.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_phot_fastj.bb | /lib/cpp -P -traditional > module_phot_fastj.f90
+rm -f module_phot_fastj.b module_phot_fastj.bb
+time mpif90 -f90=ifort -o module_phot_fastj.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_phot_fastj.f90
+
+real	0m0.759s
+user	0m0.639s
+sys	0m0.086s
+rm -f chemics_init.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   chemics_init.F  > chemics_init.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe chemics_init.bb | /lib/cpp -P -traditional > chemics_init.f90
+rm -f chemics_init.b chemics_init.bb
+time mpif90 -f90=ifort -o chemics_init.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  chemics_init.f90
+
+real	0m2.359s
+user	0m2.276s
+sys	0m0.051s
+rm -f cloudchem_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   cloudchem_driver.F  > cloudchem_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe cloudchem_driver.bb | /lib/cpp -P -traditional > cloudchem_driver.f90
+rm -f cloudchem_driver.b cloudchem_driver.bb
+time mpif90 -f90=ifort -o cloudchem_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  cloudchem_driver.f90
+
+real	0m0.141s
+user	0m0.078s
+sys	0m0.032s
+rm -f photolysis_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   photolysis_driver.F  > photolysis_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe photolysis_driver.bb | /lib/cpp -P -traditional > photolysis_driver.f90
+rm -f photolysis_driver.b photolysis_driver.bb
+time mpif90 -f90=ifort -o photolysis_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  photolysis_driver.f90
+
+real	0m0.143s
+user	0m0.085s
+sys	0m0.026s
+rm -f aerosol_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   aerosol_driver.F  > aerosol_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe aerosol_driver.bb | /lib/cpp -P -traditional > aerosol_driver.f90
+rm -f aerosol_driver.b aerosol_driver.bb
+time mpif90 -f90=ifort -o aerosol_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  aerosol_driver.f90
+
+real	0m0.358s
+user	0m0.280s
+sys	0m0.047s
+rm -f module_aer_drydep.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_aer_drydep.F  > module_aer_drydep.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_aer_drydep.bb | /lib/cpp -P -traditional > module_aer_drydep.f90
+rm -f module_aer_drydep.b module_aer_drydep.bb
+time mpif90 -f90=ifort -o module_aer_drydep.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_aer_drydep.f90
+
+real	0m1.069s
+user	0m0.978s
+sys	0m0.060s
+rm -f module_chem_cup.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_chem_cup.F  > module_chem_cup.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_chem_cup.bb | /lib/cpp -P -traditional > module_chem_cup.f90
+rm -f module_chem_cup.b module_chem_cup.bb
+time mpif90 -f90=ifort -o module_chem_cup.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_chem_cup.f90
+
+real	0m6.281s
+user	0m6.126s
+sys	0m0.119s
+rm -f dry_dep_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   dry_dep_driver.F  > dry_dep_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe dry_dep_driver.bb | /lib/cpp -P -traditional > dry_dep_driver.f90
+rm -f dry_dep_driver.b dry_dep_driver.bb
+time mpif90 -f90=ifort -o dry_dep_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  dry_dep_driver.f90
+
+real	0m25.947s
+user	0m25.660s
+sys	0m0.226s
+
+real	1m19.736s
+user	1m19.390s
+sys	0m0.241s
+rm -f chem_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   chem_driver.F  > chem_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe chem_driver.bb | /lib/cpp -P -traditional > chem_driver.f90
+rm -f chem_driver.b chem_driver.bb
+time mpif90 -f90=ifort -o chem_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  chem_driver.f90
+
+real	0m6.883s
+user	0m6.659s
+sys	0m0.187s
+ar ru ../main/libwrflib.a module_data_isrpia_data.o module_data_ISRPIA.o module_data_isrpia_asrc.o module_data_isrpia_solut.o module_data_isrpia_kmc198.o module_data_isrpia_kmc223.o module_data_isrpia_kmc248.o module_data_isrpia_kmc273.o module_data_isrpia_kmc298.o module_data_isrpia_kmc323.o module_data_isrpia_expnc.o module_data_isrpia_caseg.o module_data_isrpia_casej.o isofwd.o isorev.o isocom.o moduleHETDATA.o moduleHETAERO.o moduleAERODATA.o aerorate_so2.o module_aer_opt_out.o module_add_emiss_burn.o module_add_emis_cptec.o module_bioemi_beis314.o module_chem_utilities.o module_cmu_dvode_solver.o module_ctrans_aqchem.o module_data_cbmz.o module_data_cmu_bulkaqchem.o module_data_gocartchem.o module_data_gocart_seas.o module_data_mosaic_asect.o module_data_mosaic_other.o module_data_mosaic_therm.o module_data_radm2.o module_data_rrtmgaeropt.o module_data_megan2.o module_data_soa_vbs.o module_data_sorgam.o module_data_sorgam_vbs.o module_ftuv_subs.o module_ghg_fluxes.o module_gocart_drydep.o module_gocart_settling.o module_gocart_so2so4.o module_input_tracer_data.o module_interpolate.o module_mosaic_csuesat.o module_mozcart_wetscav.o module_peg_util.o module_tropopause.o module_upper_bc_driver.o module_vertmx_wrf.o module_wave_data.o module_wetdep_ls.o module_zero_plumegen_coms.o module_vash_settling.o module_chem_plumerise_scalar.o module_dep_simple.o module_gocart_dmsemis.o module_gocart_aerosols.o module_gocart_dust.o module_gocart_dust_afwa.o module_gocart_seasalt.o module_uoc_dust.o module_qf03.o module_soilpsd.o module_dust_load.o module_mosaic_addemiss.o module_mosaic_initmixrats.o module_mosaic_movesect.o module_mosaic_newnuc.o module_cbmz_lsodes_solver.o module_cbmz_rodas3_solver.o module_cmu_bulkaqchem.o module_data_mgn2mech.o module_ftuv_driver.o module_fastj_data.o module_fastj_mie.o module_input_chem_data.o module_mosaic_coag.o module_mosaic_gly.o module_mosaic_wetscav.o module_mosaic_therm.o module_phot_mad.o module_radm.o module_sorgam_aqchem.o module_sorgam_vbs_aqchem.o module_aerosols_soa_vbs.o module_aerosols_sorgam.o module_aerosols_sorgam_vbs.o module_bioemi_megan2.o module_bioemi_simple.o module_cbm4_initmixrats.o module_cb05_initmixrats.o module_cb05_vbs_initmixrats.o module_cbmz.o module_cbmz_initmixrats.o module_cbmz_rodas_prep.o module_ctrans_grell.o module_gocart_chem.o module_input_tracer.o module_lightning_nox_driver.o module_lightning_nox_ott.o module_lightning_nox_decaria.o module_mixactivate_wrappers.o module_mosaic_driver.o module_optical_averaging.o module_plumerise1.o module_mosaic_drydep.o module_wetscav_driver.o module_input_chem_bioemiss.o module_input_dust_errosion.o module_input_gocart_dms.o module_cbmz_addemiss.o module_cbm4_addemiss.o module_cb05_addemiss.o module_emissions_anthropogenics.o module_aer_drydep.o module_cam_mam_calcsize.o module_cam_mam_dust_sediment.o module_cam_mam_drydep.o module_cam_mam_init.o module_cam_mam_initaerodata.o module_cam_mam_initmixrats.o module_cam_mam_rename.o module_cam_mam_wateruptake.o module_cam_mam_gasaerexch.o module_cam_mam_coag.o module_cam_mam_newnuc.o module_cam_mam_aerchem_driver.o module_cam_mam_addemiss.o module_cam_mam_wetscav.o module_cam_mam_mz_aerosols_intr.o module_cam_mam_wetdep.o module_cam_mam_cloudchem.o module_cam_mam_setsox.o module_cam_mam_mo_chem_utls.o module_mosaic_cloudchem.o module_sorgam_cloudchem.o module_sorgam_vbs_cloudchem.o module_cam_mam_gas_wetdep_driver.o module_cam_mam_mo_sethet.o module_phot_fastj.o module_chem_cup.o chemics_init.o chem_driver.o cloudchem_driver.o photolysis_driver.o optical_driver.o mechanism_driver.o emissions_driver.o dry_dep_driver.o aerosol_driver.o 
+make[2]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem'
+make[1]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3'
+if [ 1 -eq 1 ]    ; then make -i -r MODULE_DIRS="-I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include " em_core ; fi
+make[1]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3'
+--------------------------------------
+if [ 1  -eq 0 ] ; then \
+		CF= ; \
+	else \
+		CF="../chem/module_aerosols_sorgam.o ../chem/module_gocart_aerosols.o ../chem/module_mosaic_driver.o ../chem/module_input_tracer.o ../chem/module_aerosols_soa_vbs.o" ; \
+	fi
+( cd dyn_em ; make -i -r -j 2 CF="" )
+make[2]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/dyn_em'
+rm -f module_advect_em.o
+rm -f module_big_step_utilities_em.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_advect_em.F  > module_advect_em.bb
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_big_step_utilities_em.F  > module_big_step_utilities_em.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_big_step_utilities_em.bb | /lib/cpp -P -traditional > module_big_step_utilities_em.f90
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_advect_em.bb | /lib/cpp -P -traditional > module_advect_em.f90
+rm -f module_big_step_utilities_em.b module_big_step_utilities_em.bb
+time mpif90 -f90=ifort -o module_big_step_utilities_em.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_big_step_utilities_em.f90
+rm -f module_advect_em.b module_advect_em.bb
+time mpif90 -f90=ifort -o module_advect_em.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_advect_em.f90
+
+real	0m14.737s
+user	0m14.527s
+sys	0m0.158s
+rm -f module_small_step_em.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_small_step_em.F  > module_small_step_em.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_small_step_em.bb | /lib/cpp -P -traditional > module_small_step_em.f90
+rm -f module_small_step_em.b module_small_step_em.bb
+time mpif90 -f90=ifort -o module_small_step_em.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_small_step_em.f90
+
+real	0m4.220s
+user	0m4.084s
+sys	0m0.089s
+rm -f module_damping_em.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_damping_em.F  > module_damping_em.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_damping_em.bb | /lib/cpp -P -traditional > module_damping_em.f90
+rm -f module_damping_em.b module_damping_em.bb
+time mpif90 -f90=ifort -o module_damping_em.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_damping_em.f90
+
+real	0m0.182s
+user	0m0.090s
+sys	0m0.064s
+rm -f module_solvedebug_em.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_solvedebug_em.F  > module_solvedebug_em.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_solvedebug_em.bb | /lib/cpp -P -traditional > module_solvedebug_em.f90
+rm -f module_solvedebug_em.b module_solvedebug_em.bb
+time mpif90 -f90=ifort -o module_solvedebug_em.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_solvedebug_em.f90
+
+real	0m0.234s
+user	0m0.174s
+sys	0m0.027s
+rm -f module_bc_em.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_bc_em.F  > module_bc_em.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_bc_em.bb | /lib/cpp -P -traditional > module_bc_em.f90
+rm -f module_bc_em.b module_bc_em.bb
+time mpif90 -f90=ifort -o module_bc_em.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_bc_em.f90
+
+real	0m1.152s
+user	0m1.072s
+sys	0m0.046s
+rm -f module_init_utilities.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_init_utilities.F  > module_init_utilities.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_init_utilities.bb | /lib/cpp -P -traditional > module_init_utilities.f90
+rm -f module_init_utilities.b module_init_utilities.bb
+time mpif90 -f90=ifort -o module_init_utilities.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_init_utilities.f90
+
+real	0m0.076s
+user	0m0.022s
+sys	0m0.022s
+rm -f module_wps_io_arw.o
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_wps_io_arw.F > module_wps_io_arw.b 
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_wps_io_arw.b  > module_wps_io_arw.f90
+rm -f module_wps_io_arw.b
+if fgrep -iq '!$OMP' module_wps_io_arw.f90 ; then \
+          if [ -n "" ] ; then echo COMPILING module_wps_io_arw.F WITH OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include    module_wps_io_arw.f90 ; \
+        else \
+          if [ -n "" ] ; then echo COMPILING module_wps_io_arw.F WITHOUT OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   module_wps_io_arw.f90 ; \
+        fi
+
+real	0m0.672s
+user	0m0.475s
+sys	0m0.058s
+rm -f module_polarfft.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_polarfft.F  > module_polarfft.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_polarfft.bb | /lib/cpp -P -traditional > module_polarfft.f90
+rm -f module_polarfft.b module_polarfft.bb
+time mpif90 -f90=ifort -o module_polarfft.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_polarfft.f90
+
+real	0m2.655s
+user	0m2.555s
+sys	0m0.066s
+rm -f module_force_scm.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_force_scm.F  > module_force_scm.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_force_scm.bb | /lib/cpp -P -traditional > module_force_scm.f90
+rm -f module_force_scm.b module_force_scm.bb
+time mpif90 -f90=ifort -o module_force_scm.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_force_scm.f90
+
+real	0m1.117s
+user	0m1.022s
+sys	0m0.061s
+rm -f module_stoch.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_stoch.F  > module_stoch.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_stoch.bb | /lib/cpp -P -traditional > module_stoch.f90
+rm -f module_stoch.b module_stoch.bb
+time mpif90 -f90=ifort -o module_stoch.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_stoch.f90
+
+real	0m4.040s
+user	0m3.924s
+sys	0m0.079s
+rm -f module_sfs_nba.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sfs_nba.F  > module_sfs_nba.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sfs_nba.bb | /lib/cpp -P -traditional > module_sfs_nba.f90
+rm -f module_sfs_nba.b module_sfs_nba.bb
+time mpif90 -f90=ifort -o module_sfs_nba.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sfs_nba.f90
+
+real	0m2.118s
+user	0m2.019s
+sys	0m0.067s
+rm -f module_avgflx_em.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_avgflx_em.F  > module_avgflx_em.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_avgflx_em.bb | /lib/cpp -P -traditional > module_avgflx_em.f90
+rm -f module_avgflx_em.b module_avgflx_em.bb
+time mpif90 -f90=ifort -o module_avgflx_em.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_avgflx_em.f90
+
+real	0m0.242s
+user	0m0.163s
+sys	0m0.046s
+rm -f module_after_all_rk_steps.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_after_all_rk_steps.F  > module_after_all_rk_steps.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_after_all_rk_steps.bb | /lib/cpp -P -traditional > module_after_all_rk_steps.f90
+rm -f module_after_all_rk_steps.b module_after_all_rk_steps.bb
+time mpif90 -f90=ifort -o module_after_all_rk_steps.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_after_all_rk_steps.f90
+
+real	0m0.655s
+user	0m0.416s
+sys	0m0.207s
+rm -f init_modules_em.o
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe init_modules_em.F > init_modules_em.b 
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   init_modules_em.b  > init_modules_em.f90
+rm -f init_modules_em.b
+if fgrep -iq '!$OMP' init_modules_em.f90 ; then \
+          if [ -n "" ] ; then echo COMPILING init_modules_em.F WITH OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include    init_modules_em.f90 ; \
+        else \
+          if [ -n "" ] ; then echo COMPILING init_modules_em.F WITHOUT OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   init_modules_em.f90 ; \
+        fi
+
+real	0m0.064s
+user	0m0.015s
+sys	0m0.016s
+rm -f start_em.o
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe start_em.F > start_em.b 
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   start_em.b  > start_em.f90
+rm -f start_em.b
+if fgrep -iq '!$OMP' start_em.f90 ; then \
+          if [ -n "" ] ; then echo COMPILING start_em.F WITH OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include    start_em.f90 ; \
+        else \
+          if [ -n "" ] ; then echo COMPILING start_em.F WITHOUT OMP ; fi ; \
+	  time mpif90 -f90=ifort -c -real-size `expr 8 \* 4` -i4 -O0 -fno-inline -no-ip -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include   start_em.f90 ; \
+        fi
+
+real	0m2.020s
+user	0m1.570s
+sys	0m0.413s
+rm -f shift_domain_em.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   shift_domain_em.F  > shift_domain_em.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe shift_domain_em.bb | /lib/cpp -P -traditional > shift_domain_em.f90
+rm -f shift_domain_em.b shift_domain_em.bb
+time mpif90 -f90=ifort -o shift_domain_em.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  shift_domain_em.f90
+
+real	0m1.824s
+user	0m1.308s
+sys	0m0.425s
+rm -f couple_or_uncouple_em.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   couple_or_uncouple_em.F  > couple_or_uncouple_em.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe couple_or_uncouple_em.bb | /lib/cpp -P -traditional > couple_or_uncouple_em.f90
+rm -f couple_or_uncouple_em.b couple_or_uncouple_em.bb
+time mpif90 -f90=ifort -o couple_or_uncouple_em.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  couple_or_uncouple_em.f90
+
+real	0m2.656s
+user	0m2.344s
+sys	0m0.276s
+rm -f nest_init_utils.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   nest_init_utils.F  > nest_init_utils.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe nest_init_utils.bb | /lib/cpp -P -traditional > nest_init_utils.f90
+rm -f nest_init_utils.b nest_init_utils.bb
+time mpif90 -f90=ifort -o nest_init_utils.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  nest_init_utils.f90
+
+real	0m2.293s
+user	0m1.930s
+sys	0m0.330s
+rm -f adapt_timestep_em.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   adapt_timestep_em.F  > adapt_timestep_em.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe adapt_timestep_em.bb | /lib/cpp -P -traditional > adapt_timestep_em.f90
+rm -f adapt_timestep_em.b adapt_timestep_em.bb
+time mpif90 -f90=ifort -o adapt_timestep_em.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  adapt_timestep_em.f90
+
+real	0m0.594s
+user	0m0.457s
+sys	0m0.105s
+rm -f interp_domain_em.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   interp_domain_em.F  > interp_domain_em.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe interp_domain_em.bb | /lib/cpp -P -traditional > interp_domain_em.f90
+rm -f interp_domain_em.b interp_domain_em.bb
+time mpif90 -f90=ifort -o interp_domain_em.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  interp_domain_em.f90
+
+real	0m0.067s
+user	0m0.014s
+sys	0m0.021s
+rm -f module_diffusion_em.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_diffusion_em.F  > module_diffusion_em.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_diffusion_em.bb | /lib/cpp -P -traditional > module_diffusion_em.f90
+rm -f module_diffusion_em.b module_diffusion_em.bb
+time mpif90 -f90=ifort -o module_diffusion_em.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_diffusion_em.f90
+
+real	0m17.362s
+user	0m17.193s
+sys	0m0.114s
+rm -f module_sfs_driver.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_sfs_driver.F  > module_sfs_driver.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_sfs_driver.bb | /lib/cpp -P -traditional > module_sfs_driver.f90
+rm -f module_sfs_driver.b module_sfs_driver.bb
+time mpif90 -f90=ifort -o module_sfs_driver.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_sfs_driver.f90
+
+real	1m0.207s
+user	0m59.840s
+sys	0m0.254s
+rm -f module_em.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_em.F  > module_em.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_em.bb | /lib/cpp -P -traditional > module_em.f90
+rm -f module_em.b module_em.bb
+time mpif90 -f90=ifort -o module_em.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_em.f90
+
+real	0m0.993s
+user	0m0.707s
+sys	0m0.248s
+
+real	0m2.145s
+user	0m2.035s
+sys	0m0.077s
+rm -f module_first_rk_step_part1.o
+rm -f module_first_rk_step_part2.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_first_rk_step_part2.F  > module_first_rk_step_part2.bb
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   module_first_rk_step_part1.F  > module_first_rk_step_part1.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_first_rk_step_part1.bb | /lib/cpp -P -traditional > module_first_rk_step_part1.f90
+rm -f module_first_rk_step_part1.b module_first_rk_step_part1.bb
+time mpif90 -f90=ifort -o module_first_rk_step_part1.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_first_rk_step_part1.f90
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe module_first_rk_step_part2.bb | /lib/cpp -P -traditional > module_first_rk_step_part2.f90
+rm -f module_first_rk_step_part2.b module_first_rk_step_part2.bb
+time mpif90 -f90=ifort -o module_first_rk_step_part2.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  module_first_rk_step_part2.f90
+
+real	0m2.010s
+user	0m1.669s
+sys	0m0.253s
+
+real	0m6.808s
+user	0m6.443s
+sys	0m0.326s
+rm -f solve_em.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   solve_em.F  > solve_em.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe solve_em.bb | /lib/cpp -P -traditional > solve_em.f90
+rm -f solve_em.b solve_em.bb
+time mpif90 -f90=ifort -o solve_em.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  solve_em.f90
+
+real	0m19.236s
+user	0m18.742s
+sys	0m0.405s
+ar ru ../main/libwrflib.a module_advect_em.o module_diffusion_em.o module_small_step_em.o module_big_step_utilities_em.o module_em.o module_solvedebug_em.o module_bc_em.o module_init_utilities.o module_wps_io_arw.o module_damping_em.o module_polarfft.o module_force_scm.o module_first_rk_step_part1.o module_first_rk_step_part2.o module_avgflx_em.o module_sfs_nba.o module_convtrans_prep.o module_sfs_driver.o module_stoch.o module_after_all_rk_steps.o  init_modules_em.o solve_em.o start_em.o shift_domain_em.o couple_or_uncouple_em.o nest_init_utils.o adapt_timestep_em.o interp_domain_em.o
+make[2]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/dyn_em'
+make[1]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3'
+if [ 0 -eq 1 ]   ; then make -i -r MODULE_DIRS="-I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include " nmm_core ; fi
+if [ 0 -eq 1 ]   ; then make -i -r MODULE_DIRS="-I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include " exp_core ; fi
+if [ 0 -eq 1 ]   ; then make -i -r MODULE_DIRS="-I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include " wrf_hydro ; fi
+( cd main ; make -i -r MODULE_DIRS="-I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include " SOLVER=em em_wrf )
+make[1]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main'
+rm -f ../main/module_wrf_top.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   ../main/module_wrf_top.F  > ../main/module_wrf_top.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe ../main/module_wrf_top.bb | /lib/cpp -P -traditional > ../main/module_wrf_top.f90
+rm -f ../main/module_wrf_top.b ../main/module_wrf_top.bb
+time mpif90 -f90=ifort -o ../main/module_wrf_top.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  ../main/module_wrf_top.f90
+
+real	0m1.053s
+user	0m0.879s
+sys	0m0.088s
+rm -f wrf.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   wrf.F  > wrf.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe wrf.bb | /lib/cpp -P -traditional > wrf.f90
+rm -f wrf.b wrf.bb
+time mpif90 -f90=ifort -o wrf.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  wrf.f90
+
+real	0m0.153s
+user	0m0.056s
+sys	0m0.060s
+ranlib libwrflib.a
+time mpif90 -f90=ifort -o wrf.exe  -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -ip   wrf.o ../main/module_wrf_top.o libwrflib.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/fftpack/fftpack5/libfftpack.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1/libio_grib1.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib_share/libio_grib_share.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int/libwrfio_int.a -L/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90 -lesmf_time /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/RSL_LITE/librsl_lite.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame/module_internal_header_util.o /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame/pack_utils.o  -L/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -lwrfio_nf -L/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/lib -lnetcdff -lnetcdf      
+ld: warning: libnetcdf.so.11, needed by /home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/lib/libnetcdff.so, may conflict with libnetcdf.so.6
+0.56user 0.25system 0:01.80elapsed 45%CPU (0avgtext+0avgdata 189796maxresident)k
+40192inputs+139064outputs (57major+61172minor)pagefaults 0swaps
+make[1]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main'
+( cd run ; /bin/rm -f wrf.exe ; ln -s ../main/wrf.exe . )
+if [ 0 -eq 1 ] ; then \
+	  ( cd main ; make -i -r MODULE_DIRS="-I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include " SOLVER=em em_wrf_SST_ESMF ) ; \
+	fi
+build started:   2019年 04月 09日 星期二 09:31:18 CST
+build completed: 2019年 04月 09日 星期二 09:57:48 CST
+--------------------------------------
+( cd main ; make -i -r MODULE_DIRS="-I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include " SOLVER=em IDEAL_CASE=real em_real )
+make[1]: Entering directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main'
+rm -f ../dyn_em/module_initialize_real.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   ../dyn_em/module_initialize_real.F  > ../dyn_em/module_initialize_real.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe ../dyn_em/module_initialize_real.bb | /lib/cpp -P -traditional > ../dyn_em/module_initialize_real.f90
+rm -f ../dyn_em/module_initialize_real.b ../dyn_em/module_initialize_real.bb
+time mpif90 -f90=ifort -o ../dyn_em/module_initialize_real.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  ../dyn_em/module_initialize_real.f90
+
+real	0m14.189s
+user	0m13.730s
+sys	0m0.415s
+rm -f ndown_em.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   ndown_em.F  > ndown_em.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe ndown_em.bb | /lib/cpp -P -traditional > ndown_em.f90
+rm -f ndown_em.b ndown_em.bb
+time mpif90 -f90=ifort -o ndown_em.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  ndown_em.f90
+
+real	0m13.991s
+user	0m13.668s
+sys	0m0.277s
+rm -f nup_em.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   nup_em.F  > nup_em.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe nup_em.bb | /lib/cpp -P -traditional > nup_em.f90
+rm -f nup_em.b nup_em.bb
+time mpif90 -f90=ifort -o nup_em.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  nup_em.f90
+
+real	0m2.830s
+user	0m2.606s
+sys	0m0.191s
+rm -f tc_em.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   tc_em.F  > tc_em.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe tc_em.bb | /lib/cpp -P -traditional > tc_em.f90
+rm -f tc_em.b tc_em.bb
+time mpif90 -f90=ifort -o tc_em.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  tc_em.f90
+
+real	0m7.221s
+user	0m6.920s
+sys	0m0.249s
+rm -f real_em.o
+/lib/cpp -P -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -DEM_CORE=1 -DNMM_CORE=0 -DNMM_MAX_DIM=2600 -DCOAMPS_CORE=0 -DDA_CORE=0 -DEXP_CORE=0 -DIWORDSIZE=4 -DDWORDSIZE=8 -DRWORDSIZE=4 -DLWORDSIZE=4 -DNONSTANDARD_SYSTEM_FUNC -DWRF_USE_CLM  -DDM_PARALLEL -DNETCDF -DUSE_ALLOCATABLES -DGRIB1 -DINTIO -DLIMIT_ARGS -DCONFIG_BUF_LEN=65536 -DMAX_DOMAINS_F=21 -DMAX_HISTORY=25 -DNMM_NEST=0 -DWRF_CHEM -DBUILD_CHEM=1 -I. -traditional   real_em.F  > real_em.bb
+/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/tools/standard.exe real_em.bb | /lib/cpp -P -traditional > real_em.f90
+rm -f real_em.b real_em.bb
+time mpif90 -f90=ifort -o real_em.o -c -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian    -I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include  -real-size `expr 8 \* 4` -i4  real_em.f90
+
+real	0m7.567s
+user	0m7.253s
+sys	0m0.274s
+ranlib libwrflib.a
+time mpif90 -f90=ifort -o ndown.exe  -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -ip   ndown_em.o  ../dyn_em/module_initialize_real.o libwrflib.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/fftpack/fftpack5/libfftpack.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1/libio_grib1.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib_share/libio_grib_share.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int/libwrfio_int.a -L/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90 -lesmf_time /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/RSL_LITE/librsl_lite.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame/module_internal_header_util.o /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame/pack_utils.o  -L/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -lwrfio_nf -L/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/lib -lnetcdff -lnetcdf      
+ld: warning: libnetcdf.so.11, needed by /home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/lib/libnetcdff.so, may conflict with libnetcdf.so.6
+0.53user 0.24system 0:00.81elapsed 96%CPU (0avgtext+0avgdata 171824maxresident)k
+0inputs+125160outputs (0major+58043minor)pagefaults 0swaps
+#TEMPORARILY REMOVED time mpif90 -f90=ifort -o nup.exe  -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -ip   nup_em.o  ../dyn_em/module_initialize_real.o libwrflib.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/fftpack/fftpack5/libfftpack.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1/libio_grib1.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib_share/libio_grib_share.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int/libwrfio_int.a -L/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90 -lesmf_time /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/RSL_LITE/librsl_lite.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame/module_internal_header_util.o /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame/pack_utils.o  -L/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -lwrfio_nf -L/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/lib -lnetcdff -lnetcdf      
+time mpif90 -f90=ifort -o tc.exe  -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -ip   tc_em.o  ../dyn_em/module_initialize_real.o libwrflib.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/fftpack/fftpack5/libfftpack.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1/libio_grib1.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib_share/libio_grib_share.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int/libwrfio_int.a -L/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90 -lesmf_time /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/RSL_LITE/librsl_lite.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame/module_internal_header_util.o /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame/pack_utils.o  -L/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -lwrfio_nf -L/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/lib -lnetcdff -lnetcdf      
+ld: warning: libnetcdf.so.11, needed by /home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/lib/libnetcdff.so, may conflict with libnetcdf.so.6
+0.49user 0.22system 0:00.75elapsed 95%CPU (0avgtext+0avgdata 168328maxresident)k
+0inputs+123360outputs (0major+57573minor)pagefaults 0swaps
+time mpif90 -f90=ifort -o real.exe  -O3 -ip -fp-model precise -w -ftz -align all -fno-alias -FR -convert big_endian   -ip   real_em.o ../dyn_em/module_initialize_real.o libwrflib.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/fftpack/fftpack5/libfftpack.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib1/libio_grib1.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_grib_share/libio_grib_share.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int/libwrfio_int.a -L/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90 -lesmf_time /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/RSL_LITE/librsl_lite.a /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame/module_internal_header_util.o /home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame/pack_utils.o  -L/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -lwrfio_nf -L/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/lib -lnetcdff -lnetcdf      
+ld: warning: libnetcdf.so.11, needed by /home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/lib/libnetcdff.so, may conflict with libnetcdf.so.6
+0.51user 0.19system 0:00.74elapsed 95%CPU (0avgtext+0avgdata 178812maxresident)k
+40inputs+125888outputs (1major+59624minor)pagefaults 0swaps
+make[1]: Leaving directory `/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main'
+( cd test/em_real ; /bin/rm -f wrf.exe ; ln -s ../../main/wrf.exe . )
+if [ 0 -eq 1 ] ; then \
+	  ( cd main ; make -i -r MODULE_DIRS="-I../dyn_em -I../dyn_nmm   -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/esmf_time_f90  -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/main -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_netcdf -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/external/io_int -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/frame -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/share -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/phys -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/chem -I/home/liudi/WRF-CO2.NEC_ifort/WRF/WRFV3/inc -I/home/liudi/WRF_ifort/Build_WRF/LIBRARIES/netcdf-fortran/include " SOLVER=em IDEAL_CASE=real em_wrf_SST_ESMF ) ; \
+	  ( cd test/em_esmf_exp ; /bin/rm -f wrf.exe ; ln -s ../../main/wrf.exe . ) ; \
+	  ( cd test/em_esmf_exp ; /bin/rm -f wrf_SST_ESMF.exe ; ln -s ../../main/wrf_SST_ESMF.exe . ) ; \
+	  ( cd test/em_esmf_exp ; /bin/rm -f real.exe ; ln -s ../../main/real.exe . ) ; \
+	  ( cd test/em_esmf_exp ; /bin/rm -f README.namelist ; ln -s ../../run/README.namelist . ) ; \
+	  ( cd test/em_esmf_exp ; /bin/rm -f ETAMPNEW_DATA.expanded_rain ETAMPNEW_DATA RRTM_DATA RRTMG_LW_DATA RRTMG_SW_DATA ; \
+               ln -sf ../../run/ETAMPNEW_DATA . ;                      \
+               ln -sf ../../run/ETAMPNEW_DATA.expanded_rain . ;        \
+               ln -sf ../../run/RRTM_DATA . ;                          \
+               ln -sf ../../run/RRTMG_LW_DATA . ;                      \
+               ln -sf ../../run/RRTMG_SW_DATA . ;                      \
+               ln -sf ../../run/CAM_ABS_DATA . ;                       \
+               ln -sf ../../run/CAM_AEROPT_DATA . ;                    \
+               ln -sf ../../run/CAMtr_volume_mixing_ratio.RCP4.5 . ;   \
+               ln -sf ../../run/CAMtr_volume_mixing_ratio.RCP6   . ;   \
+               ln -sf ../../run/CAMtr_volume_mixing_ratio.RCP8.5 CAMtr_volume_mixing_ratio ;   \
+               ln -sf ../../run/CAMtr_volume_mixing_ratio.A1B    . ;   \
+               ln -sf ../../run/CAMtr_volume_mixing_ratio.A2     . ;   \
+               ln -sf ../../run/CLM_ALB_ICE_DFS_DATA . ;               \
+               ln -sf ../../run/CLM_ALB_ICE_DRC_DATA . ;               \
+               ln -sf ../../run/CLM_ASM_ICE_DFS_DATA . ;               \
+               ln -sf ../../run/CLM_ASM_ICE_DRC_DATA . ;               \
+               ln -sf ../../run/CLM_DRDSDT0_DATA . ;                   \
+               ln -sf ../../run/CLM_EXT_ICE_DFS_DATA . ;               \
+               ln -sf ../../run/CLM_EXT_ICE_DRC_DATA . ;               \
+               ln -sf ../../run/CLM_KAPPA_DATA . ;                     \
+               ln -sf ../../run/CLM_TAU_DATA . ;                       \
+               ln -sf ../../run/ozone.formatted . ;                    \
+               ln -sf ../../run/ozone_lat.formatted . ;                \
+               ln -sf ../../run/ozone_plev.formatted . ;               \
+               ln -sf ../../run/aerosol.formatted . ;                  \
+               ln -sf ../../run/aerosol_lat.formatted . ;              \
+               ln -sf ../../run/aerosol_lon.formatted . ;              \
+               ln -sf ../../run/aerosol_plev.formatted . ;             \
+               ln -sf ../../run/CCN_ACTIVATE.BIN . ;                   \
+               if [ 4 -eq 8 ] ; then                        \
+                  ln -sf ../../run/ETAMPNEW_DATA_DBL ETAMPNEW_DATA ;   \
+                  ln -sf ../../run/ETAMPNEW_DATA.expanded_rain_DBL ETAMPNEW_DATA.expanded_rain ;   \
+                  ln -sf ../../run/RRTM_DATA_DBL RRTM_DATA         ;   \
+                  ln -sf ../../run/RRTMG_LW_DATA_DBL RRTMG_LW_DATA ;   \
+                  ln -sf ../../run/RRTMG_SW_DATA_DBL RRTMG_SW_DATA ;   \
+               fi ) ; \
+	  ( cd test/em_esmf_exp ; /bin/rm -f GENPARM.TBL ; ln -s ../../run/GENPARM.TBL . ) ; \
+	  ( cd test/em_esmf_exp ; /bin/rm -f LANDUSE.TBL ; ln -s ../../run/LANDUSE.TBL . ) ; \
+	  ( cd test/em_esmf_exp ; /bin/rm -f SOILPARM.TBL ; ln -s ../../run/SOILPARM.TBL . ) ; \
+	  ( cd test/em_esmf_exp ; /bin/rm -f URBPARM.TBL ; ln -s ../../run/URBPARM.TBL . ) ; \
+	  ( cd test/em_esmf_exp ; /bin/rm -f VEGPARM.TBL ; ln -s ../../run/VEGPARM.TBL . ) ; \
+	  ( cd test/em_esmf_exp ; /bin/rm -f MPTABLE.TBL ; ln -s ../../run/MPTABLE.TBL . ) ; \
+	  ( cd test/em_esmf_exp ; /bin/rm -f tr49t67 ; ln -s ../../run/tr49t67 . ) ; \
+	  ( cd test/em_esmf_exp ; /bin/rm -f tr49t85 ; ln -s ../../run/tr49t85 . ) ; \
+	  ( cd test/em_esmf_exp ; /bin/rm -f tr67t85 ; ln -s ../../run/tr67t85 . ) ; \
+	  ( cd test/em_esmf_exp ; /bin/rm -f gribmap.txt ; ln -s ../../run/gribmap.txt . ) ; \
+	  ( cd test/em_esmf_exp ; /bin/rm -f grib2map.tbl ; ln -s ../../run/grib2map.tbl . ) ; \
+	fi
+( cd test/em_real ; /bin/rm -f real.exe ; ln -s ../../main/real.exe . )
+( cd test/em_real ; /bin/rm -f tc.exe ; ln -s ../../main/tc.exe . )
+( cd test/em_real ; /bin/rm -f ndown.exe ; ln -s ../../main/ndown.exe . )
+#TEMPORARILY REMOVED ( cd test/em_real ; /bin/rm -f nup.exe ; ln -s ../../main/nup.exe . )
+( cd test/em_real ; /bin/rm -f README.namelist ; ln -s ../../run/README.namelist . )
+( cd test/em_real ; /bin/rm -f ETAMPNEW_DATA.expanded_rain ETAMPNEW_DATA RRTM_DATA RRTMG_LW_DATA RRTMG_SW_DATA ;    \
+             ln -sf ../../run/ETAMPNEW_DATA . ;                     \
+             ln -sf ../../run/ETAMPNEW_DATA.expanded_rain . ;       \
+             ln -sf ../../run/RRTM_DATA . ;                         \
+             ln -sf ../../run/RRTMG_LW_DATA . ;                     \
+             ln -sf ../../run/RRTMG_SW_DATA . ;                     \
+             ln -sf ../../run/CAM_ABS_DATA . ;                      \
+             ln -sf ../../run/CAM_AEROPT_DATA . ;                   \
+             ln -sf ../../run/CAMtr_volume_mixing_ratio.RCP4.5 . ;  \
+             ln -sf ../../run/CAMtr_volume_mixing_ratio.RCP6   . ;  \
+             ln -sf ../../run/CAMtr_volume_mixing_ratio.RCP8.5 CAMtr_volume_mixing_ratio ;   \
+             ln -sf ../../run/CAMtr_volume_mixing_ratio.A1B    . ;  \
+             ln -sf ../../run/CAMtr_volume_mixing_ratio.A2     . ;  \
+             ln -sf ../../run/CLM_ALB_ICE_DFS_DATA . ;              \
+             ln -sf ../../run/CLM_ALB_ICE_DRC_DATA . ;              \
+             ln -sf ../../run/CLM_ASM_ICE_DFS_DATA . ;              \
+             ln -sf ../../run/CLM_ASM_ICE_DRC_DATA . ;              \
+             ln -sf ../../run/CLM_DRDSDT0_DATA . ;                  \
+             ln -sf ../../run/CLM_EXT_ICE_DFS_DATA . ;              \
+             ln -sf ../../run/CLM_EXT_ICE_DRC_DATA . ;              \
+             ln -sf ../../run/CLM_KAPPA_DATA . ;                    \
+             ln -sf ../../run/CLM_TAU_DATA . ;                      \
+             ln -sf ../../run/ozone.formatted . ;                   \
+             ln -sf ../../run/ozone_lat.formatted . ;               \
+             ln -sf ../../run/ozone_plev.formatted . ;              \
+             ln -sf ../../run/aerosol.formatted . ;                 \
+             ln -sf ../../run/aerosol_lat.formatted . ;             \
+             ln -sf ../../run/aerosol_lon.formatted . ;             \
+             ln -sf ../../run/aerosol_plev.formatted . ;            \
+             ln -sf ../../run/capacity.asc . ;            \
+             ln -sf ../../run/coeff_p.asc . ;            \
+             ln -sf ../../run/coeff_q.asc . ;            \
+             ln -sf ../../run/constants.asc . ;            \
+             ln -sf ../../run/masses.asc . ;            \
+             ln -sf ../../run/termvels.asc . ;            \
+             ln -sf ../../run/kernels.asc_s_0_03_0_9 . ;            \
+             ln -sf ../../run/kernels_z.asc . ;            \
+             ln -sf ../../run/bulkdens.asc_s_0_03_0_9 . ;            \
+             ln -sf ../../run/bulkradii.asc_s_0_03_0_9 . ;            \
+             ln -sf ../../run/CCN_ACTIVATE.BIN . ;                   \
+             if [ 4 -eq 8 ] ; then                       \
+                ln -sf ../../run/ETAMPNEW_DATA_DBL ETAMPNEW_DATA ;  \
+                ln -sf ../../run/ETAMPNEW_DATA.expanded_rain_DBL ETAMPNEW_DATA.expanded_rain ;   \
+                ln -sf ../../run/RRTM_DATA_DBL RRTM_DATA ;          \
+                ln -sf ../../run/RRTMG_LW_DATA_DBL RRTMG_LW_DATA ;  \
+                ln -sf ../../run/RRTMG_SW_DATA_DBL RRTMG_SW_DATA ;  \
+             fi )
+( cd test/em_real ; /bin/rm -f GENPARM.TBL ; ln -s ../../run/GENPARM.TBL . )
+( cd test/em_real ; /bin/rm -f LANDUSE.TBL ; ln -s ../../run/LANDUSE.TBL . )
+( cd test/em_real ; /bin/rm -f SOILPARM.TBL ; ln -s ../../run/SOILPARM.TBL . )
+( cd test/em_real ; /bin/rm -f URBPARM.TBL ; ln -s ../../run/URBPARM.TBL . )
+( cd test/em_real ; /bin/rm -f VEGPARM.TBL ; ln -s ../../run/VEGPARM.TBL . )
+( cd test/em_real ; /bin/rm -f MPTABLE.TBL ; ln -s ../../run/MPTABLE.TBL . )
+( cd test/em_real ; /bin/rm -f tr49t67 ; ln -s ../../run/tr49t67 . )
+( cd test/em_real ; /bin/rm -f tr49t85 ; ln -s ../../run/tr49t85 . )
+( cd test/em_real ; /bin/rm -f tr67t85 ; ln -s ../../run/tr67t85 . )
+( cd test/em_real ; /bin/rm -f gribmap.txt ; ln -s ../../run/gribmap.txt . )
+( cd test/em_real ; /bin/rm -f grib2map.tbl ; ln -s ../../run/grib2map.tbl . )
+( cd run ; /bin/rm -f real.exe ; ln -s ../main/real.exe . )
+( cd run ; /bin/rm -f tc.exe ; ln -s ../main/tc.exe . )
+( cd run ; /bin/rm -f ndown.exe ; ln -s ../main/ndown.exe . )
+#TEMPORARILY REMOVED ( cd run ; /bin/rm -f nup.exe ; ln -s ../main/nup.exe . )
+( cd run ; if test -f namelist.input ; then \
+		/bin/cp -f namelist.input namelist.input.backup ; fi ; \
+		/bin/rm -f namelist.input ; cp ../test/em_real/namelist.input . )
+ 
+==========================================================================
+build started:   2019年 04月 09日 星期二 09:31:18 CST
+build completed: 2019年 04月 09日 星期二 09:58:37 CST
+ 
+--->                  Executables successfully built                  <---
+ 
+-rwxrwxr-x. 1 liudi liudi 63983297 4月   9 09:58 main/ndown.exe
+-rwxrwxr-x. 1 liudi liudi 64355335 4月   9 09:58 main/real.exe
+-rwxrwxr-x. 1 liudi liudi 63059992 4月   9 09:58 main/tc.exe
+-rwxrwxr-x. 1 liudi liudi 71099270 4月   9 09:57 main/wrf.exe
+ 
+==========================================================================
+ 

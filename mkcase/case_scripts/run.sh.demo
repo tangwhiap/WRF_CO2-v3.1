@@ -1,0 +1,6 @@
+
+# --- run.sh.demo --- #
+source config/configure.sh
+source .model_env_set.sh
+cd $CASEWORK
+$RunScriptsDir/Main_run.sh

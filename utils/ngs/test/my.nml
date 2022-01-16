@@ -1,0 +1,10 @@
+&time_control
+    start_time = '2020-01-01_00:00:00'
+    run_days = 5
+    spin_up = .true.
+    restart = .false.
+/
+
+&domains
+    dx = 9000.0, 3000.0, 1000.0
+/

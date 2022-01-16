@@ -1,0 +1,8 @@
+# stations info
+# StationName(in directory) StationName longitude(degrees) latitude(degrees) height(m)
+$ XiangHe 116.9578 39.7833 2 2 2
+$ IAPtower 116.3667 39.9667 2 2 4 
+$ XingLong 117.5833 40.3833 2 1 1
+$ ShangDianZi 117.1166 40.6500 2 1 2
+$ TJtower 117.1667 39.1000 2 1 4
+$ LuanCheng 114.6833 37.8833 2 1 1

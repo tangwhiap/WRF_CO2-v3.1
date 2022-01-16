@@ -1,0 +1,10 @@
+#!/bin/bash
+CurrentDir=`pwd`
+PDir=$CurrentDir/..
+SrcDir=$PDir/src
+DataDir=$PDir/data
+OutDir=$PDir/output
+TempDir=$PDir/temp
+SENSEDir=$DataDir/SENSE
+WRFDir=$DataDir/WRF
+InfoDir=$DataDir/stations_info

@@ -1,0 +1,95 @@
+
+# --- from MAKE CASE: cronjobrun.sh.demo --- #
+Me=$( readlink -m $( type -p $0 ))
+MyDir=`dirname $Me`
+cd $MyDir
+
+source config/configure.sh
+
+if [[ ! $RUNTYPE == "cronjob" ]]; then
+    echo "Can only be executed in cronjob case" 
+    exit
+fi
+
+if [[ ! -f .cronjob_started.sh ]]; then
+    echo "Run start_cronjob.sh first"
+    exit
+else
+    source .cronjob_started.sh
+fi
+
+if [[ $RestartRun == "true" ]]; then
+#$RunScriptsDir/get_maxdom.py $CASECONFIG $Region
+    source config/max_dom.sh
+    source .next_start.sh
+fi
+check_restart()
+{
+    datetime=$1
+    date=`date -ud "$datetime" +"%Y-%m-%d"`
+    time=`date -ud "$datetime" +"%H:%M:%S"`
+    haverst=true
+#rstfiles1=`ls $CASEWORK/wrfrst_d*_${date}_${time}`
+#rstfiles2=`ls $CASERES/wrfrst_d*_${date}_${time}`
+#rstfiles="$rstfiles1 $rstfiles2"
+    for (( i=1;i<=${max_dom};i++ )); do
+        dom=`python -c "print(\"d\" + str($i).zfill(2))"`
+#echo "Searching wrfrst_${dom}_${date}_${time} ..."
+        if [[ ! -f $CASERES/wrfrst_${dom}_${date}_${time} ]]; then
+            echo "${now_time}: Fatal Error! wrfrst_${dom}_${date}_${time} not found!" >> $CASELOG/cronjob_log/crj.err
+            #echo "${now_time}: Fatal Error! wrfrst_${dom}_${date}_${time} not found!" 
+            haverst=false
+        fi
+    done
+}
+# echo ${next_StartDate}
+now_time=`logt`
+if [[ $RestartRun == "true" ]]; then
+    check_restart "${next_StartDate} ${next_StartTime}" 
+    if [[ $haverst == "false" ]]; then
+        echo "${now_time}: Couldn't find restart files! Maybe the last simulation is not over yet. Waiting ..." >> $CASELOG/cronjob_log/crj.err
+        #echo "${now_time}: Couldn't find restart files! Maybe the last simulation is not over yet. Waiting ..." 
+        exit
+    fi
+fi
+
+if [[ $RestartRun == "false" ]]; then
+    if [[ $first_run == "false" ]]; then
+        echo "${now_time}: Although RestartRun == false, it isn't the first period simulation. Maybe the first simulation is not over yet. Waiting ..." >> $CASELOG/cronjob_log/crj.err
+        #echo "${now_time}: Although RestartRun == false, it isn't the first period simulation. Maybe the first simulation is not over yet. Waiting ..."
+        exit
+    fi
+fi
+
+if [[ $RestartRun == "true" ]]; then
+    StartDate=`date -ud "$next_StartDate $next_StartTime UTC" +"%Y-%m-%d"`
+    StartTime=`date -ud "$next_StartDate $next_StartTime UTC" +"%H:%M"`
+fi
+#echo $StartDate
+#echo $StartTime
+next_StartDate=`date -ud "$StartDate $StartTime UTC +$RunHrs hour" +"%Y-%m-%d"`
+next_StartTime=`date -ud "$StartDate $StartTime UTC +$RunHrs hour" +"%H:%M"`
+
+
+echo "${now_time}: Start next period simulation." >> $CASELOG/cronjob_log/crj.out
+echo "Begin: ${StartDate} ${StartTime}" >> $CASELOG/cronjob_log/crj.out
+echo "End: ${next_StartDate} ${next_StartTime}" >> $CASELOG/cronjob_log/crj.out
+
+#echo "${now_time}: Start next period simulation."
+#echo "Begin: ${StartDate} ${StartTime}"
+#echo "End: ${next_StartDate} ${next_StartTime}"
+
+cat > .next_start.sh << EOF
+#!/bin/bash
+# This script is generated automatically by cronjobrun.sh
+# Don't edit it, unless you want to stop this cronjob.
+# (Tips: You can stop the cronjob by setting "next_StartDate" to '9999-01-01')
+next_StartDate='${next_StartDate}'
+next_StartTime='${next_StartTime}'
+EOF
+
+sed -i "/StartDate=/cStartDate='${StartDate}'" config/configure.sh
+sed -i "/StartTime=/cStartTime='${StartTime}'" config/configure.sh
+sed -i "/first_run=/cfirst_run=false" .cronjob_started.sh
+
+./nohuprun.sh

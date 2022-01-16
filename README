@@ -1,0 +1,307 @@
+###############################################################
+########           WRF-CO2 Modeling Package         ###########
+####    Coupling WRF-Chem to VEGAS for bio fluxes and      ####
+####      including anthropogenic emissions tracers        ####
+####      ==========================================       ####
+####                 Main contributors:                    ####
+####  -> C. Martin - University of Maryland - 2017         ####
+####     aosc.umd.edu/~cmartin     cmart90@umd.edu         ####
+####  -> ZhengKe - Institute of Atmospheric Physics - 2019 ####
+####                 zhengke@mail.iap.ac.cn                ####
+####  -> WH Tang - Institute of Atmospheric Physics - 2020 ####
+####                 tangwh@mail.iap.ac.cn                 ####
+###############################################################
+
+Current Version: 3.1 (General)
+Published by Wenhan Tang - 2021-09-05 20:33
+
+Change log: Version 1.0=2017/02/20  - C. Martin
+                        - First documentation created
+
+            Version 2.0=2019/11/08  - Zhengke
+                        - Add Quick Start 
+                        - Modify the directory structure
+
+            Version 3.0=2020/12/09  - Wenhan Tang
+                        - Modify the directory structure
+                        - Modify the WRF-Chem core
+                        - Add CASES management system
+                        - Add region selection tools
+                        - Add InputData API, unified input data interface
+                        - Add namelist management tools
+                        - Improve the Quick Start
+                        - Improve the wrf2bin tools
+                        - Improve the function of post-processing programs
+                        - Convert python scripts from python 2 to python 3
+
+			Version 3.1=2021/09/05 - Wenhan Tang
+						- Add tracers registry system
+						- Improve the input data processing program
+						- Improve the XCO2 computing tool
+
+Acknowledgment:
+	Ning Zeng (Designer)
+    S. Howe, Di Liu, ZhiQiang Liu, Ruqi Yang (Participate in development)
+	Ruqi Yang, Zhiqiang Liu, Qixiang Cai, Zhoutong Liang (Test and provide feedback)
+
+############################################################
+###################    Quick  Start    #####################
+###################    for beginner    #####################
+############################################################
+
+
+#-step 1: unzip
+tar -zxvf WRF-CO2***.tar.gz .
+cd WRF-CO2-v3.0
+
+#-step 2: set simulation options
+vi main.sh  # Change the options and save the script
+
+#-step 3: Runing the simulation
+./main.sh
+
+
+############################################################
+###################     Quick Start    #####################
+###################         end        #####################
+############################################################
+
+       
+Requirements:
+--------------------------------------------------------------
+     =  For WRF-Chem
+        Fortran Compiler: gfortran
+        C Compiler: gcc
+        netCDF4.1.3
+        JASPER
+        PNG
+        ZLIB
+
+     =  For Scripts:
+        Bash
+        Python 3.7
+                Get below with python-pip if you don't have already:
+                - Matplotlib (with Basemap, Cartopy) for plotting
+                - netCDF4, xarray
+                - pygrib ( for CFSR data )
+                - numpy, scipy, glob, datetime, f90nml, cdo
+
+Frame:
+--------------------------------------------------------------
+
+.
+├── cases
+├── clear.sh
+├── create_tarfile.sh
+├── ini
+│   ├── clear.sh
+│   ├── environment.set
+│   ├── frame.set
+│   └── init.sh
+├── input_API
+│   ├── bckg
+│   │   └── API_code
+│   │       ├── _config.pyc
+│   │       ├── constant.py
+│   │       ├── constant.pyc
+│   │       ├── GEOS_chem_highres.py
+│   │       ├── GEOS_chem_highres.pyc
+│   │       ├── GEOS_chem.py
+│   │       ├── GEOS_chem.pyc
+│   │       └── __init__.pyc
+│   ├── cfta
+│   │   ├── API_code
+│   │   │   ├── cfta_0p5x0p5.py
+│   │   │   ├── cfta_0p5x0p5_v2.py
+│   │   │   ├── cfta_2p5x2p5.py
+│   │   │   ├── constant.py
+│   │   │   └── zero.py -> constant.py
+│   │   └── test
+│   │       ├── API_code -> ../API_code
+│   │       └── test.py
+│   ├── emiss
+│   │   ├── API_code
+│   │   │   ├── Emiss_EXP.py
+│   │   │   ├── FFDAS.py
+│   │   │   ├── MEIC.old.py
+│   │   │   ├── MEIC.py
+│   │   │   ├── NDRC.old.py
+│   │   │   ├── NDRC.py
+│   │   │   └── ODIAC.py
+│   │   ├── README.rules
+│   │   └── test
+│   │       ├── API_code -> ../API_code
+│   │       └── test.py
+│   ├── geog
+│   ├── met
+│   ├── Registry
+│   │   ├── main_registry.py
+│   │   ├── registry.bckg
+│   │   ├── registry.cfta
+│   │   ├── registry.emiss
+│   │   ├── registry.geog
+│   │   ├── registry.met
+│   │   ├── Registry.sh
+│   │   ├── registry.sst
+│   │   └── unRegistry.sh
+│   └── sst
+├── main.sh
+├── mkcase
+│   ├── case_def_dir.sh
+│   ├── case_scripts
+│   │   ├── clear_casework.sh.demo
+│   │   ├── cronjobrun.sh.demo
+│   │   ├── domain_show.sh.demo
+│   │   ├── nohuprun.sh.demo
+│   │   ├── reinit.sh.demo
+│   │   ├── run.sh.demo
+│   │   ├── stalist.txt
+│   │   └── start_cronjob.sh.demo
+│   ├── clear.sh
+│   ├── create_newcase.sh
+│   ├── default_config
+│   │   ├── file_output.dft
+│   │   ├── nml-wps.dft
+│   │   ├── nml-wrf.dft
+│   │   ├── select_input.dft
+│   │   ├── set_domain.dft
+│   │   ├── set_run.dft
+│   │   └── var_output.dft
+│   ├── exec_create_newcase.sh
+│   ├── set_config
+│   └── tools
+│       └── get_maxdom.sh
+├── README
+├── src
+│   ├── CABO
+│   ├── Scripts
+│   │   ├── process_bckg
+│   │   │   └── modify_bckg.py
+│   │   ├── process_cfta
+│   │   │   ├── make_cfta.py
+│   │   │   └── process.py
+│   │   ├── process_emiss
+│   │   │   ├── make_emiss.py
+│   │   │   └── process.py
+│   │   └── run_scripts
+│   │       ├── driver.sh
+│   │       ├── Main_run.sh
+│   │       ├── postproc.sh
+│   │       ├── run_init.sh
+│   │       ├── run_real.sh
+│   │       ├── run_setdom.sh
+│   │       ├── run_WPS.sh
+│   │       ├── run_wrf2bin_v1.sh
+│   │       ├── run_wrf2bin_v2.sh
+│   │       ├── run_WRF.sh
+│   │       ├── run_XCO2.sh
+│   │       ├── special_setting_nml-wrf.sh
+│   │       └── time_step_set.py
+│   └── WRF-chem
+│       ├── V3.7.1
+│       │   ├── WPS
+│       │   └── WRFV3
+│       ├── V4.1.5
+│       │   └── WRF-4.1.5.tar.gz
+│       ├── WPS -> V3.7.1/WPS
+│       └── WRF -> V3.7.1/WRFV3
+└── utils
+    ├── add_xtime
+    │   ├── add_xtime.py
+    │   └── test.sh
+    ├── BenchPlots
+    │   ├── Bench_co2_cpn.gs
+    │   ├── Bench_co2_met.gs
+    │   ├── BenchPlots.sh
+    │   ├── Bench_stations2.gs
+    │   ├── Bench_stations.gs
+    │   ├── nohup.log
+    │   ├── plot
+    │   ├── SENSE -> /home/tangwh/datasets/SENSE-BB/data/min/L2.0
+    │   ├── stations_info.txt
+    │   └── user_BenchPlots.sh
+    ├── fluxcorr
+    │   └── Scripts
+    │       └── fluxcorr.py
+    ├── ngs
+    │   ├── main_ngs.py
+    │   ├── NGS_command.py
+    │   ├── NGS_command.pyc
+    │   ├── NGS_interpretor.py
+    │   ├── NGS_interpretor.pyc
+    │   ├── NLO
+    │   ├── __pycache__
+    │   │   ├── interpretor.cpython-37.pyc
+    │   │   ├── main_ngs.cpython-37.pyc
+    │   │   ├── NGS_command.cpython-37.pyc
+    │   │   └── NGS_interpretor.cpython-37.pyc
+    │   ├── README.ngs
+    │   ├── test
+    │   │   ├── my_delg.nml
+    │   │   ├── my_delv.nml
+    │   │   ├── my.nml
+    │   │   └── null.nml
+    │   └── test.ngs
+    ├── obs2grid
+    │   ├── data
+    │   │   └── stations_info
+    │   ├── README
+    │   ├── src
+    │   │   ├── clean
+    │   │   ├── compile
+    │   │   ├── compile_out
+    │   │   ├── defdir.sh
+    │   │   ├── getdata.py
+    │   │   ├── GetSense.py
+    │   │   ├── GetStationInfo.py
+    │   │   ├── intel-init.sh
+    │   │   ├── mod_defdir.f90
+    │   │   ├── mod_mean.f90
+    │   │   ├── mod_obs2grid.f90
+    │   │   ├── mod_qh.f90
+    │   │   ├── mod_read_station.f90
+    │   │   ├── namelist.o2g
+    │   │   ├── nml_make.py
+    │   │   ├── o2g.exe
+    │   │   ├── obs2grid.f90
+    │   │   ├── obs2grid.sh
+    │   │   ├── __pycache__
+    │   │   ├── qh.gs
+    │   │   ├── qh_test.sh
+    │   │   ├── run_obs2grid.sh
+    │   │   └── stations_info.txt -> ../data/stations_info/stations_info.txt
+    │   └── temp
+    ├── setdom
+    │   ├── draw_setdom.py
+    │   ├── __pycache__
+    │   │   ├── draw_setdom.cpython-37.pyc
+    │   │   ├── setdomlib.cpython-37.pyc
+    │   │   ├── test.cpython-37.pyc
+    │   │   └── test_nesting.cpython-37.pyc
+    │   ├── setdomlib.py
+    │   ├── test_setdom.py
+    │   ├── wps_setdom.py
+    │   └── wrf_setdom.py
+    ├── vertcross
+    │   └── Scritps
+    │       ├── section_import_point.py
+    │       ├── section.py
+    │       ├── test.py
+    │       ├── vertcross.py
+    │       ├── vtcplot2.py
+    │       ├── vtcplot.py
+    │       └── xm_plot.py
+    ├── wrf2bin
+    │   ├── BinaryOut.py
+    │   ├── test.sh
+    │   └── wrf2bin.py
+    ├── wrfctl
+    │   └── create_ctl_for_wrfco2.py
+    └── XCO2
+        ├── data
+        ├── output
+        └── Scripts
+            ├── xco2_2.py
+            └── xco2.py
+
+62 directories, 151 files

@@ -1,0 +1,2 @@
+#!/bin/bash
+./compile em_real > compile.log 2> compile.err

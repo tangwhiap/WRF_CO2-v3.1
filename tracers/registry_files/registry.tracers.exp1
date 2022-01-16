@@ -1,0 +1,69 @@
+# CO2 tracers registry file
+# Authors:
+#    Wenhan TANG - 08/2021
+#    ...
+
+#--- Anthropogenic CO2 emission tracers (FFE) ---#
+$ FFE
+#   NAME;           DEFAULT_DATA;    DEFAULT_KWARGS;               OFFSET;     SCALE;         DESCRIPTION  
+    FFDAS;          FFDAS;           {};                           0;          1;             FFDAS inventory 2015           
+    ODIAC;          ODIAC;           {};                           0;          1;             ODIAC
+    EDGAR;          EDGAR;           {};                           0;          1;             EDGAR
+    PKU;            PKU;             {};                           0;          1;             PKU
+    NJU;            NJU;             {};                           0;          1;             NJU
+    NDRC_INDUSP;    NDRC;            {"sector": "indusp"};         0;          1;             NDRC 2016 industry point source
+    NDRC_CEMENT;    NDRC;            {"sector": "cement"};         0;          1;             NDRC 2016 cement point source
+    NDRC_POWER;     NDRC;            {"sector": "power"};          0;          1;             NDRC 2016 power point source
+    NDRC_HEAT;      NDRC;            {"sector": "heat"};           0;          1;             NDRC 2016 heat point source
+    NDRC_OTHER;     NDRC;            {"sector": "other"};          0;          1;             NDRC 2016 other point source
+    NDRC_MOBILE;    NDRC;            {"sector": "mobile"};         0;          1;             NDRC 2016 transport line source
+    NDRC_RESID;     NDRC;            {"sector": "resid"};          0;          1;             NDRC 2016 residential area source
+    NDRC_INDUS;     NDRC;            {"sector": "indus"};          0;          1;             NDRC 2016 industry area source
+    NDRC_BJ;        REGION;          {"region": "BJ"};             0;          1;             Beijing emission (NDRC)
+    NDRC_TJ;        REGION;          {"region": "TJ"};             0;          1;             Tianjin emission (NDRC)
+    NDRC_HB;        REGION;          {"region": "HB"};             0;          1;             Hebei emission (NDRC)
+    MEIC_OUTER;     REGION;          {"region": "outer"};          0;          1;             Outer region of BTH
+    MEIC_INDUS;     MEIC;            {"sector": "industry"};       0;          1;             MEIC 2016 industry sector
+    MEIC_POWER;     MEIC;            {"sector": "power"};          0;          1;             MEIC 2016 power sector
+    MEIC_RESID;     MEIC;            {"sector": "residential"};    0;          1;             MEIC 2016 residential sector
+    MEIC_TRANS;     MEIC;            {"sector": "transportation"}; 0;          1;             MEIC 2016 transportation sector
+#    QT;             NDRC/MEIC;       {"NDRC": {}, "MEIC": {}};     0;          1/1;           Within BTH: NDRC, outer: MEIC
+
+#--- Biological CO2 flux tracers (FTA) ---#
+$ FTA
+#   NAME;           DEFAULT_DATA;    DEFAULT_KWARGS;               OFFSET;     SCALE;         DESCRIPTION  
+    VEGAS;          cfta_1x1;        {};                           400;        1;             VEGAS cfta (1x1)
+
+#--- Background CO2 tracers (BCK) ---#
+$ BCK
+#   NAME;           DEFAULT_DATA;    DEFAULT_KWARGS;               OFFSET;     SCALE;         DESCRIPTION  
+    GC;             GEOS_chem_temp;  {};                           0;          1;             GEOS_chem model CO2 output
+
+#--- Analysis vairables ---#
+$ ANA
+#   NAME;                 TYPE;   DESCRIPTION;                             FORMULA
+#
+    CO2_FFE_NDRC;         C;      FFE CO2 concentration of NDRC;           <ME> = <NDRC_INDUSP, FFE, C> + <NDRC_CEMENT, FFE, C> + <NDRC_POWER, FFE, C> + <NDRC_HEAT, FFE, C> + <NDRC_OTHER, FFE, C> + <NDRC_MOBILE, FFE, C> + <NDRC_RESID, FFE, C> + <NDRC_INDUS, FFE, C> + <MEIC_OUTER, FFE, C> 
+    
+    CO2_FFE_NDRC_inner;   C;      FFE CO2 concentration of NDRC;           <ME> = <NDRC_INDUSP, FFE, C> + <NDRC_CEMENT, FFE, C> + <NDRC_POWER, FFE, C> + <NDRC_HEAT, FFE, C> + <NDRC_OTHER, FFE, C> + <NDRC_MOBILE, FFE, C> + <NDRC_RESID, FFE, C> + <NDRC_INDUS, FFE, C>
+
+    CO2_FFE_MEIC;         C;      FFE CO2 concentration of MEIC;           <ME> = <MEIC_INDUS, FFE, C> + <MEIC_POWER, FFE, C> + <MEIC_RESID, FFE, C> + <MEIC_TRANS, FFE, C>
+
+    CO2_TOT_NDRC;         C;      TOTAL CO2 concentration (NDRC);          <ME> = <CO2_FFE_NDRC, ANA, C> + <VEGAS, FTA, C> + <GC, BCK, C> - 400
+
+    CO2_TOT_MEIC;         C;      TOTAL CO2 concentration (MEIC);          <ME> = <CO2_FFE_MEIC, ANA, C> + <VEGAS, FTA, C> + <GC, BCK, C> - 400
+
+    CO2_TOT_FFDAS;        C;      TOTAL CO2 concentration (FFDAS);         <ME> = <FFDAS, FFE, C> + <VEGAS, FTA, C> + <GC, BCK, C> - 400
+
+    CO2_TOT_ODIAC;        C;      TOTAL CO2 concentration (ODIAC);         <ME> = <ODIAC, FFE, C> + <VEGAS, FTA, C> + <GC, BCK, C> - 400
+
+    CO2_TOT_EDGAR;        C;      TOTAL CO2 concentration (EDGAR);         <ME> = <EDGAR, FFE, C> + <VEGAS, FTA, C> + <GC, BCK, C> - 400
+
+    CO2_TOT_NJU;          C;      TOTAL CO2 concentration (NJU);           <ME> = <NJU, FFE, C> + <VEGAS, FTA, C> + <GC, BCK, C> - 400
+
+    CO2_TOT_PKU;          C;      TOTAL CO2 concentration (PKU);           <ME> = <PKU, FFE, C> + <VEGAS, FTA, C> + <GC, BCK, C> - 400
+
+#E_CO2_FFE_NDRC; E;      TOTAL FFE;                         <ME> = <NDRC_INDUSP, FFE, E> + <NDRC_CEMENT, FFE, E> + <NDRC_POWER, FFE, E> + <NDRC_HEAT, FFE, E> + <NDRC_OTHER, FFE, E> + <NDRC_MOBILE, FFE, E> + <NDRC_RESID, FFE, E> + <NDRC_INDUS, FFE, E>
+
+#FNET;           E;      Net CO2 flux (FFE + Fta);          <ME> = <NDRC_INDUSP, FFE, E> + <NDRC_CEMENT, FFE, E> + <NDRC_POWER, FFE, E> + <NDRC_HEAT, FFE, E> + <NDRC_OTHER, FFE, E> + <NDRC_MOBILE, FFE, E> + <NDRC_RESID, FFE, E> + <NDRC_INDUS, FFE, E> + <VEGAS, FTA, F>
+

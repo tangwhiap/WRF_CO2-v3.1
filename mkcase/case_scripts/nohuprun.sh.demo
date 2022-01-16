@@ -1,0 +1,5 @@
+
+# --- from MAKE CASE: nohuorun.sh.demo --- #
+source config/configure.sh
+date=`date +%Y-%m-%d_%H:%M:%S`
+nohup ./run.sh &> ${CASELOG}/nohup_log/runlog_${date}.txt &

@@ -1,0 +1,20 @@
+## InputData API Registry module.
+# registry file for meteorology data (registry.sst).
+
+# Authors:
+#   Wenhan Tang - 11/2020 (Original Version)
+#   ...
+
+# Format:
+# Name VtableName FileNameFormat Directory
+# -------------
+# Name: name of the dataset
+# VtableName: suffix of its variable table file in WPS, for example: dataset "fnl_2p5" using Vtable.GFS as Vtable file, so its VtableName is "GFS"
+# FileNameFormat: Name format of files in this dataset.
+# Directory: Directory of the dataset, and auxiliary directorys or other features defined by users.
+
+# Examples:
+# NDRC /home/tangwh/datasets/NDRC/Processed/hourly/total
+# FFDAS /home/zg/datasets/WRF_Data/FFDAS/FFDAS/V2.2/Processed:/home/tangwh/FFDAS_configs
+
+SST SST rtg_sst_grb_hr_0.083.%Y%m%d 24 /home/zg/datasets/WRF_Data/SST

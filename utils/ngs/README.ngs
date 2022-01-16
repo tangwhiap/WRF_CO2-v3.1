@@ -1,0 +1,61 @@
+# Namelist Generator script
+# Authors: Wenhan TANG
+# Each valid line in this script is a ngs command line.
+# Use "#" at the head of a line to invalid it.
+
+
+# Command line Format 
+# command: content
+
+# command is an action what you want to do.
+# You can open a namelist file you want to edit, you can add a variable using command "add", change the value of it using command "mod", delete it using command "del", even delete a group using "delg".
+# If your edition is complete, you can save it using command "save", saving a new file or recovering the old one depends on the file name you defined.
+#
+
+# Usage of commmand "open":
+# open &: filename
+#
+# for example: if you have an empty namelist file in test named "null.nml", you want to edit it, just do this:
+open &: test/null.nml
+
+# Usage of command "add":
+# add &: group_name/variable_name
+#
+# for example: you want to add a variable in group "time_control" named "start_time", with the type of "string", you can:
+add &: time_control/start_time = '2020-01-01_00:00:00'
+
+# another variable you want to add is a integer number named "run_days", you can:
+add &: time_control/run_days = 5
+
+# If you want to add a list of float number named "dx" in group "domains", you can:
+add &: domains/dx = [9000.00, 3000.00, 1000.00]
+
+# Also, you want to add two logical variables named "spin_up" and "restart" in group "time_control", you can:
+add &: time_control/spin_up = True
+add &: time_control/restart = False
+###*** Remenber! the rhs must conforms to the python language, not the fortran. So you couldn't write it like that:
+# add &: time_control/spin_up = .true.
+# add &: time_control/restart = .false.
+
+# Usage of command "save":
+# save &: filename (or directory/filename)
+# Now, you want to save the current namelist file as a new file named my.nml, you can:
+
+save &: test/my.nml
+
+
+# Usage of command "del":
+# del &: variable_name
+# If you want to delete the variable "run_days" and save it to another file "my_delv.nml":
+del &: run_days
+save &: test/my_delv.nml
+
+# Tips: If you want to undo the delete action, it is not necessary to add the variabe "run_days" again, because you have just saved a namelist file "my.nml" before deleting "run_days", you can just:
+open &: test/my.nml
+# to reload it. The current file is my.nml instead of null.nml
+
+# Usage of command "delg":
+# delg &: group_name
+# Now, if you want to delete the total group named "domains" based on namelist file "my.nml". first, make sure thant my.nml is the current file, if not, open the file "my.nml" using command "open", then, you can use "delg" like that:
+delg &: domains
+save &: test/my_delg.nml

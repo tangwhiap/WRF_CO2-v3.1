@@ -1,0 +1,289 @@
+ 
+**** Compiling WPS and all utilities ****
+ 
+make[1]: Entering directory `/lustre/showe/modeling/WRF/WPS/geogrid/src'
+make[1]: `geogrid.exe' is up to date.
+make[1]: Leaving directory `/lustre/showe/modeling/WRF/WPS/geogrid/src'
+( cd src/ngl ; make -i -r DEV_TOP="/lustre/showe/modeling/WRF/WPS" CC="icc" FC="ifort" RANLIB="echo" all )
+make[1]: Entering directory `/lustre/showe/modeling/WRF/WPS/ungrib/src/ngl'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/lustre/showe/modeling/WRF/WPS/ungrib/src/ngl'
+( cd src ; \
+        if [ "" = yes ] ; then \
+          WRF_DIR2=../WRFV3 ; \
+        else \
+          WRF_DIR2=/lustre/showe/modeling/WRF/WPS/../WRFV3 ; \
+        fi ; \
+	make -i -r ungrib.exe \
+		WRF_DIR="$WRF_DIR2" \
+		FC="ifort" \
+		CC="mpicc -cc=icc" \
+		CPP="/lib/cpp -P -traditional" \
+		FFLAGS="-FR -convert big_endian" \
+		CFLAGS="-w" \
+		LDFLAGS="" \
+		CPPFLAGS="-D_UNDERSCORE -DBYTESWAP -DLINUX -DIO_NETCDF -DIO_BINARY -DIO_GRIB1 -DBIT32 -D_MPI -D_UNGRIB" )
+make[1]: Entering directory `/lustre/showe/modeling/WRF/WPS/ungrib/src'
+Makefile:90: warning: overriding commands for target `.F.o'
+../../configure.wps:104: warning: ignoring old commands for target `.F.o'
+Makefile:95: warning: overriding commands for target `.c.o'
+../../configure.wps:96: warning: ignoring old commands for target `.c.o'
+/bin/rm -f ungrib.exe
+if [ -z  ] ; then \
+			  ifort -o ungrib.exe  misc_definitions_module.o debug_cio.o module_debug.o module_stringutil.o table.o module_datarray.o gridinfo.o new_storage.o filelist.o ungrib.o output.o rrpr.o rd_grib1.o file_delete.o datint.o rd_grib2.o  \
+				-L./ngl -lw3 -lg2_4 \
+				-L/homes/showe/lib -ljasper -lpng -lz \
+				-L. -lpgu ; \
+                        else \
+			  ifort -o ungrib.exe  misc_definitions_module.o debug_cio.o module_debug.o module_stringutil.o table.o module_datarray.o gridinfo.o new_storage.o filelist.o ungrib.o output.o rrpr.o rd_grib1.o file_delete.o datint.o rd_grib2.o  \
+				./ngl/w3/libw3.a ./ngl/g2/libg2_4.a \
+				-L/homes/showe/lib -ljasper -lpng -lz \
+				libpgu.a ; \
+                        fi
+/homes/showe/lib/libjasper.a(jas_stream.o): In function `jas_stream_tmpfile':
+/homes/showe/lib/jasper-1.900.1/src/libjasper/base/jas_stream.c:368: warning: the use of `tmpnam' is dangerous, better use `mkstemp'
+make[1]: Leaving directory `/lustre/showe/modeling/WRF/WPS/ungrib/src'
+if [ -h ungrib.exe ] ; then \
+	        /bin/rm -f ungrib.exe ; \
+	fi ; \
+	if [ -h ../ungrib.exe ] ; then \
+		/bin/rm -f ../ungrib.exe ; \
+	fi ; \
+	if [ -e src/ungrib.exe ] ; then \
+		ln -sf src/ungrib.exe . ; \
+	fi
+make[1]: Entering directory `/lustre/showe/modeling/WRF/WPS/metgrid/src'
+make[1]: `metgrid.exe' is up to date.
+make[1]: Leaving directory `/lustre/showe/modeling/WRF/WPS/metgrid/src'
+( cd src/ngl ; make -i -r DEV_TOP="/lustre/showe/modeling/WRF/WPS" CC="icc" FC="ifort" RANLIB="echo" all )
+make[1]: Entering directory `/lustre/showe/modeling/WRF/WPS/ungrib/src/ngl'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/lustre/showe/modeling/WRF/WPS/ungrib/src/ngl'
+( cd src ; \
+        if [ "" = yes ] ; then \
+          WRF_DIR2=../WRFV3 ; \
+        else \
+          WRF_DIR2=/lustre/showe/modeling/WRF/WPS/../WRFV3 ; \
+        fi ; \
+	make -i -r g1print.exe \
+		WRF_DIR="$WRF_DIR2" \
+		FC="ifort" \
+		CC="mpicc -cc=icc" \
+		CPP="/lib/cpp -P -traditional" \
+		FFLAGS="-FR -convert big_endian" \
+		CFLAGS="-w" \
+		LDFLAGS="" \
+		CPPFLAGS="-D_UNDERSCORE -DBYTESWAP -DLINUX -DIO_NETCDF -DIO_BINARY -DIO_GRIB1 -DBIT32 -D_MPI -D_GRIBUTIL" )
+make[1]: Entering directory `/lustre/showe/modeling/WRF/WPS/ungrib/src'
+Makefile:90: warning: overriding commands for target `.F.o'
+../../configure.wps:104: warning: ignoring old commands for target `.F.o'
+Makefile:95: warning: overriding commands for target `.c.o'
+../../configure.wps:96: warning: ignoring old commands for target `.c.o'
+make[1]: `g1print.exe' is up to date.
+make[1]: Leaving directory `/lustre/showe/modeling/WRF/WPS/ungrib/src'
+if [ -h g1print.exe ] ; then \
+	        /bin/rm -f g1print.exe ; \
+	fi ; \
+	if [ -h ../g1print.exe ] ; then \
+		/bin/rm -f ../g1print.exe ; \
+	fi ; \
+	if [ -e src/g1print.exe ] ; then \
+		ln -sf src/g1print.exe . ; \
+	fi
+( cd src/ngl ; make -i -r DEV_TOP="/lustre/showe/modeling/WRF/WPS" CC="icc" FC="ifort" RANLIB="echo" all )
+make[1]: Entering directory `/lustre/showe/modeling/WRF/WPS/ungrib/src/ngl'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/lustre/showe/modeling/WRF/WPS/ungrib/src/ngl'
+( cd src ; \
+        if [ "" = yes ] ; then \
+          WRF_DIR2=../WRFV3 ; \
+        else \
+          WRF_DIR2=/lustre/showe/modeling/WRF/WPS/../WRFV3 ; \
+        fi ; \
+	make -i -r g2print.exe \
+		WRF_DIR="$WRF_DIR2" \
+		FC="ifort" \
+		CC="mpicc -cc=icc" \
+		CPP="/lib/cpp -P -traditional" \
+		FFLAGS="-FR -convert big_endian" \
+		CFLAGS="-w" \
+		LDFLAGS="" \
+		CPPFLAGS="-D_UNDERSCORE -DBYTESWAP -DLINUX -DIO_NETCDF -DIO_BINARY -DIO_GRIB1 -DBIT32 -D_MPI -D_GRIBUTIL" )
+make[1]: Entering directory `/lustre/showe/modeling/WRF/WPS/ungrib/src'
+Makefile:90: warning: overriding commands for target `.F.o'
+../../configure.wps:104: warning: ignoring old commands for target `.F.o'
+Makefile:95: warning: overriding commands for target `.c.o'
+../../configure.wps:96: warning: ignoring old commands for target `.c.o'
+make[1]: `g2print.exe' is up to date.
+make[1]: Leaving directory `/lustre/showe/modeling/WRF/WPS/ungrib/src'
+if [ -h g2print.exe ] ; then \
+	        /bin/rm -f g2print.exe ; \
+	fi ; \
+	if [ -h ../g2print.exe ] ; then \
+		/bin/rm -f ../g2print.exe ; \
+	fi ; \
+	if [ -e src/g2print.exe ] ; then \
+		ln -sf src/g2print.exe . ; \
+	fi
+( cd src ; \
+        if [ "" = yes ] ; then \
+          WRF_DIR2=../WRFV3 ; \
+        else \
+          WRF_DIR2=/lustre/showe/modeling/WRF/WPS/../WRFV3 ; \
+        fi ; \
+	make -i -r rd_intermediate.exe \
+		WRF_DIR="$WRF_DIR2" \
+		FC="mpif90 -f90=ifort" \
+		CC="mpicc -cc=icc" \
+		CPP="/lib/cpp -P -traditional" \
+		FFLAGS="-FR -convert big_endian" \
+		CFLAGS="-w" \
+		LDFLAGS="" \
+		CPPFLAGS="-D_UNDERSCORE -DBYTESWAP -DLINUX -DIO_NETCDF -DIO_BINARY -DIO_GRIB1 -DBIT32 -D_MPI -D_UTIL" )
+make[1]: Entering directory `/lustre/showe/modeling/WRF/WPS/util/src'
+make[1]: `rd_intermediate.exe' is up to date.
+make[1]: Leaving directory `/lustre/showe/modeling/WRF/WPS/util/src'
+if [ -h rd_intermediate.exe ] ; then \
+		/bin/rm -f rd_intermediate.exe ; \
+	fi ; \
+	if [ -h ../rd_intermediate.exe ] ; then \
+		/bin/rm -f ../rd_intermediate.exe ; \
+	fi ; \
+	if [ -e src/rd_intermediate.exe ] ; then \
+		ln -sf src/rd_intermediate.exe . ; \
+	fi
+( cd src ; \
+        if [ "" = yes ] ; then \
+          WRF_DIR2=../WRFV3 ; \
+        else \
+          WRF_DIR2=/lustre/showe/modeling/WRF/WPS/../WRFV3 ; \
+        fi ; \
+	make -i -r mod_levs.exe \
+		WRF_DIR="$WRF_DIR2" \
+		FC="mpif90 -f90=ifort" \
+		CC="mpicc -cc=icc" \
+		CPP="/lib/cpp -P -traditional" \
+		FFLAGS="-FR -convert big_endian" \
+		CFLAGS="-w" \
+		LDFLAGS="" \
+		CPPFLAGS="-D_UNDERSCORE -DBYTESWAP -DLINUX -DIO_NETCDF -DIO_BINARY -DIO_GRIB1 -DBIT32 -D_MPI -D_UTIL" )
+make[1]: Entering directory `/lustre/showe/modeling/WRF/WPS/util/src'
+make[1]: `mod_levs.exe' is up to date.
+make[1]: Leaving directory `/lustre/showe/modeling/WRF/WPS/util/src'
+if [ -h mod_levs.exe ] ; then \
+		/bin/rm -f mod_levs.exe ; \
+	fi ; \
+	if [ -h ../mod_levs.exe ] ; then \
+		/bin/rm -f ../mod_levs.exe ; \
+	fi ; \
+	if [ -e src/mod_levs.exe ] ; then \
+		ln -sf src/mod_levs.exe . ; \
+	fi
+( cd src ; \
+        if [ "" = yes ] ; then \
+          WRF_DIR2=../WRFV3 ; \
+        else \
+          WRF_DIR2=/lustre/showe/modeling/WRF/WPS/../WRFV3 ; \
+        fi ; \
+	make -i -r avg_tsfc.exe \
+		WRF_DIR="$WRF_DIR2" \
+		FC="mpif90 -f90=ifort" \
+		CC="mpicc -cc=icc" \
+		CPP="/lib/cpp -P -traditional" \
+		FFLAGS="-FR -convert big_endian" \
+		CFLAGS="-w" \
+		LDFLAGS="" \
+		CPPFLAGS="-D_UNDERSCORE -DBYTESWAP -DLINUX -DIO_NETCDF -DIO_BINARY -DIO_GRIB1 -DBIT32 -D_MPI -D_UTIL" )
+make[1]: Entering directory `/lustre/showe/modeling/WRF/WPS/util/src'
+make[1]: `avg_tsfc.exe' is up to date.
+make[1]: Leaving directory `/lustre/showe/modeling/WRF/WPS/util/src'
+if [ -h avg_tsfc.exe ] ; then \
+		/bin/rm -f avg_tsfc.exe ; \
+	fi ; \
+	if [ -h ../avg_tsfc.exe ] ; then \
+		/bin/rm -f ../avg_tsfc.exe ; \
+	fi ; \
+	if [ -e src/avg_tsfc.exe ] ; then \
+		ln -sf src/avg_tsfc.exe . ; \
+	fi
+( cd src ; \
+        if [ "" = yes ] ; then \
+          WRF_DIR2=../WRFV3 ; \
+        else \
+          WRF_DIR2=/lustre/showe/modeling/WRF/WPS/../WRFV3 ; \
+        fi ; \
+	make -i -r calc_ecmwf_p.exe \
+		WRF_DIR="$WRF_DIR2" \
+		FC="mpif90 -f90=ifort" \
+		CC="mpicc -cc=icc" \
+		CPP="/lib/cpp -P -traditional" \
+		FFLAGS="-FR -convert big_endian" \
+		CFLAGS="-w" \
+		LDFLAGS="" \
+		CPPFLAGS="-D_UNDERSCORE -DBYTESWAP -DLINUX -DIO_NETCDF -DIO_BINARY -DIO_GRIB1 -DBIT32 -D_MPI -D_UTIL" )
+make[1]: Entering directory `/lustre/showe/modeling/WRF/WPS/util/src'
+make[1]: `calc_ecmwf_p.exe' is up to date.
+make[1]: Leaving directory `/lustre/showe/modeling/WRF/WPS/util/src'
+if [ -h calc_ecmwf_p.exe ] ; then \
+		/bin/rm -f calc_ecmwf_p.exe ; \
+	fi ; \
+	if [ -h ../calc_ecmwf_p.exe ] ; then \
+		/bin/rm -f ../calc_ecmwf_p.exe ; \
+	fi ; \
+	if [ -e src/calc_ecmwf_p.exe ] ; then \
+		ln -sf src/calc_ecmwf_p.exe . ; \
+	fi
+( cd src ; \
+        if [ "" = yes ] ; then \
+          WRF_DIR2=../WRFV3 ; \
+        else \
+          WRF_DIR2=/lustre/showe/modeling/WRF/WPS/../WRFV3 ; \
+        fi ; \
+	make -i -r height_ukmo.exe \
+		WRF_DIR="$WRF_DIR2" \
+		FC="mpif90 -f90=ifort" \
+		CC="mpicc -cc=icc" \
+		CPP="/lib/cpp -P -traditional" \
+		FFLAGS="-FR -convert big_endian" \
+		CFLAGS="-w" \
+		LDFLAGS="" \
+		CPPFLAGS="-D_UNDERSCORE -DBYTESWAP -DLINUX -DIO_NETCDF -DIO_BINARY -DIO_GRIB1 -DBIT32 -D_MPI -D_UTIL" )
+make[1]: Entering directory `/lustre/showe/modeling/WRF/WPS/util/src'
+make[1]: `height_ukmo.exe' is up to date.
+make[1]: Leaving directory `/lustre/showe/modeling/WRF/WPS/util/src'
+if [ -h height_ukmo.exe ] ; then \
+		/bin/rm -f height_ukmo.exe ; \
+	fi ; \
+	if [ -h ../height_ukmo.exe ] ; then \
+		/bin/rm -f ../height_ukmo.exe ; \
+	fi ; \
+	if [ -e src/height_ukmo.exe ] ; then \
+		ln -sf src/height_ukmo.exe . ; \
+	fi
+( cd src ; \
+        if [ "" = yes ] ; then \
+          WRF_DIR2=../WRFV3 ; \
+        else \
+          WRF_DIR2=/lustre/showe/modeling/WRF/WPS/../WRFV3 ; \
+        fi ; \
+	make -i -r int2nc.exe \
+		WRF_DIR="$WRF_DIR2" \
+		FC="mpif90 -f90=ifort" \
+		CC="mpicc -cc=icc" \
+		CPP="/lib/cpp -P -traditional" \
+		FFLAGS="-FR -convert big_endian" \
+		CFLAGS="-w" \
+		LDFLAGS="" \
+		CPPFLAGS="-D_UNDERSCORE -DBYTESWAP -DLINUX -DIO_NETCDF -DIO_BINARY -DIO_GRIB1 -DBIT32 -D_MPI -D_UTIL" )
+make[1]: Entering directory `/lustre/showe/modeling/WRF/WPS/util/src'
+make[1]: `int2nc.exe' is up to date.
+make[1]: Leaving directory `/lustre/showe/modeling/WRF/WPS/util/src'
+if [ -h int2nc.exe ] ; then \
+		/bin/rm -f int2nc.exe ; \
+	fi ; \
+	if [ -h ../int2nc.exe ] ; then \
+		/bin/rm -f ../int2nc.exe ; \
+	fi ; \
+	if [ -e src/int2nc.exe ] ; then \
+		ln -sf src/int2nc.exe . ; \
+	fi

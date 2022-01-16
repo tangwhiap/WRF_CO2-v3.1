@@ -1,0 +1,13 @@
+#!/bin/bash
+SrcDir=`pwd`
+CompileDir=$SrcDir/compile_out
+mkdir -p $CompileDir
+source ./intel-init.sh
+ifort -c mod_defdir.f90 
+ifort -c mod_qh.f90 
+ifort -c mod_read_station.f90 
+ifort -c mod_obs2grid.f90 
+ifort -c mod_mean.f90
+ifort -c obs2grid.f90 
+ifort -o o2g.exe mod_defdir.o mod_qh.o mod_read_station.o mod_obs2grid.o obs2grid.o mod_mean.o
+mv *.o *.mod $CompileDir

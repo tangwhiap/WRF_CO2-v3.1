@@ -1,0 +1,3 @@
+#!/bin/bash
+rm -fr compile_out
+rm -f o2g.exe

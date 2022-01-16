@@ -1,0 +1,7 @@
+# === from input_select.dft ===
+# Geogrophy data
+Geog=WRF_GEOG
+# Meteorology data
+Met=GFS
+# Sea surface temperature data
+SST=SST

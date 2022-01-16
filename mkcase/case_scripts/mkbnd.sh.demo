@@ -1,0 +1,33 @@
+source config/configure.sh
+source config/max_dom.sh
+source .model_env_set.sh
+
+
+Start="2019-01-01_00:00:00"
+End="2019-01-02_00:00:00"
+nCores=18
+
+
+$RunScriptsDir/run_geogrid.sh
+GEODIR=$CASEWORK
+
+NMLORIGDIR=$CASEWORK/nml/nml-wrf_demo
+NMLDIR=$CASEWORK/namelist.mkinput
+
+$NGSDir/NLO "mod &: max_dom = ${max_dom} | ${NMLORIGDIR} > ${NMLDIR}"
+
+# Processing FFE data
+inputType=FFE
+OUTDIR=$CASEFFE
+if [ ! -d $OUTDIR ];then
+    mkdir -p $OUTDIR
+fi
+$EmissProcDir/make_tracers_input.py $CASENAME $inputType --runtype offline --start $Start --end $End --namelist $NMLDIR --geodir $GEODIR --output $OUTDIR --core $nCores
+
+# Processing Fta data
+inputType=FTA
+OUTDIR=$CASEFTA
+if [ ! -d $OUTDIR ];then
+    mkdir -p $OUTDIR
+fi
+$CftaProcDir/make_tracers_input.py $CASENAME $inputType --runtype offline --start $Start --end $End --namelist $NMLDIR --geodir $GEODIR --output $OUTDIR --core $nCores

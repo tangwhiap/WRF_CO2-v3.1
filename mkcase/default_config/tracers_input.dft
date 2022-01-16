@@ -1,0 +1,320 @@
+FFE_dic = {
+    "FFDAS": 
+    {
+        "ConcName": "CO2_FFE_FFDAS",
+        "FluxName": "E_CO2_FFE_FFDAS",
+        "input": "FFDAS",
+        "input_kwargs": 
+        {
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "ODIAC": 
+    {
+        "ConcName": "CO2_FFE_ODIAC",
+        "FluxName": "E_CO2_FFE_ODIAC",
+        "input": "ODIAC",
+        "input_kwargs": 
+        {
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "EDGAR": 
+    {
+        "ConcName": "CO2_FFE_EDGAR",
+        "FluxName": "E_CO2_FFE_EDGAR",
+        "input": "EDGAR",
+        "input_kwargs": 
+        {
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "PKU": 
+    {
+        "ConcName": "CO2_FFE_PKU",
+        "FluxName": "E_CO2_FFE_PKU",
+        "input": "PKU",
+        "input_kwargs": 
+        {
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "NJU": 
+    {
+        "ConcName": "CO2_FFE_NJU",
+        "FluxName": "E_CO2_FFE_NJU",
+        "input": "NJU",
+        "input_kwargs": 
+        {
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "NDRC_INDUSP": 
+    {
+        "ConcName": "CO2_FFE_NDRC_INDUSP",
+        "FluxName": "E_CO2_FFE_NDRC_INDUSP",
+        "input": "NDRC",
+        "input_kwargs": 
+        {
+            "sector": "indusp",
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "NDRC_CEMENT": 
+    {
+        "ConcName": "CO2_FFE_NDRC_CEMENT",
+        "FluxName": "E_CO2_FFE_NDRC_CEMENT",
+        "input": "NDRC",
+        "input_kwargs": 
+        {
+            "sector": "cement",
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "NDRC_POWER": 
+    {
+        "ConcName": "CO2_FFE_NDRC_POWER",
+        "FluxName": "E_CO2_FFE_NDRC_POWER",
+        "input": "NDRC",
+        "input_kwargs": 
+        {
+            "sector": "power",
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "NDRC_HEAT": 
+    {
+        "ConcName": "CO2_FFE_NDRC_HEAT",
+        "FluxName": "E_CO2_FFE_NDRC_HEAT",
+        "input": "NDRC",
+        "input_kwargs": 
+        {
+            "sector": "heat",
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "NDRC_OTHER": 
+    {
+        "ConcName": "CO2_FFE_NDRC_OTHER",
+        "FluxName": "E_CO2_FFE_NDRC_OTHER",
+        "input": "NDRC",
+        "input_kwargs": 
+        {
+            "sector": "other",
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "NDRC_MOBILE": 
+    {
+        "ConcName": "CO2_FFE_NDRC_MOBILE",
+        "FluxName": "E_CO2_FFE_NDRC_MOBILE",
+        "input": "NDRC",
+        "input_kwargs": 
+        {
+            "sector": "mobile",
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "NDRC_RESID": 
+    {
+        "ConcName": "CO2_FFE_NDRC_RESID",
+        "FluxName": "E_CO2_FFE_NDRC_RESID",
+        "input": "NDRC",
+        "input_kwargs": 
+        {
+            "sector": "resid",
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "NDRC_INDUS": 
+    {
+        "ConcName": "CO2_FFE_NDRC_INDUS",
+        "FluxName": "E_CO2_FFE_NDRC_INDUS",
+        "input": "NDRC",
+        "input_kwargs": 
+        {
+            "sector": "indus",
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "NDRC_BJ": 
+    {
+        "ConcName": "CO2_FFE_NDRC_BJ",
+        "FluxName": "E_CO2_FFE_NDRC_BJ",
+        "input": "REGION",
+        "input_kwargs": 
+        {
+            "region": "BJ",
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "NDRC_TJ": 
+    {
+        "ConcName": "CO2_FFE_NDRC_TJ",
+        "FluxName": "E_CO2_FFE_NDRC_TJ",
+        "input": "REGION",
+        "input_kwargs": 
+        {
+            "region": "TJ",
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "NDRC_HB": 
+    {
+        "ConcName": "CO2_FFE_NDRC_HB",
+        "FluxName": "E_CO2_FFE_NDRC_HB",
+        "input": "REGION",
+        "input_kwargs": 
+        {
+            "region": "HB",
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "MEIC_OUTER": 
+    {
+        "ConcName": "CO2_FFE_MEIC_OUTER",
+        "FluxName": "E_CO2_FFE_MEIC_OUTER",
+        "input": "REGION",
+        "input_kwargs": 
+        {
+            "region": "outer",
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "MEIC_INDUS": 
+    {
+        "ConcName": "CO2_FFE_MEIC_INDUS",
+        "FluxName": "E_CO2_FFE_MEIC_INDUS",
+        "input": "MEIC",
+        "input_kwargs": 
+        {
+            "sector": "industry",
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "MEIC_POWER": 
+    {
+        "ConcName": "CO2_FFE_MEIC_POWER",
+        "FluxName": "E_CO2_FFE_MEIC_POWER",
+        "input": "MEIC",
+        "input_kwargs": 
+        {
+            "sector": "power",
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "MEIC_RESID": 
+    {
+        "ConcName": "CO2_FFE_MEIC_RESID",
+        "FluxName": "E_CO2_FFE_MEIC_RESID",
+        "input": "MEIC",
+        "input_kwargs": 
+        {
+            "sector": "residential",
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+    "MEIC_TRANS": 
+    {
+        "ConcName": "CO2_FFE_MEIC_TRANS",
+        "FluxName": "E_CO2_FFE_MEIC_TRANS",
+        "input": "MEIC",
+        "input_kwargs": 
+        {
+            "sector": "transportation",
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+}
+
+FTA_dic = {
+    "VEGAS": 
+    {
+        "ConcName": "CO2_FTA_VEGAS",
+        "FluxName": "E_BIO_FTA_VEGAS",
+        "input": "cfta_1x1",
+        "input_kwargs": 
+        {
+        },
+        "offset": "400",
+        "scale": "1",
+    },
+}
+
+BCK_dic = {
+    "GC": 
+    {
+        "ConcName": "CO2_BCK_GC",
+        "FluxName": None,
+        "input": "GEOS_chem_temp",
+        "input_kwargs": 
+        {
+        },
+        "offset": "0",
+        "scale": "1",
+    },
+}
+
+ANA_dic = {
+    "CO2_FFE_NDRC": 
+    {
+        "ConcName": "CO2_FFE_NDRC",
+    },
+    "CO2_FFE_NDRC_INNER": 
+    {
+        "ConcName": "CO2_FFE_NDRC_INNER",
+    },
+    "CO2_FFE_MEIC": 
+    {
+        "ConcName": "CO2_FFE_MEIC",
+    },
+    "CO2_TOT_NDRC": 
+    {
+        "ConcName": "CO2_TOT_NDRC",
+    },
+    "CO2_TOT_MEIC": 
+    {
+        "ConcName": "CO2_TOT_MEIC",
+    },
+    "CO2_TOT_FFDAS": 
+    {
+        "ConcName": "CO2_TOT_FFDAS",
+    },
+    "CO2_TOT_ODIAC": 
+    {
+        "ConcName": "CO2_TOT_ODIAC",
+    },
+    "CO2_TOT_EDGAR": 
+    {
+        "ConcName": "CO2_TOT_EDGAR",
+    },
+    "CO2_TOT_NJU": 
+    {
+        "ConcName": "CO2_TOT_NJU",
+    },
+    "CO2_TOT_PKU": 
+    {
+        "ConcName": "CO2_TOT_PKU",
+    },
+}

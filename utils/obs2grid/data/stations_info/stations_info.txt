@@ -1,0 +1,14 @@
+# stations info
+# StationName(in directory) StationName longitude(degrees) latitude(degrees) height(m)
+pr003CMAH1 XiangHe_h1 116.9578 39.7833 60
+pr003CMAH2 XiangHe_h2 116.9578 39.7833 100
+pr004CMAH1 IAPtower_h1 116.3667 39.9667 80
+pr004CMAH2 IAPtower_h2 116.3667 39.9667 280
+pr005CMAH1 XingLong_h1 117.5833 40.3833 5 
+pr005CMAH2 XingLong_h2 117.5833 40.3833 5
+pr006CMAH1 ShangDianZi_h1 117.1166 40.6500 16
+pr006CMAH2 ShangDianZi_h2 117.1166 40.6500 80
+pr007CMAH1 TJtower_h1 117.1667 39.1000 3
+pr007CMAH2 TJtower_h2 117.1667 39.1000 255
+pr008CMAH1 LuanCheng_h1 114.6833 37.8833 16
+pr008CMAH2 LuanCheng_h2 114.6833 37.8833 36

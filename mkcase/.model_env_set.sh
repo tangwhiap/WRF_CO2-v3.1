@@ -1,0 +1,1 @@
+/mnt/tiantan/tangwh/modeling/WRF-CO2-v3.1/ini/.model_env_set.sh

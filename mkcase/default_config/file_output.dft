@@ -1,0 +1,8 @@
+# --- from file_output --- #
+OrigSave=true
+OrigCtlOut=false
+BinaryOut=false
+BinHourlyOut=false
+BinDailyOut=false
+BinMonthlyOut=false
+XCO2Out=true

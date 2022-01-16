@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source config/configure.sh
+date=`date +%Y-%m-%d_%H:%M:%S`
+nohup ./mkbnd.sh &> ${CASELOG}/nohup_mksrc_log/mksrc_log_${date}.txt &

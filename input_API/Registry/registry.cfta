@@ -1,0 +1,37 @@
+# InputData API Registry module.
+# registry file for VEGAS Cfta data (registry.cfta).
+
+# Authors:
+#   Wenhan Tang - 11/2020 (Original Version)
+#   ...
+
+# Format:
+# Name Directory
+# -------------
+# Name: name of the dataset
+# Directory: Directory of the dataset, and auxiliary directorys or other features defined by users.
+# PS. "Directory" can include more than one directory, these directories are separated by ":", like the environment variables in Linux.
+#     The first one is the main directory of the dataset, others is called "auxiliary directorys"
+# Why we neet to set auxiliary directorys sometimes:
+#     The Each dataset must have  API code in $RootDir/input_API/$DataType/API_code, contains a function named "interface",
+#     It can process the dataset acording to its special format and return the data value and location information in an uniform format. If the data values, longitude and latitude informations are seperated in different files, which are in different direcotories, you can define the directory of the files containing data values is the main direcotry, while the files containing other necessary informations are in the auxiliary directories.
+
+# Examples:
+# NDRC /home/tangwh/datasets/NDRC/Processed/hourly/total
+# FFDAS /home/zg/datasets/WRF_Data/FFDAS/FFDAS/V2.2/Processed:/home/tangwh/FFDAS_configs
+
+
+cfta_2p5x2p5 /home/zg/datasets/WRF_Data/cfta/cfta2.5x2.5
+
+cfta_0p5x0p5 /home/zg/datasets/WRF_Data/cfta/cfta0.5x0.5
+
+cfta_0p5x0p5_v2 /home/zg/modeling/CABO/run0.5/OutPut_CABO/S3
+
+cfta_1x1 /home/tangwh/datasets/VEGAS_Cfta
+
+cfta_daily /mnt/gugong/liuzq/datasets/Cfta/Cfta_stream
+
+
+zero 0
+
+constant 0

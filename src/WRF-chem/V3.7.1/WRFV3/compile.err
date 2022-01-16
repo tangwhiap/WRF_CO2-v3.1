@@ -1,0 +1,17 @@
+ar: creating ../main/libwrflib.a
+/usr/bin/ld: warning: libnetcdf.so.18, needed by /home/yangrq/Build_WRF/LIBRARIES2/netcdf-fortran/lib/libnetcdff.so, may conflict with libnetcdf.so.7
+0.67user 0.28system 0:00.99elapsed 96%CPU (0avgtext+0avgdata 184672maxresident)k
+16inputs+127848outputs (0major+62252minor)pagefaults 0swaps
+37.03user 0.39system 0:37.48elapsed 99%CPU (0avgtext+0avgdata 155352maxresident)k
+1824inputs+400outputs (0major+86725minor)pagefaults 0swaps
+58.95user 0.38system 0:59.45elapsed 99%CPU (0avgtext+0avgdata 120020maxresident)k
+13784inputs+800outputs (0major+78799minor)pagefaults 0swaps
+/usr/bin/ld: warning: libnetcdf.so.18, needed by /home/yangrq/Build_WRF/LIBRARIES2/netcdf-fortran/lib/libnetcdff.so, may conflict with libnetcdf.so.7
+0.69user 0.31system 0:01.01elapsed 100%CPU (0avgtext+0avgdata 165524maxresident)k
+0inputs+112328outputs (0major+57417minor)pagefaults 0swaps
+/usr/bin/ld: warning: libnetcdf.so.18, needed by /home/yangrq/Build_WRF/LIBRARIES2/netcdf-fortran/lib/libnetcdff.so, may conflict with libnetcdf.so.7
+0.68user 0.27system 0:00.95elapsed 100%CPU (0avgtext+0avgdata 163876maxresident)k
+0inputs+110768outputs (0major+56942minor)pagefaults 0swaps
+/usr/bin/ld: warning: libnetcdf.so.18, needed by /home/yangrq/Build_WRF/LIBRARIES2/netcdf-fortran/lib/libnetcdff.so, may conflict with libnetcdf.so.7
+0.65user 0.25system 0:00.90elapsed 100%CPU (0avgtext+0avgdata 165352maxresident)k
+0inputs+112072outputs (0major+57317minor)pagefaults 0swaps

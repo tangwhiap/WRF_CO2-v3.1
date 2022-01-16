@@ -1,0 +1,23 @@
+## InputData API Registry module.
+# registry file for meteorology data (registry.met).
+
+# Authors:
+#   Wenhan Tang - 11/2020 (Original Version)
+#   ...
+
+# Format:
+# Name VtableName FileNameFormat time_interval(hours) Directory
+# -------------
+# Name: name of the dataset
+# VtableName: suffix of its variable table file in WPS, for example: dataset "fnl_2p5" using Vtable.GFS as Vtable file, so its VtableName is "GFS"
+# FileNameFormat: Name format of files in this dataset.
+# Directory: Directory of the dataset, and auxiliary directorys or other features defined by users.
+
+# Examples:
+# GFS    GFS    gfs.0p25.%Y%m%d%H.f000.grib2    6    /home/zg/datasets/WRF_Data/GFS
+# NARR   NARR   merged_AWIP32.%Y%m%d%H.*        3    /home/zg/datasets/WRF_Data/NARR/NARR/NARR
+
+#Name  Vtable  file name format                 interval  directory
+GFS    GFS    gfs.0p25.%Y%m%d%H.f000.grib2      6         /home/tangwh/datasets/GFS/total
+FNL    GFS    gdas1.fnl0p25.%Y%m%d%H.f00.grib2  6         /home/tangwh/datasets/FNL/datalink
+NARR   NARR   merged_AWIP32.%Y%m%d%H.*          3         /home/zg/datasets/WRF_Data/NARR/NARR/NARR

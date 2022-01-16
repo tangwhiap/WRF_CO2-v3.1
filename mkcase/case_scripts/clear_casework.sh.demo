@@ -1,0 +1,11 @@
+
+# --- from MAKE CASE: clear_casework.sh.demo --- #
+source ./config/configure.sh
+source $Trashrc $ROOTDIR
+cd work
+shopt -s extglob
+rm !(config|nml) 2> /dev/null
+cd nml
+rm !(nml-wps_demo|nml-wrf_demo) 2> /dev/null
+cd ../../config
+rm wps_input.sh 2> /dev/null

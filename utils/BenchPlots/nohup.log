@@ -1,0 +1,1543 @@
+nohup: ignoring input
+
+Grid Analysis and Display System (GrADS) Version 2.0.2.oga.2
+Copyright (c) 1988-2011 by Brian Doty and the
+Institute for Global Environment and Society (IGES)
+GrADS comes with ABSOLUTELY NO WARRANTY
+See file COPYRIGHT for more information
+
+Config: v2.0.2.oga.2 little-endian readline printim grib2 netcdf hdf4-sds hdf5 opendap-grids,stn athena geotiff shapefile
+Issue 'q config' command for more detailed configuration information
+Loading User Defined Extensions table </home/liuzq/software/grads-2.0.2.oga.2/Classic/bin/gex/udxt> ... ok.
+GX Package Initialization: Size = 8.5 11 
+Running in Batch mode
+No hardcopy metafile open
+All files closed; all defined objects released;
+All GrADS attributes have been reinitialized
+run_ndrc
+00:00Z07Jan2020
+00:00Z14Jan2020
+/home/tangwh/WRF-CO2-v3.0/cases/run_ndrc/output/wrfbin
+/home/tangwh/public_html/WRF-CO2-grBench/run_ndrc
+1
+.
+/home/tangwh/WRF-CO2-v3.0/cases/run_ndrc/plot/PLOT_2020-01-01_01/plot_work/obs
+===================
+run_ndrc
+00:00Z07Jan2020
+00:00Z14Jan2020
+/home/tangwh/WRF-CO2-v3.0/cases/run_ndrc/output/wrfbin
+/home/tangwh/public_html/WRF-CO2-grBench/run_ndrc
+1
+===================
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning from LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+Warning fromNumber of frames = 30
+ LOG10:  Data has 6 values <= zero 
+                     These were set to the undefined value 
+draw string 4.3 10 WRF-CO2 BenchPlots 1
+draw string 4.3 9.2 Component of CO2 in atmosphere
+draw string 4.3 8.4 CASE: run_ndrc
+draw string 4.3 7.6 00:00Z07Jan2020 - 00:00Z14Jan2020
+draw string 4.3 6.8 domain: d01
+draw string 4 10.5 00Z07JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 06Z07JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 12Z07JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 18Z07JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 00Z08JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 06Z08JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 12Z08JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 18Z08JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 00Z09JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 06Z09JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 12Z09JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 18Z09JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 00Z10JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 06Z10JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 12Z10JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 18Z10JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 00Z11JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 06Z11JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 12Z11JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 18Z11JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 00Z12JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 06Z12JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 12Z12JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 18Z12JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 00Z13JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 06Z13JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 12Z13JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 18Z13JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 00Z14JAN2020
+draw string 4 10.2 z=1
+Hardcopy output file is closed 
+Number of frames = 31
+
+Grid Analysis and Display System (GrADS) Version 2.0.2.oga.2
+Copyright (c) 1988-2011 by Brian Doty and the
+Institute for Global Environment and Society (IGES)
+GrADS comes with ABSOLUTELY NO WARRANTY
+See file COPYRIGHT for more information
+
+Config: v2.0.2.oga.2 little-endian readline printim grib2 netcdf hdf4-sds hdf5 opendap-grids,stn athena geotiff shapefile
+Issue 'q config' command for more detailed configuration information
+Loading User Defined Extensions table </home/liuzq/software/grads-2.0.2.oga.2/Classic/bin/gex/udxt> ... ok.
+GX Package Initialization: Size = 8.5 11 
+Running in Batch mode
+No hardcopy metafile open
+All files closed; all defined objects released;
+All GrADS attributes have been reinitialized
+run_ndrc
+00:00Z07Jan2020
+00:00Z14Jan2020
+/home/tangwh/WRF-CO2-v3.0/cases/run_ndrc/output/wrfbin
+/home/tangwh/public_html/WRF-CO2-grBench/run_ndrc
+1
+.
+/home/tangwh/WRF-CO2-v3.0/cases/run_ndrc/plot/PLOT_2020-01-01_01/plot_work/obs
+===================
+run_ndrc
+00:00Z07Jan2020
+00:00Z14Jan2020
+/home/tangwh/WRF-CO2-v3.0/cases/run_ndrc/output/wrfbin
+/home/tangwh/public_html/WRF-CO2-grBench/run_ndrc
+1
+===================
+draw string 4.3 10 WRF-CO2 BenchPlots 2
+draw string 4.3 9.2 CO2 and meteorology conditions
+draw string 4.3 8.4 CASE: run_ndrc
+draw string 4.3 7.6 00:00Z07Jan2020 - 00:00Z14Jan2020
+draw string 4.3 6.8 domain: d01
+draw string 4 10.5 00:00Z07Jan2020 - 00:00Z14Jan2020
+draw string 4 10.5 00Z07JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 06Z07JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 12Z07JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 18Z07JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 00Z08JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 06Z08JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 12Z08JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 18Z08JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 00Z09JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 06Z09JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 12Z09JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 18Z09JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 00Z10JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 06Z10JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 12Z10JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 18Z10JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 00Z11JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 06Z11JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 12Z11JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 18Z11JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 00Z12JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 06Z12JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 12Z12JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 18Z12JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 00Z13JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 06Z13JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 12Z13JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 18Z13JAN2020
+draw string 4 10.2 z=1
+draw string 4 10.5 00Z14JAN2020
+draw string 4 10.2 z=1
+Hardcopy output file is closed 
+do
+co2_cpn_d01.ps
+co2_met_d01.ps

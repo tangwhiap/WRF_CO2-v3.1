@@ -1,0 +1,155 @@
+2020-11-17 02:29:17.534 ---  *** Starting program geogrid.exe ***
+2020-11-17 02:29:17.535 --- Using the following namelist variables:
+2020-11-17 02:29:17.535 --- &SHARE
+2020-11-17 02:29:17.535 ---   WRF_CORE         = ARW
+2020-11-17 02:29:17.535 ---   MAX_DOM          = 1
+2020-11-17 02:29:17.535 ---   START_YEAR       = 0
+2020-11-17 02:29:17.535 ---   START_MONTH      = 0
+2020-11-17 02:29:17.535 ---   START_DAY        = 0
+2020-11-17 02:29:17.535 ---   START_HOUR       = 0
+2020-11-17 02:29:17.535 ---   START_MINUTE     = 0
+2020-11-17 02:29:17.535 ---   START_SECOND     = 0
+2020-11-17 02:29:17.535 ---   END_YEAR         = 0
+2020-11-17 02:29:17.535 ---   END_MONTH        = 0
+2020-11-17 02:29:17.535 ---   END_DAY          = 0
+2020-11-17 02:29:17.535 ---   END_HOUR         = 0
+2020-11-17 02:29:17.535 ---   END_MINUTE       = 0
+2020-11-17 02:29:17.535 ---   END_SECOND       = 0
+2020-11-17 02:29:17.535 ---   START_DATE       = 2020-01-01_00:00:00
+2020-11-17 02:29:17.535 ---   END_DATE         = 2020-01-01_06:00:00
+2020-11-17 02:29:17.535 ---   INTERVAL_SECONDS = 21600
+2020-11-17 02:29:17.535 ---   IO_FORM_GEOGRID  = 2
+2020-11-17 02:29:17.535 ---   OPT_OUTPUT_FROM_GEOGRID_PATH = ./
+2020-11-17 02:29:17.535 ---   SUBGRID_RATIO_X  = 1
+2020-11-17 02:29:17.535 ---   SUBGRID_RATIO_Y  = 1
+2020-11-17 02:29:17.535 ---   DEBUG_LEVEL      = 0
+2020-11-17 02:29:17.535 ---   ACTIVE_GRID      = .TRUE.
+2020-11-17 02:29:17.535 ---   NOCOLONS         = .FALSE.
+2020-11-17 02:29:17.535 --- /
+2020-11-17 02:29:17.535 --- &GEOGRID
+2020-11-17 02:29:17.535 ---   PARENT_ID         = 0
+2020-11-17 02:29:17.536 ---   PARENT_GRID_RATIO = 1
+2020-11-17 02:29:17.536 ---   I_PARENT_START    = 1
+2020-11-17 02:29:17.536 ---   J_PARENT_START    = 1
+2020-11-17 02:29:17.536 ---   S_WE              = 1
+2020-11-17 02:29:17.536 ---   E_WE              = 109
+2020-11-17 02:29:17.536 ---   S_SN              = 1
+2020-11-17 02:29:17.536 ---   E_SN              = 109
+2020-11-17 02:29:17.536 ---   GEOG_DATA_RES     = 2m
+2020-11-17 02:29:17.536 ---   DX                = 9000.000000
+2020-11-17 02:29:17.536 ---   DY                = 9000.000000
+2020-11-17 02:29:17.536 ---   MAP_PROJ          = lambert
+2020-11-17 02:29:17.536 ---   POLE_LAT          = 90.000000
+2020-11-17 02:29:17.536 ---   POLE_LON          = 0.000000
+2020-11-17 02:29:17.536 ---   REF_LAT           = 39.950001
+2020-11-17 02:29:17.536 ---   REF_LON           = 115.599998
+2020-11-17 02:29:17.536 ---   REF_X             = 100000002004087734272.000000
+2020-11-17 02:29:17.536 ---   REF_Y             = 100000002004087734272.000000
+2020-11-17 02:29:17.536 ---   TRUELAT1          = 30.000000
+2020-11-17 02:29:17.536 ---   TRUELAT2          = 60.000000
+2020-11-17 02:29:17.536 ---   STAND_LON         = 113.000000
+2020-11-17 02:29:17.536 ---   GEOG_DATA_PATH    = /home/liudi/datasets/WRF_Data/WRF_geog
+2020-11-17 02:29:17.536 ---   OPT_GEOGRID_TBL_PATH = geogrid/
+2020-11-17 02:29:17.536 --- /
+2020-11-17 02:29:17.541 --- Processing domain 1 of 1
+2020-11-17 02:29:17.541 --- INFORM: Using 2m interpolator sequence for HGT_M.
+2020-11-17 02:29:17.541 --- INFORM: Using 2m data source for HGT_M.
+2020-11-17 02:29:17.541 --- INFORM: Using 2m interpolator sequence for LANDUSEF.
+2020-11-17 02:29:17.542 --- INFORM: Using 2m data source for LANDUSEF.
+2020-11-17 02:29:17.542 --- INFORM: For SOILTEMP, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.542 --- INFORM: Using default interpolator sequence for SOILTEMP.
+2020-11-17 02:29:17.542 --- INFORM: For SOILTEMP, couldn't find 2m data source.
+2020-11-17 02:29:17.542 --- INFORM: Using default data source for SOILTEMP.
+2020-11-17 02:29:17.542 --- INFORM: Using 2m interpolator sequence for SOILCTOP.
+2020-11-17 02:29:17.542 --- INFORM: Using 2m data source for SOILCTOP.
+2020-11-17 02:29:17.542 --- INFORM: Using 2m interpolator sequence for SOILCBOT.
+2020-11-17 02:29:17.542 --- INFORM: Using 2m data source for SOILCBOT.
+2020-11-17 02:29:17.543 --- INFORM: For ALBEDO12M, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.543 --- INFORM: Using default interpolator sequence for ALBEDO12M.
+2020-11-17 02:29:17.543 --- INFORM: For ALBEDO12M, couldn't find 2m data source.
+2020-11-17 02:29:17.543 --- INFORM: Using default data source for ALBEDO12M.
+2020-11-17 02:29:17.543 --- INFORM: For GREENFRAC, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.543 --- INFORM: Using default interpolator sequence for GREENFRAC.
+2020-11-17 02:29:17.543 --- INFORM: For GREENFRAC, couldn't find 2m data source.
+2020-11-17 02:29:17.543 --- INFORM: Using default data source for GREENFRAC.
+2020-11-17 02:29:17.543 --- INFORM: For LAI12M, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.543 --- INFORM: Using default interpolator sequence for LAI12M.
+2020-11-17 02:29:17.543 --- INFORM: For LAI12M, couldn't find 2m data source.
+2020-11-17 02:29:17.543 --- INFORM: Using default data source for LAI12M.
+2020-11-17 02:29:17.543 --- INFORM: For SNOALB, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.543 --- INFORM: Using default interpolator sequence for SNOALB.
+2020-11-17 02:29:17.543 --- INFORM: For SNOALB, couldn't find 2m data source.
+2020-11-17 02:29:17.544 --- INFORM: Using default data source for SNOALB.
+2020-11-17 02:29:17.544 --- INFORM: For SLOPECAT, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.544 --- INFORM: Using default interpolator sequence for SLOPECAT.
+2020-11-17 02:29:17.544 --- INFORM: For SLOPECAT, couldn't find 2m data source.
+2020-11-17 02:29:17.544 --- INFORM: Using default data source for SLOPECAT.
+2020-11-17 02:29:17.544 --- INFORM: For CON, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.544 --- INFORM: Using default interpolator sequence for CON.
+2020-11-17 02:29:17.544 --- INFORM: For CON, couldn't find 2m data source.
+2020-11-17 02:29:17.544 --- INFORM: Using default data source for CON.
+2020-11-17 02:29:17.544 --- INFORM: For VAR, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.544 --- INFORM: Using default interpolator sequence for VAR.
+2020-11-17 02:29:17.544 --- INFORM: For VAR, couldn't find 2m data source.
+2020-11-17 02:29:17.544 --- INFORM: Using default data source for VAR.
+2020-11-17 02:29:17.545 --- INFORM: For OA1, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.545 --- INFORM: Using default interpolator sequence for OA1.
+2020-11-17 02:29:17.545 --- INFORM: For OA1, couldn't find 2m data source.
+2020-11-17 02:29:17.545 --- INFORM: Using default data source for OA1.
+2020-11-17 02:29:17.545 --- INFORM: For OA2, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.545 --- INFORM: Using default interpolator sequence for OA2.
+2020-11-17 02:29:17.545 --- INFORM: For OA2, couldn't find 2m data source.
+2020-11-17 02:29:17.545 --- INFORM: Using default data source for OA2.
+2020-11-17 02:29:17.545 --- INFORM: For OA3, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.545 --- INFORM: Using default interpolator sequence for OA3.
+2020-11-17 02:29:17.545 --- INFORM: For OA3, couldn't find 2m data source.
+2020-11-17 02:29:17.545 --- INFORM: Using default data source for OA3.
+2020-11-17 02:29:17.545 --- INFORM: For OA4, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.546 --- INFORM: Using default interpolator sequence for OA4.
+2020-11-17 02:29:17.546 --- INFORM: For OA4, couldn't find 2m data source.
+2020-11-17 02:29:17.546 --- INFORM: Using default data source for OA4.
+2020-11-17 02:29:17.546 --- INFORM: For OL1, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.546 --- INFORM: Using default interpolator sequence for OL1.
+2020-11-17 02:29:17.546 --- INFORM: For OL1, couldn't find 2m data source.
+2020-11-17 02:29:17.546 --- INFORM: Using default data source for OL1.
+2020-11-17 02:29:17.546 --- INFORM: For OL2, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.546 --- INFORM: Using default interpolator sequence for OL2.
+2020-11-17 02:29:17.546 --- INFORM: For OL2, couldn't find 2m data source.
+2020-11-17 02:29:17.546 --- INFORM: Using default data source for OL2.
+2020-11-17 02:29:17.546 --- INFORM: For OL3, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.546 --- INFORM: Using default interpolator sequence for OL3.
+2020-11-17 02:29:17.546 --- INFORM: For OL3, couldn't find 2m data source.
+2020-11-17 02:29:17.546 --- INFORM: Using default data source for OL3.
+2020-11-17 02:29:17.547 --- INFORM: For OL4, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.547 --- INFORM: Using default interpolator sequence for OL4.
+2020-11-17 02:29:17.547 --- INFORM: For OL4, couldn't find 2m data source.
+2020-11-17 02:29:17.547 --- INFORM: Using default data source for OL4.
+2020-11-17 02:29:17.547 --- INFORM: Using 2m interpolator sequence for VAR_SSO.
+2020-11-17 02:29:17.547 --- INFORM: Using 2m data source for VAR_SSO.
+2020-11-17 02:29:17.547 --- INFORM: For LAKE_DEPTH, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.547 --- INFORM: Using default interpolator sequence for LAKE_DEPTH.
+2020-11-17 02:29:17.547 --- INFORM: For LAKE_DEPTH, couldn't find 2m data source.
+2020-11-17 02:29:17.547 --- INFORM: Using default data source for LAKE_DEPTH.
+2020-11-17 02:29:17.547 --- INFORM: For URB_PARAM, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.548 --- INFORM: Using default interpolator sequence for URB_PARAM.
+2020-11-17 02:29:17.548 --- INFORM: For URB_PARAM, couldn't find 2m data source.
+2020-11-17 02:29:17.548 --- INFORM: Using default data source for URB_PARAM.
+2020-11-17 02:29:17.548 --- INFORM: For IMPERV, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.548 --- INFORM: Using default interpolator sequence for IMPERV.
+2020-11-17 02:29:17.548 --- INFORM: For IMPERV, couldn't find 2m data source.
+2020-11-17 02:29:17.548 --- INFORM: Using default data source for IMPERV.
+2020-11-17 02:29:17.548 --- INFORM: Could not read 'index' file /home/liudi/datasets/WRF_Data/WRF_geog/nlcd2011_imp_ll_9s/index for field IMPERV
+2020-11-17 02:29:17.548 --- INFORM: This field is optional and will not be processed.
+2020-11-17 02:29:17.548 --- INFORM: For CANFRA, couldn't find interpolator sequence for resolution 2m.
+2020-11-17 02:29:17.548 --- INFORM: Using default interpolator sequence for CANFRA.
+2020-11-17 02:29:17.548 --- INFORM: For CANFRA, couldn't find 2m data source.
+2020-11-17 02:29:17.548 --- INFORM: Using default data source for CANFRA.
+2020-11-17 02:29:17.548 --- INFORM: Could not read 'index' file /home/liudi/datasets/WRF_Data/WRF_geog/nlcd2011_can_ll_9s/index for field CANFRA
+2020-11-17 02:29:17.548 --- INFORM: This field is optional and will not be processed.
+2020-11-17 02:29:17.617 --- Processing field 1 of 26 (LANDUSEF)
+2020-11-17 02:29:17.803 --- Processing field 2 of 26 (LU_INDEX)
+2020-11-17 02:29:17.805 --- Processing field 3 of 26 (HGT_M)
+2020-11-17 02:29:17.907 --- Processing field 4 of 26 (SOILTEMP)
+2020-11-17 02:29:17.951 --- Processing field 5 of 26 (SOILCTOP)
+2020-11-17 02:29:18.277 --- Processing field 6 of 26 (SCT_DOM)
+2020-11-17 02:29:18.278 --- Processing field 7 of 26 (SOILCBOT)

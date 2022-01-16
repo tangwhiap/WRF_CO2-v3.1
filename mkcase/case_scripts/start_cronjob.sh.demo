@@ -1,0 +1,92 @@
+
+# --- from start_cronjob.sh.demo --- #
+
+source config/configure.sh
+
+### Default setting ###
+
+#CronFileDefault=/home/tangwh/cronjob/cron.my
+CronFileDefault=/home/tangwh/cronjob/wrfco2_cron.sh
+
+#FileTypeDefault=cronfile  # choose one from "cronfile" or "shell"
+FileTypeDefault=shell
+
+PerMinDefault=10
+######################
+#
+CronFile=$1
+FileType=$2
+PerMin=$3
+
+if [[ $CronFile == "" ]]; then
+    CronFile=$CronFileDefault
+fi
+
+if [[ $FileType == "" ]]; then
+    FileType=$FileTypeDefault
+fi
+
+if [[ $PerMin == "" ]]; then
+    PerMin=$PerMinDefault
+fi
+
+if [ ! -f $CronFile ]; then
+    echo "Error! Crontab file: $CronFile not found!"
+    exit
+fi
+
+if [ ! -w $CronFile ]; then
+    echo "Error! Crontab file: $CronFile is not writable!"
+    exit
+fi
+
+if [[ ! $FileType == "cronfile" ]] && [[ ! $FileType == "shell" ]]; then
+    echo "\"FileType\" should be one of \"cronfile\" or \"shell\". "
+fi
+
+cd $CASERUN
+if [[ -f .cronjob_started.sh ]]; then
+    echo "You can run me only once when you start this cronjob run."
+    exit
+fi
+cat > $CASERUN/.cronjob_started.sh << EOF
+#!/bin/bash
+# This script is generated automaticaly by start_cronjob.sh in \$CASERUN
+# Don't edit it, otherwise the cronjob will be damaged !!!
+first_run=true
+first_StartDate=${StartDate}
+first_StartTime=${StartTime}
+EOF
+
+$CASERUN/cronjobrun.sh
+
+
+if [[ $FileType == "cronfile" ]]; then
+         #  m           h    dom  mon  dow   command
+    cmdl="  */${PerMin} *    *    *    *     $CASERUN/cronjobrun.sh"
+else
+    cmdl="$CASERUN/cronjobrun.sh"
+fi
+
+have=false
+IFS=$'\n'
+for line in `cat $CronFile`
+do
+    echo $line
+    if [[ $cmdl == $line ]]; then
+        have=true
+    fi
+done
+echo $have
+
+if [[ $FileType == "cronfile" ]]; then
+    if [[ $have == "false" ]]; then
+        echo $cmdl >> $CronFile 2> /dev/null
+    fi
+    crontab $CronFile
+else
+    if [[ $have == "false" ]]; then
+        echo "$CASERUN/cronjobrun.sh" >> $CronFile 2> /dev/null
+    fi
+fi
+

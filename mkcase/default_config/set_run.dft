@@ -1,0 +1,18 @@
+#=== from set_runtime ===
+# Start date of simulation
+StartDate='2019-01-01'
+# Start time of simulation
+StartTime='00:00'
+# Run hours
+RunHrs=6
+# Hours of ffe and cfta inputing period.
+CycleHrs=1
+# Simulation region
+Region=BTH_d01
+# mpirun -np $NTASTS
+NTASKS=8
+# Whether time_step in namelist.input is set by user 
+set_time_step_by_user=false # If set to true, time_step_set.py will not be executed and time_step in nml-wrf_demo will be used, one can change the value of time_step in nml-wrf_demo before starting the simulation.
+
+isLinkEmiss=false # If set to true, the process_input module will link the existing FFE data instead of making it.
+isLinkCfta=false # If set to true, the process_input module will link the existing FFE data instead of making it.

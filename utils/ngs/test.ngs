@@ -1,0 +1,17 @@
+# namelist_type: command: variable = value(s)
+  #  open: /home/tangwh/wrf-latlon/nml_generator/work_space/demo.wrf
+    open&: /home/tangwh/wrf-latlon/nml_generator/work_space/demo.wrf
+  mod &:   time_step = 150		
+  add &:  domains/twh = 333
+  add &: twh_new_group / ttt = [True,False,True]
+  add &:		 domains	/ time_step = 14
+  del &: e_sn
+  del &: hhhhhh
+#add   : chem/sss = 1,2,3,   
+#		del : max_dom			
+   #save: /home/tangwh/wrf-latlon/nml_generator/work_space/tmp1.wrf
+     save&: /home/tangwh/wrf-latlon/nml_generator/work_space/tmp1.wrf
+#fsjifj
+      # fsifjlsi
+#123 : feij
+# jsfie

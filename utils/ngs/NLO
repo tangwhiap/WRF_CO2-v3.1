@@ -1,0 +1,56 @@
+#!/usr/bin/env python
+'''
+A simple command to call functions of NGS, instead of writing a script file.
+
+Authors:
+  Wenhan Tang - 11/2020 (Original version)
+  ...
+
+Usage:
+ ${NLODir}/NLO "command content | infile > outfile"
+ or
+ ${NLODir}/NLO "command content | editfile"
+
+ NLO: refers to this script.
+
+ command: command of NGS, one of "add", "mod" and "del".
+
+ content: follows with command. Format of it depends on command.
+
+ infile: namelist for operation.
+
+ outfile: new namelist for output.
+
+
+'''
+temp_ngs_name = ".nlo-temp.ngs"
+import sys
+import os
+from main_ngs import NGS
+
+cmd = sys.argv[1]
+cmd = cmd.strip()
+assert len(cmd.split("|")) == 2, "There must be one \"|\" in command line"
+left = cmd.split("|")[0].strip()
+right = cmd.split("|")[1].strip()
+
+ngs_cmd = left
+if len(right.split(">")) == 1:
+    infile = right.split(">")[0].strip()
+    outfile = infile
+elif len(right.split(">")) == 2:
+    infile = right.split(">")[0].strip()
+    outfile = right.split(">")[1].strip()
+else:
+    assert False, "NLO: Syntax Error!"
+
+with open(temp_ngs_name,"w") as temp_script:
+    temp_script.write("# NGS script file, be generated automatically by NLO\n")
+    temp_script.write("# !!! Do not edit !!!\n")
+    temp_script.write("open &: " + infile + "\n")
+    temp_script.write(ngs_cmd + "\n")
+    temp_script.write("save &: " + outfile + "\n")
+
+#os.system(pwd + "/main_ngs.py " + temp_ngs_name)
+NGS(temp_ngs_name)
+os.system("/bin/rm -f " + temp_ngs_name)

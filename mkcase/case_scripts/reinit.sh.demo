@@ -1,0 +1,40 @@
+Me=$( readlink -m $( type -p $0 ))
+MYDIR=`dirname $Me`
+cd $MYDIR
+
+source $MYDIR/config/configure.sh
+source $Trashrc $ROOTDIR
+
+argv=$1
+if [ -f $CASERUN/.cronjob_started.sh ]; then
+    rm $CASERUN/.cronjob_started.sh
+fi
+if [ -f $CASERUN/.next_start.sh ]; then
+    rm $CASERUN/.next_start.sh
+fi
+$CASEDIR/clear_casework.sh
+
+if [[ $argv == "all" ]]; then
+    echo "!!!      Do you really want to reinit this case      !!!"
+    echo "!!! Please confirm that there isn't any running case !!!"
+    echo "!!!             Enter \"yes\" to go on               !!!"
+    read confirm
+    if [[ ! $confirm == "yes" ]]; then
+        echo "Exit!"
+        exit
+    fi
+    rm $CASEOUT 2> /dev/null
+    mkdir -p $CASEOUT
+    rm $CASEPLOT 2> /dev/null
+    mkdir -p $CASEPLOT
+    rm $CASELOG 2> /dev/null
+    mkdir -p $CASELOG/nohup_log
+    mkdir -p $CASELOG/nohup_mksrc_log
+    if [[ $RUNTYPE == "cronjob" ]]; then
+        mkdir -p $CASELOG/cronjob_log
+    fi
+    rm $CASERES 2> /dev/null
+    mkdir -p $CASERES
+    rm $CASEBND 2> /dev/null
+fi
+

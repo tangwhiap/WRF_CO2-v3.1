@@ -1,0 +1,32 @@
+# CO2 tracers registry file
+
+# Authors:
+#    Wenhan TANG - 08/2021
+#    ...
+
+#--- Anthropogenic CO2 emission tracers (FFE) ---#
+$ FFE
+#   NAME;           DEFAULT_DATA;    DEFAULT_KWARGS;               OFFSET;     SCALE;         DESCRIPTION  
+    d01;            MEIC/NDRC;       {"NDRC": {}, "MEIC": {}};     0;          1,0,0;         Within BTH: NDRC, outer: MEIC
+    d02;            MEIC/NDRC;       {"NDRC": {}, "MEIC": {}};     0;          0,1,0;         Within BTH: NDRC, outer: MEIC
+    d03;            MEIC/NDRC;       {"NDRC": {}, "MEIC": {}};     0;          0,0,1;         Within BTH: NDRC, outer: MEIC  
+
+#--- Biological CO2 flux tracers (FTA) ---#
+$ FTA
+#   NAME;           DEFAULT_DATA;    DEFAULT_KWARGS;               OFFSET;     SCALE;         DESCRIPTION  
+    d01;            cfta_1x1;        {};                           400;        1,0,0;         VEGAS cfta (1x1)
+    d02;            cfta_1x1;        {};                           400;        0,1,0;         VEGAS cfta (1x1)
+    d03;            cfta_1x1;        {};                           400;        0,0,1;         VEGAS cfta (1x1)
+
+#--- Background CO2 tracers (BCK) ---#
+$ BCK
+#   NAME;           DEFAULT_DATA;    DEFAULT_KWARGS;               OFFSET;     SCALE;         DESCRIPTION  
+    GC;             GEOS_chem_temp;  {};                           0;          1;             GEOS_chem model CO2 output
+    GC1;            GEOS_chem_temp;  {};                           1;          1;             GEOS_chem model CO2 output1
+
+#--- Analysis vairables ---#
+$ ANA
+#   NAME;           TYPE;   DESCRIPTION;                       FORMULA
+    CO2_FFE;        C;      TOTAL FFE CO2 concentration;       <ME> = <d01, FFE, C> + <d02, FFE, C> + <d03, FFE, C>
+    CO2_FTA;        C;      TOTAL FTA CO2 concentration;       <ME> = <d01, FTA, C> + <d02, FTA, C> + <d03, FTA, C>
+    CO2_TOT;        C;      TOTAL CO2 concentration;           <ME> = <CO2_FFE, ANA, C> + <CO2_FTA, ANA, C> + <GC, BCK, C> - 1200

@@ -1,0 +1,39 @@
+OBS2GRID system version 2
+
+Authors:
+ = TangWenhan 09/2020 (Original version)
+ = TangWenhan 09/2020 (Add the hourly, daily, monthly averaging function)  
+...
+
+The OBS2GRID system can extract the data from SENSE and convert it to binary grid data, 
+used to compare the observation with WRF output data
+
+The grid structure (xdef ydef zdef tdef info) have the time and spatial dimensions which are as same as it defined in WRF output.
+So users can open both observation grid data and WRF output data in GrADS without conflict.
+
+This brief document can tell you how to run this program.
+
+===========================
+
+Usage:
+# 1. Link the SENSE data directory to $PDir/data/SENSE
+# 2. Link the wrfout ctl directory to $PDir/data/WRF
+# 3. Write or check the stations_info.txt $PDir/data/station_info (for more information, see next part)
+# 4. If the fortran source code have been modified, or you want to return the whole system to initial state, it's better to do "./all-init.sh" in $PDir/src
+# 5. Run the top-level shell script use "./obs2grid.sh" in $PDir/src
+# 6. The output files with the name formatted as "obs_dom.gdat" or "obs_dom_YYYY-MM-DD_hh:mm:ss" and a CTL file "obs_dom.ctl" can be found in $PDir/output
+# 7. The hourly, daily, monthly averaged data in $PDir/output have the name formatted as "obs_dom_hourly.gdat", "obs_dom_daily.gdat", "obs_dom_monthly.gdat" respectly, with the CTL file "obs_dom_hourly.ctl", "obs_dom_daily.ctl", "obs_dom_monthly.ctl" respectly
+
+($PDir here refers the root directory of the OBS2GRID system, i.e. the directory of this document you are reading now)
+
+===========================
+
+stations_info.txt :
+A text file to define which station in SENSE data can be added in observation grid data.
+format: 
+StationName(in directory) StationName longitude(degrees) latitude(degrees) height(m)
+for example: 
+pr003CMAH1 XiangHe_h1 116.9578 39.7833 10
+
+use "#" at the begining of the line can invalidate it.
+

@@ -1,0 +1,30 @@
+&grid
+ nlon = 123,
+ nlat = 100,
+ nlev = 38,
+ str_lon_s = '109.034',
+ str_lat_s = '35.04',
+ str_dlon = '0.10600006',
+ str_dlat = '0.07999998',
+ dom = 1,
+/
+&Name
+ varname = 'co2',
+ varLongName = 'CO2 concentration (ppm)',
+ dtime = '15mn',
+/
+&control
+ num_out = .FALSE.,
+ output_split = .FALSE.,
+/
+&mean
+ hourly = .TRUE.,
+ daily = .TRUE.,
+ monthly = .TRUE.,
+/
+&dir
+ TempDir = '/home/tangwh/WRF-CO2-v3.0/utils/obs2grid/src/../temp',
+ DataDir = '/home/tangwh/WRF-CO2-v3.0/utils/obs2grid/src/../data',
+ WRFDir = '/home/tangwh/WRF-CO2-v3.0/utils/obs2grid/src/../data/WRF',
+ OutDir = '/home/tangwh/WRF-CO2-v3.0/utils/obs2grid/src/../output',
+/

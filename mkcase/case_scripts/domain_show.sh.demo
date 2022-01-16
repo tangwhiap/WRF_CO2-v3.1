@@ -1,0 +1,13 @@
+
+# --- from MAKE CASE: clear_casework.sh.demo --- #
+source configure.sh
+source $CASERUN/.model_env_set.sh
+
+Savefig=X11  # Showing picture on X server.
+#Savefig=./domain.png # Saving picture to the specfic directory.
+IsDrawStations=true
+StaConfig=./stalist.txt
+IsDrawName=true
+
+$SetdomDir/test_setdom.py ./setdom.nml $Region . $Savefig $IsDrawStations $StaConfig $IsDrawName
+
